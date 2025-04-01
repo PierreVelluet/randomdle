@@ -1,0 +1,20 @@
+<div class="container">
+    <!-- Affichage des headers -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let header of headers" [ngClass]="{'small-text': header.label.length > 8}" class="header-cell">
+            {{ header.label }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let character of guessedCharacters">
+          <td *ngFor="let header of headers">
+            <app-guess-block [attribute]="character[header.key]"></app-guess-block>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

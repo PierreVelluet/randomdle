@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+.guess-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.star-wars-input {
+  font-family: 'Orbitron', sans-serif;
+  background-color: black;
+  color: yellow;
+  border: 2px solid yellow;
+  padding: 10px;
+  font-size: 1.2rem;
+  width: 300px;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+
+  &:focus {
+    box-shadow: 0 0 10px yellow;
+  }
+}
+
+.star-wars-button {
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(90deg, #ffcc00, #ff8800);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: black;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 200, 0, 0.8);
+
+  &:hover {
+    background: linear-gradient(90deg, #ff8800, #ffcc00);
+    transform: scale(1.05);
+  }
+}

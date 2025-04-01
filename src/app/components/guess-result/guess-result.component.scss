@@ -1,0 +1,49 @@
+// .table {
+//   width: 100%;
+//   table-layout: fixed;
+// }
+
+.header-cell {
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: center;
+  padding: 8px;
+  width: 100px;
+  max-width: 150px;
+  font-size: 0.9rem;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Positionne au centre */
+    transform: translateX(-50%); /* Centre le soulignement horizontalement */
+    width: 80%; /* Prend 80% de la largeur de la cellule */
+    height: 6px;
+    background-color: #f9e700;
+  }
+}
+
+td {
+  text-align: center;
+  padding: 12px;
+  word-wrap: break-word;
+}
+
+app-guess-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table th {
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  min-width: 80px;
+  max-width: 150px;
+}

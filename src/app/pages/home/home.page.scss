@@ -1,0 +1,17 @@
+/* home.component.scss */
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center; // Centre le texte aussi
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 300px;
+}
