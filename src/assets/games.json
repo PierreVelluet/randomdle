@@ -1,5 +1,5 @@
 {
-  "starwarsdle": {
+  "starWars": {
     "name": "Star Wars Dle",
     "headers": [
       { "key": "name", "label": "Personnage" },
@@ -51,7 +51,232 @@
         "homeworld": "Tatooine",
         "films": ["III", "IV", "V", "VI"],
         "species": "Humain"
+      },
+      {
+        "name": "Leia Organa",
+        "height": "150",
+        "mass": "49",
+        "gender": "Femme",
+        "eye_color": "Brun",
+        "homeworld": "Alderaan",
+        "films": ["IV", "V", "VI"],
+        "species": "Humain"
+      },
+      {
+        "name": "Obi-Wan Kenobi",
+        "height": "182",
+        "mass": "77",
+        "gender": "Homme",
+        "eye_color": "Bleu",
+        "homeworld": "Stewjon",
+        "films": ["I", "II", "III", "IV"],
+        "species": "Humain"
+      },
+      {
+        "name": "Han Solo",
+        "height": "180",
+        "mass": "80",
+        "gender": "Homme",
+        "eye_color": "Marron",
+        "homeworld": "Corellia",
+        "films": ["IV", "V", "VI"],
+        "species": "Humain"
+      },
+      {
+        "name": "Chewbacca",
+        "height": "228",
+        "mass": "112",
+        "gender": "Mâle",
+        "eye_color": "Marron",
+        "homeworld": "Kashyyyk",
+        "films": ["IV", "V", "VI"],
+        "species": "Wookiee"
+      },
+      {
+        "name": "Lando Calrissian",
+        "height": "177",
+        "mass": "79",
+        "gender": "Homme",
+        "eye_color": "Marron",
+        "homeworld": "Socorro",
+        "films": ["V", "VI"],
+        "species": "Humain"
+      },
+      {
+        "name": "Boba Fett",
+        "height": "183",
+        "mass": "78",
+        "gender": "Homme",
+        "eye_color": "Vert",
+        "homeworld": "Kamino",
+        "films": ["V", "VI"],
+        "species": "Humain"
+      }
+    ]
+  },
+  "lordOfTheRing": {
+    "name": "Le Jeu des Personnages du Seigneur des Anneaux",
+    "headers": [
+      { "key": "name", "label": "Personnage" },
+      { "key": "height", "label": "Taille" },
+      { "key": "gender", "label": "Genre" },
+      { "key": "race", "label": "Race" },
+      { "key": "films", "label": "Films" }
+    ],
+    "characters": [
+      {
+        "name": "Frodo Baggins",
+        "height": "111",
+        "gender": "Homme",
+        "race": "Hobbit",
+        "films": ["I", "II", "III"]
+      },
+      {
+        "name": "Samwise Gamgee",
+        "height": "109",
+        "gender": "Homme",
+        "race": "Hobbit",
+        "films": ["I", "II", "III"]
+      },
+      {
+        "name": "Gandalf",
+        "height": "180",
+        "gender": "Homme",
+        "race": "Maiar",
+        "films": ["I", "II", "III"]
+      },
+      {
+        "name": "Aragorn",
+        "height": "185",
+        "gender": "Homme",
+        "race": "Humain",
+        "films": ["I", "II", "III"]
+      },
+      {
+        "name": "Legolas",
+        "height": "168",
+        "gender": "Homme",
+        "race": "Elfe",
+        "films": ["I", "II", "III"]
+      },
+      {
+        "name": "Gimli",
+        "height": "130",
+        "gender": "Homme",
+        "race": "Nain",
+        "films": ["I", "II", "III"]
+      },
+      {
+        "name": "Boromir",
+        "height": "185",
+        "gender": "Homme",
+        "race": "Humain",
+        "films": ["I"]
+      },
+      {
+        "name": "Arwen",
+        "height": "168",
+        "gender": "Femme",
+        "race": "Elfe",
+        "films": ["I", "III"]
+      },
+      {
+        "name": "Gollum",
+        "height": "90",
+        "gender": "Homme",
+        "race": "Hobbit",
+        "films": ["II", "III"]
+      },
+      {
+        "name": "Sauron",
+        "height": "Inconnu",
+        "gender": "Homme",
+        "race": "Maiar",
+        "films": ["I", "II", "III"]
+      }
+    ]
+  },
+  "harryPotter": {
+    "name": "Harry Potter Dle",
+    "headers": [
+      { "key": "name", "label": "Personnage" },
+      { "key": "house", "label": "Maison" },
+      { "key": "gender", "label": "Genre" },
+      { "key": "birthYear", "label": "Année de naissance" },
+      { "key": "films", "label": "Films" }
+    ],
+    "characters": [
+      {
+        "name": "Harry Potter",
+        "house": "Gryffindor",
+        "gender": "Male",
+        "birthYear": "1980",
+        "films": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"]
+      },
+      {
+        "name": "Hermione Granger",
+        "house": "Gryffindor",
+        "gender": "Female",
+        "birthYear": "1979",
+        "films": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"]
+      },
+      {
+        "name": "Ron Weasley",
+        "house": "Gryffindor",
+        "gender": "Male",
+        "birthYear": "1980",
+        "films": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"]
+      },
+      {
+        "name": "Albus Dumbledore",
+        "house": "Gryffindor",
+        "gender": "Male",
+        "birthYear": "1881",
+        "films": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"]
+      },
+      {
+        "name": "Severus Snape",
+        "house": "Slytherin",
+        "gender": "Male",
+        "birthYear": "1960",
+        "films": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"]
+      },
+      {
+        "name": "Draco Malfoy",
+        "house": "Slytherin",
+        "gender": "Male",
+        "birthYear": "1980",
+        "films": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"]
+      },
+      {
+        "name": "Luna Lovegood",
+        "house": "Ravenclaw",
+        "gender": "Female",
+        "birthYear": "1981",
+        "films": ["V", "VI", "VII", "VIII"]
+      },
+      {
+        "name": "Neville Longbottom",
+        "house": "Gryffindor",
+        "gender": "Male",
+        "birthYear": "1980",
+        "films": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"]
+      },
+      {
+        "name": "Minerva McGonagall",
+        "house": "Gryffindor",
+        "gender": "Female",
+        "birthYear": "1935",
+        "films": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"]
+      },
+      {
+        "name": "Rubeus Hagrid",
+        "house": "Gryffindor",
+        "gender": "Male",
+        "birthYear": "1928",
+        "films": ["I", "II", "III", "IV", "V", "VI", "VII", "VIII"]
       }
     ]
   }
 }
+
