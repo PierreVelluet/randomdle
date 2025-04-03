@@ -4,7 +4,7 @@
       [(ngModel)]="guess" 
       placeholder="Entrez un personnage Star Wars..." 
       class="star-wars-input"
+      (keyup.enter)="submitGuess()" 
     />
     <button (click)="submitGuess()" class="star-wars-button">Valider</button>
   </div>
-  

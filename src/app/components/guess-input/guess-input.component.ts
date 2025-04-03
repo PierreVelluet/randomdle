@@ -17,7 +17,7 @@ export class GuessInputComponent {
   submitGuess() {
     if (this.guess.trim()) {
       this.guessSubmitted.emit(this.guess.trim());
-      this.guess = ''; // Réinitialise le champ après l'envoi
+      this.guess = '';
     }
   }
 }

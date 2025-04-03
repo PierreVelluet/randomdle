@@ -26,16 +26,22 @@ export class GuessContainerComponent {
       species: 'Humain',
     },
   ];
-  constructor(private gameService: GameService) {}
+
+  constructor(private gameService: GameService) { }
+
+  receivedGuess: string = '';
+
+  handleGuess(guess: string) {
+    console.log("Received guess:", guess);
+    this.receivedGuess = guess; 
+  }
 
   ngOnInit(): void {
-    const gameKey = 'starwarsdle';
+    const gameKey = 'starWars';
     this.gameService.getGameData(gameKey).subscribe((data) => {
       if (data) {
-        console.log('data', data.headers);
         this.headers = data.headers;
       }
     });
-    console.log('<guess-result.component> headers', this.headers);
   }
 }

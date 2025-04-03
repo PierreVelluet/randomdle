@@ -9,6 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./guess-block.component.scss'],
 })
 export class GuessBlockComponent {
-  @Input() attribute = '';
+  @Input() attribute: string | string[] = '';
   @Input() status: 'correct' | 'partial' | 'incorrect' = 'incorrect';
 }

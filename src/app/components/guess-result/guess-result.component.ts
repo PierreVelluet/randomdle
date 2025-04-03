@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'; // Importer HttpClientModule
 import { CommonModule } from '@angular/common';
 import { GuessBlockComponent } from '../guess-block/guess-block.component';
 import { SwCharacter } from '../../models/swCharacter.model';
+import { GuessHeader } from '../../models/guess-header.model';
 
 @Component({
   selector: 'app-guess-result',
@@ -13,5 +14,9 @@ import { SwCharacter } from '../../models/swCharacter.model';
 })
 export class GuessResultComponent {
   @Input() guessedCharacters: SwCharacter[] = [];
-  @Input() headers
+  @Input() headers: GuessHeader[] = [];
+
+  ngOnInit(): void {
+  console.log('guessedCharacters', this.guessedCharacters)
+  }
 }
