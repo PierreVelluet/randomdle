@@ -1,14 +1,8 @@
 <div class="guess-container">
   <div class="input-group">
     <div class="input-wrapper">
-      <input 
-        type="text" 
-        [(ngModel)]="guess" 
-        (keyup.enter)="submitGuess()" 
-        (input)="filterOptions()"
-        placeholder="Entrez un personnage Star Wars..." 
-        class="star-wars-input"
-      />
+      <input type="text" [(ngModel)]="guess" (keyup.enter)="submitGuess()" (input)="filterOptions()"
+        placeholder="Entrez un personnage Star Wars..." class="star-wars-input" />
       <ul *ngIf="filteredOptions.length > 0" class="dropdown">
         <li *ngFor="let option of filteredOptions" (click)="selectOption(option)">
           {{ option }}
@@ -16,10 +10,7 @@
       </ul>
     </div>
 
-    <button 
-      (click)="submitGuess()" 
-      class="star-wars-button" 
-      [disabled]="!isValidGuess()">
+    <button (click)="submitGuess()" class="star-wars-button" [disabled]="!isValidGuess()">
       Valider
     </button>
   </div>

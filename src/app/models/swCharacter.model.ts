@@ -1,12 +1,11 @@
 export interface SwCharacter {
-  name: string;
-  height: string;
-  mass: string;
-  gender: string;
-  eye_color: string;
-  homeworld: string;
-  films: string[];
-  species: string;
-  status: string;
-  [key: string]: string | string[];
+  name: { value: string, status: string };
+  height: { value: string, status: string };
+  mass: { value: string, status: string };
+  gender: { value: string, status: string };
+  eye_color: { value: string, status: string };
+  homeworld: { value: string, status: string };
+  films: { value: string[], status: string };
+  species: { value: string, status: string };
+  [key: string]: { value: string | string[], status: string };
 }

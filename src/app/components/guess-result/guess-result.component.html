@@ -8,10 +8,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let character of guessedCharacters">
-        <td *ngFor="let header of headers">
-          <app-guess-block [status]="getStatus(character, target,header.key)"
-            [attribute]="character[header.key]"></app-guess-block>
+      <tr *ngFor="let character of guessedCharacters; let rowIndex = index">
+        <td *ngFor="let header of headers; let colIndex = index">
+          <app-guess-block [status]="character[header.key].status" [attribute]="character[header.key].value" [ngClass]="{
+              'animate__animated': true,
+              'animate__fadeIn': true
+            }" [ngStyle]="{
+              'animation-delay': (colIndex) * 0.5 + 's'
+            }">
+          </app-guess-block>
         </td>
       </tr>
     </tbody>

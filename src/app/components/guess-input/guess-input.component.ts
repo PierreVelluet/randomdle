@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 export class GuessInputComponent {
   guess: string = '';
   @Output() guessSubmitted = new EventEmitter<string>();
-  @Input() inputOptions: string []= []
+  @Input() inputOptions: string[] = []
 
   filteredOptions: string[] = [];
 
@@ -34,7 +34,7 @@ export class GuessInputComponent {
   submitGuess() {
     if (this.isValidGuess()) {
       this.guessSubmitted.emit(this.guess.trim());
-      this.guess = ''; 
+      this.guess = '';
       this.filteredOptions = [];
     }
   }

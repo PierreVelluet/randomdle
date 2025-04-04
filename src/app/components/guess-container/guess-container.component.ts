@@ -13,31 +13,14 @@ import { SwCharacter } from '../../models/swCharacter.model';
 })
 export class GuessContainerComponent {
   headers: any[] = [];
-  target: SwCharacter =
-    {
-      name: 'Luke Skywalker',
-      height: '172',
-      mass: '77',
-      gender: 'Homme',
-      eye_color: 'Bleu',
-      homeworld: 'Tatooine',
-      films: ['IV', 'V', 'VI', 'III'],
-      species: 'Humain',
-      status: ""
-    };
+  target!: SwCharacter;
+
   allCharacters: SwCharacter[] = [];
   guessedCharacters: SwCharacter[] = [];
   inputOptions: string[] = [];
+  found: boolean = false;
 
   constructor(private gameService: GameService) { }
-
-  handleGuess(guess: string) {
-    const guessedCharacter: SwCharacter | undefined = this.allCharacters.find((character: SwCharacter) => character.name == guess)
-    if (guessedCharacter) {
-      this.guessedCharacters.push(guessedCharacter);
-      this.inputOptions = this.inputOptions.filter((option: string) => option != guessedCharacter.name);
-    }
-  }
 
   ngOnInit(): void {
     const gameKey = 'starWars';
@@ -45,8 +28,70 @@ export class GuessContainerComponent {
       if (data) {
         this.headers = data.headers;
         this.allCharacters = data.characters;
-        this.inputOptions = data.characters.map((character: SwCharacter) => character.name)
+        this.inputOptions = data.characters.map((character: SwCharacter) => character.name.value)
+        const randomNumber = Math.floor(Math.random() * (this.allCharacters.length + 1));
+        this.target = this.allCharacters[randomNumber];
       }
     });
+  }
+  handleGuess(guess: string) {
+    const guessedCharacter: SwCharacter | undefined = this.allCharacters.find((character: SwCharacter) => character.name.value === guess);
+    if (!guessedCharacter) {
+      return;
+    }
+
+    const updatedCharacter = this.addStatusToCharacter(guessedCharacter, this.target);
+
+    if (updatedCharacter) {
+      this.guessedCharacters.unshift(updatedCharacter);
+      this.inputOptions = this.inputOptions.filter((option: string) => option !== updatedCharacter.name.value);
+    }
+
+    if (this.target.name.value === guess) {
+      setTimeout(() => {
+        window.ConfettiManager.triggerConfetti();
+      }, 3000);
+    }
+  }
+
+  addStatusToCharacter(guessedCharacter: SwCharacter, target: SwCharacter): SwCharacter {
+    const updatedCharacter: SwCharacter = { ...guessedCharacter };
+
+    for (const key in guessedCharacter) {
+      if (guessedCharacter.hasOwnProperty(key)) {
+        const guessedValue = guessedCharacter[key].value;
+        const targetValue = target[key].value;
+
+        let status: string = 'incorrect';
+
+        if (guessedValue === targetValue) {
+          status = 'correct';
+        } else if (parseFloat(guessedValue as string) > parseFloat(targetValue as string)) {
+          status = 'greater';
+        } else if (parseFloat(guessedValue as string) < parseFloat(targetValue as string)) {
+          status = 'smaller';
+        }
+
+        if (key === 'films') {
+          const guessedFilms = guessedCharacter[key].value || [];
+          const targetFilms = target[key].value || [];
+
+          const filmsMatch = guessedFilms.every(film => targetFilms.includes(film));
+
+          if (filmsMatch) {
+            status = 'correct';
+          } else {
+            const filmsPartialMatch = guessedFilms.some(film => targetFilms.includes(film));
+            if (filmsPartialMatch) {
+              status = 'proche';
+            }
+          }
+        }
+
+        updatedCharacter[key].status = status;
+      }
+    }
+
+    return updatedCharacter;
   }
 }

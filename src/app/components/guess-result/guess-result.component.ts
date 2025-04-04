@@ -16,41 +16,4 @@ export class GuessResultComponent {
   @Input() guessedCharacters: SwCharacter[] = [];
   @Input() headers: GuessHeader[] = [];
   @Input() target!: SwCharacter;
-
-  getStatus(guessedCharacter: SwCharacter, target: SwCharacter, key: keyof SwCharacter): string {
-    let status: string = '';
-
-    const guessedValue = guessedCharacter[key];
-    const targetValue = target[key];
-
-    if (guessedValue === targetValue) {
-      status = 'correct';
-    } else if (parseFloat(guessedValue as string) > parseFloat(targetValue as string)) {
-      status = 'greater';
-    } else if (parseFloat(guessedValue as string) < parseFloat(targetValue as string)) {
-      status = 'smaller';
-    } else {
-      status = 'incorrect';
-    }
-
-    if (key === 'films') {
-      const guessedFilms = guessedCharacter.films || [];
-      const targetFilms = target.films || [];
-
-      const filmsMatch = guessedFilms.every(film => targetFilms.includes(film));
-
-      if (filmsMatch) {
-        status = 'correct';
-      } else {
-        const filmsPartialMatch = guessedFilms.some(film => targetFilms.includes(film));
-        if (filmsPartialMatch) {
-          status = 'proche';
-        } else {
-          status = 'incorrect';
-        }
-      }
-    }
-
-    return status;
-  }
 }
