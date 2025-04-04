@@ -10,5 +10,8 @@ import { CommonModule } from '@angular/common';
 })
 export class GuessBlockComponent {
   @Input() attribute: string | string[] = '';
-  @Input() status: 'correct' | 'partial' | 'incorrect' = 'incorrect';
+  @Input() status: string = ""//'correct' | 'partial' | 'greater' | 'smaller' | 'incorrect' = 'incorrect';
+
+  ngOnInit() {
+  }
 }

@@ -1,5 +1,5 @@
 .guess-block {
-  width: 100px; // Ajustable
+  width: 100px;
   height: 100px;
   display: flex;
   align-items: center;
@@ -13,6 +13,9 @@
   font-family: "Star Jedi", sans-serif;
   text-transform: uppercase;
   transition: transform 0.2s ease-in-out;
+  background-repeat: no-repeat;
+  background-position: center 10px; // ajuste la flèche
+  background-size: 16px 16px;
 
   &:hover {
     transform: scale(1.05);
@@ -33,4 +36,43 @@
       color: rgba(255, 215, 0, 0.5);
     }
   }
+}
+
+// ✅ Correct (Vert doux)
+.correct {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+// ⚠️ Proche (Jaune atténué)
+.proche {
+  background-color: #f0ad4e;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.3);
+}
+
+// ❌ Incorrect (Rouge doux)
+.incorrect,
+.greater,
+.smaller {
+  background-color: #d9534f;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+// ↑ Flèche pour greater
+.greater {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.59 5.58L20 12l-8-8-8 8z"/></svg>');
+}
+
+// ↓ Flèche pour smaller
+.smaller {
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20"><path d="M4 12l1.41-1.41L11 16.17V4h2v12.17l5.59-5.58L20 12l-8 8-8-8z"/></svg>');
 }

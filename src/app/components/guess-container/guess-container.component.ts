@@ -13,8 +13,7 @@ import { SwCharacter } from '../../models/swCharacter.model';
 })
 export class GuessContainerComponent {
   headers: any[] = [];
-  characterToGuess: SwCharacter | null = null;
-  guessedCharacters: SwCharacter[] = [
+  target: SwCharacter =
     {
       name: 'Luke Skywalker',
       height: '172',
@@ -24,16 +23,20 @@ export class GuessContainerComponent {
       homeworld: 'Tatooine',
       films: ['IV', 'V', 'VI', 'III'],
       species: 'Humain',
-    },
-  ];
+      status: ""
+    };
+  allCharacters: SwCharacter[] = [];
+  guessedCharacters: SwCharacter[] = [];
+  inputOptions: string[] = [];
 
   constructor(private gameService: GameService) { }
 
-  receivedGuess: string = '';
-
   handleGuess(guess: string) {
-    console.log("Received guess:", guess);
-    this.receivedGuess = guess; 
+    const guessedCharacter: SwCharacter | undefined = this.allCharacters.find((character: SwCharacter) => character.name == guess)
+    if (guessedCharacter) {
+      this.guessedCharacters.push(guessedCharacter);
+      this.inputOptions = this.inputOptions.filter((option: string) => option != guessedCharacter.name);
+    }
   }
 
   ngOnInit(): void {
@@ -41,6 +44,8 @@ export class GuessContainerComponent {
     this.gameService.getGameData(gameKey).subscribe((data) => {
       if (data) {
         this.headers = data.headers;
+        this.allCharacters = data.characters;
+        this.inputOptions = data.characters.map((character: SwCharacter) => character.name)
       }
     });
   }

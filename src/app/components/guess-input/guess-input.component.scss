@@ -4,8 +4,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  position: relative;
+}
+
+.input-wrapper {
+  position: relative;
+  width: 300px;
+  margin-right: 25px;
 }
 
 .star-wars-input {
@@ -15,13 +30,55 @@
   border: 2px solid yellow;
   padding: 10px;
   font-size: 1.2rem;
-  width: 300px;
+  width: 100%;
   text-align: center;
   outline: none;
   transition: all 0.3s ease-in-out;
 
   &:focus {
     box-shadow: 0 0 10px yellow;
+  }
+}
+
+.star-wars-input,
+.dropdown {
+  box-sizing: border-box;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: black;
+  border: 1px solid yellow;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  font-family: 'Orbitron', sans-serif;
+
+  /* Masquer la scrollbar tout en gardant le scroll */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
+
+
+.dropdown li {
+  padding: 8px;
+  cursor: pointer;
+  color: yellow;
+  transition: background 0.2s;
+
+  &:hover {
+    background: yellow;
+    color: black;
   }
 }
 
@@ -37,9 +94,17 @@
   transition: all 0.3s ease-in-out;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(255, 200, 0, 0.8);
+  height: 100%;
+  margin-top: 1px;
 
   &:hover {
     background: linear-gradient(90deg, #ff8800, #ffcc00);
     transform: scale(1.05);
+  }
+
+  &:disabled {
+    background: gray;
+    cursor: not-allowed;
+    box-shadow: none;
   }
 }
