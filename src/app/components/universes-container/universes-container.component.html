@@ -1,5 +1,30 @@
+<p
+  class="univers-title"
+  [ngClass]="{
+    animate__animated: true,
+    animate__fadeInDown: true
+  }"
+  [ngStyle]="{
+    'animation-delay': '1.5s'
+  }"
+>
+  Choisissez votre univers
+</p>
+
 <div class="card-container">
-  <app-universes-card *ngFor="let univer of univers" [univer]="univer">
-    <p>Univer: {{ univer }}</p></app-universes-card
-  >
+  <app-universes-card
+    *ngFor="let univer of univers; let i = index"
+    [univer]="univer"
+    (click)="onChooseUniverse(univer)"
+    [ngClass]="{
+      animate__animated: true,
+      animate__fadeInLeft: i === 0,
+      animate__fadeInUp: i === 1,
+      animate__fadeInRight: i === 2
+    }"
+    [ngStyle]="{
+      'animation-delay': i * 0.5 + 's',
+      'pointer-events': isClickable ? 'auto' : 'none' 
+    }"
+  ></app-universes-card>
 </div>

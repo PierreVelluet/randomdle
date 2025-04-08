@@ -6,14 +6,14 @@ import { CommonModule } from '@angular/common';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @Component({
-  selector: 'app-universes-card',
-  standalone: true,
-  imports: [MatCardModule, CommonModule, LazyLoadImageModule],
-  templateUrl: './universes-card.component.html',
-  styleUrl: './universes-card.component.scss',
+    selector: 'app-universes-card',
+    imports: [MatCardModule, CommonModule, LazyLoadImageModule],
+    templateUrl: './universes-card.component.html',
+    styleUrl: './universes-card.component.scss',
+    standalone: true
 })
 export class UniversesCardComponent implements OnInit  {
-  @Input() public obj!: any;
+  // @Input() public obj!: any;
   @Input() public isClickPrevented!: boolean;
   @Input() public defaultImage!: string;
   @Input() public univer: string = ''; 
@@ -38,9 +38,7 @@ export class UniversesCardComponent implements OnInit  {
   }
 
   private assertInputsProvided(): void {
-    if (!this.obj) {
-      throw new Error(`The required obj was not provided`);
-    }
+   
   }
 
   public hoverHandler(): void {

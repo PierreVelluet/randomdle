@@ -1,19 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { GuessResultComponent } from '../guess-result/guess-result.component';
 import { GuessInputComponent } from '../guess-input/guess-input.component';
 import { SwCharacter } from '../../models/swCharacter.model';
+import { Univers } from '../../models/univers.enum';
 
 @Component({
-  selector: 'app-guess-container',
-  standalone: true,
-  imports: [GuessInputComponent, GuessResultComponent],
-  templateUrl: './guess-container.component.html',
-  styleUrl: './guess-container.component.scss',
+    selector: 'app-guess-container',
+    imports: [GuessInputComponent, GuessResultComponent],
+    templateUrl: './guess-container.component.html',
+    styleUrl: './guess-container.component.scss',
+    standalone: true
 })
 export class GuessContainerComponent {
   headers: any[] = [];
   target!: SwCharacter;
+  @Input() univer: Univers| null = null;
 
   allCharacters: SwCharacter[] = [];
   guessedCharacters: SwCharacter[] = [];

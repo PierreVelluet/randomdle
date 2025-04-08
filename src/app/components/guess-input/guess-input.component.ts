@@ -3,11 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-guess-input',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './guess-input.component.html',
-  styleUrl: './guess-input.component.scss',
+    selector: 'app-guess-input',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './guess-input.component.html',
+    styleUrl: './guess-input.component.scss',
+    standalone: true
 })
 export class GuessInputComponent {
   guess: string = '';

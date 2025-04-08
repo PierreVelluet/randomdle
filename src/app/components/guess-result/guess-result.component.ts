@@ -6,11 +6,11 @@ import { SwCharacter } from '../../models/swCharacter.model';
 import { GuessHeader } from '../../models/guess-header.model';
 
 @Component({
-  selector: 'app-guess-result',
-  standalone: true,
-  imports: [HttpClientModule, CommonModule, GuessBlockComponent],
-  templateUrl: './guess-result.component.html',
-  styleUrls: ['./guess-result.component.scss'],
+    selector: 'app-guess-result',
+    imports: [HttpClientModule, CommonModule, GuessBlockComponent],
+    templateUrl: './guess-result.component.html',
+    styleUrls: ['./guess-result.component.scss'],
+    standalone: true
 })
 export class GuessResultComponent {
   @Input() guessedCharacters: SwCharacter[] = [];
