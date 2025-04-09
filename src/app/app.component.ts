@@ -6,7 +6,8 @@ import { RouterOutlet } from '@angular/router';
     selector: 'app-root',
     imports: [CommonModule, RouterOutlet],
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
+    standalone: true,
 })
 export class AppComponent {
   title = 'starwarsDle';
