@@ -13,13 +13,10 @@ export class GameService {
     if (!univer)
       return EMPTY;
 
-    const gamesUrl = `assets/${univer}.json`;
-
-    console.log('gamesUrl', gamesUrl)
+    const gamesUrl = `assets/gameDatas/${univer}.json`;
     return this.http
       .get(gamesUrl)
       .pipe(map((data: any) => {
-        console.log('data', data)
         return data || null
       }));
   }

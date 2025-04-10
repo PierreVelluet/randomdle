@@ -1,7 +1,9 @@
 <div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh">
-  <div class="logo-container">
-    <img src="assets/starwarsLogo.png" alt="Star Wars Logo" class="img-fluid" style="max-width: 300px" />
+  <div class="logo-container d-flex justify-content-center align-items-center">
+    <img [src]="logoSrc" alt="Univer's logo" class="img-fluid" style="max-width: 300px" />
   </div>
-  <app-guess-input [inputOptions]="inputOptions" (guessSubmitted)="handleGuess($event)"></app-guess-input>
-  <app-guess-result [target]="target" [guessedCharacters]="guessedCharacters" [headers]="headers"></app-guess-result>
+  <app-guess-input [univer]="univer" [inputOptions]="inputOptions"
+    (guessSubmitted)="handleGuess($event)"></app-guess-input>
+  <app-guess-result [univer]="univer" [target]="target" [guessedCharacters]="guessedCharacters"
+    [headers]="headers"></app-guess-result>
 </div>

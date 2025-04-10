@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Univers } from '../../models/univers.enum';
 
 @Component({
     selector: 'app-guess-input',
@@ -13,6 +14,7 @@ export class GuessInputComponent {
   guess: string = '';
   @Output() guessSubmitted = new EventEmitter<string>();
   @Input() inputOptions: string[] = []
+  @Input() univer: Univers | null = null;
 
   filteredOptions: string[] = [];
 

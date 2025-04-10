@@ -23,7 +23,7 @@
   margin-right: 25px;
 }
 
-.star-wars-input {
+.sw {
   font-family: 'Orbitron', sans-serif;
   background-color: black;
   color: yellow;
@@ -40,12 +40,59 @@
   }
 }
 
-.star-wars-input,
+.hp {
+  font-family: 'Harry P', sans-serif;
+  /* Inspired by the Harry Potter font */
+  background-color: #3e2a47;
+  /* Dark purple background for the magical theme */
+  color: #f0e68c;
+  /* Light golden color representing the magical light */
+  border: 2px solid #f0e68c;
+  /* Golden border */
+  padding: 10px;
+  font-size: 1.2rem;
+  width: 100%;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+
+  &:focus {
+    box-shadow: 0 0 10px #f0e68c;
+    /* Golden glow for focus effect */
+  }
+}
+
+.lotr {
+  font-family: 'Ringbearer', sans-serif;
+  /* Inspired by the Lord of the Rings font */
+  background-color: #2f4f4f;
+  /* Deep greenish-grey background for an Elven/forest feel */
+  color: #f4a261;
+  /* Warm goldish color representing the One Ring or Gondor */
+  border: 2px solid #f4a261;
+  /* Goldish border to resemble the One Ring */
+  padding: 10px;
+  font-size: 1.2rem;
+  width: 100%;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+
+  &:focus {
+    box-shadow: 0 0 10px #f4a261;
+    /* Goldish glow for focus effect */
+  }
+}
+
+
+.sw,
+.hp,
+.lotr,
 .dropdown {
   box-sizing: border-box;
 }
 
-.dropdown {
+.sw_dropdown {
   position: absolute;
   top: 100%;
   left: 0;
@@ -61,16 +108,74 @@
   font-family: 'Orbitron', sans-serif;
 
   /* Masquer la scrollbar tout en gardant le scroll */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
 
   &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
+    /* Chrome, Safari, Opera */
   }
 }
 
+.lotr_dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #2f4f4f; /* Dark, earthy green-grey background resembling Middle-Earth forests */
+  border: 1px solid #f4a261; /* Goldish border to represent the One Ring */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  font-family: 'Ringbearer', sans-serif; /* Replace with a Tolkien-inspired font */
+  
+  /* Hide the scrollbar while keeping the scroll functionality */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
 
-.dropdown li {
+  &::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+  }
+}
+
+.hp_dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #3e2a47; /* Dark purple background, similar to the Harry Potter universe */
+  border: 1px solid #f0e68c; /* Golden border for a magical effect */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  font-family: 'Harry P', sans-serif; /* Replace with an actual Harry Potter-inspired font */
+  
+  /* Hide the scrollbar while keeping the scroll functionality */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+
+  &::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+  }
+}
+
+.sw_dropdown li,
+.lotr_dropdown li,
+.hp_dropdown li {
   padding: 8px;
   cursor: pointer;
   color: yellow;
@@ -82,7 +187,7 @@
   }
 }
 
-.star-wars-button {
+.sw_button {
   font-family: 'Orbitron', sans-serif;
   background: linear-gradient(90deg, #ffcc00, #ff8800);
   border: none;
@@ -99,6 +204,60 @@
 
   &:hover {
     background: linear-gradient(90deg, #ff8800, #ffcc00);
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    background: gray;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+.lotr_button {
+  font-family: 'Ringbearer', sans-serif; /* Replace with a Tolkien-inspired font */
+  background: linear-gradient(90deg, #f4a261, #2f4f4f); /* Gold and earthy green-grey gradient for Middle-Earth feel */
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: black;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(244, 162, 97, 0.8); /* Subtle glow effect symbolizing the power of the One Ring */
+  height: 100%;
+  margin-top: 1px;
+
+  &:hover {
+    background: linear-gradient(90deg, #2f4f4f, #f4a261); /* Swap the gradient for a glowing effect on hover */
+    transform: scale(1.05);
+  }
+
+  &:disabled {
+    background: gray;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+.hp_button {
+  font-family: 'Harry P', sans-serif; /* Replace with an actual Harry Potter-inspired font */
+  background: linear-gradient(90deg, #f0e68c, #3e2a47); /* Golden and dark purple gradient representing magic */
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: black;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(240, 230, 140, 0.8); /* Magical glow effect */
+  height: 100%;
+  margin-top: 1px;
+
+  &:hover {
+    background: linear-gradient(90deg, #3e2a47, #f0e68c); /* Swap the gradient for a glowing effect on hover */
     transform: scale(1.05);
   }
 

@@ -21,6 +21,7 @@ export class GuessContainerComponent {
   guessedCharacters: Character[] = [];
   inputOptions: string[] = [];
   found: boolean = false;
+  logoSrc: string = "";
 
   constructor(private gameService: GameService) { }
 
@@ -34,8 +35,10 @@ export class GuessContainerComponent {
         })
         const randomNumber = Math.floor(Math.random() * (this.allCharacters.length + 1));
         this.target = this.allCharacters[randomNumber];
+        this.logoSrc = `assets/images/${this.univer}_logo.webp`;
       }
     });
+
   }
 
   handleGuess(guess: string) {
