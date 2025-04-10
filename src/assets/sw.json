@@ -1,0 +1,206 @@
+{
+    "name": "Star Wars Dle",
+    "headers": [
+      { "key": "name", "label": "Personnage" },
+      { "key": "height", "label": "Taille" },
+      { "key": "mass", "label": "Poids" },
+      { "key": "gender", "label": "Genre" },
+      { "key": "eye_color", "label": "Couleur des yeux" },
+      { "key": "homeworld", "label": "Planète d'origine" },
+      { "key": "films", "label": "Films" },
+      { "key": "species", "label": "Espèce" }
+    ],
+    "characters": [
+      {
+        "name": { "value": "Luke Skywalker", "status": "" },
+        "height": { "value": "172", "status": "" },
+        "mass": { "value": "77", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Bleu", "status": "" },
+        "homeworld": { "value": "Tatooine", "status": "" },
+        "films": { "value": ["IV", "V", "VI", "III"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      },
+      {
+        "name": { "value": "C-3PO", "status": "" },
+        "height": { "value": "167", "status": "" },
+        "mass": { "value": "75", "status": "" },
+        "gender": { "value": "N/A", "status": "" },
+        "eye_color": { "value": "Jaune", "status": "" },
+        "homeworld": { "value": "Tatooine", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI"], "status": "" },
+        "species": { "value": "Droïde", "status": "" }
+      },
+      {
+        "name": { "value": "R2-D2", "status": "" },
+        "height": { "value": "96", "status": "" },
+        "mass": { "value": "32", "status": "" },
+        "gender": { "value": "N/A", "status": "" },
+        "eye_color": { "value": "Rouge", "status": "" },
+        "homeworld": { "value": "Naboo", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI"], "status": "" },
+        "species": { "value": "Droïde", "status": "" }
+      },
+      {
+        "name": { "value": "Darth Vader", "status": "" },
+        "height": { "value": "202", "status": "" },
+        "mass": { "value": "136", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Jaune", "status": "" },
+        "homeworld": { "value": "Tatooine", "status": "" },
+        "films": { "value": ["III", "IV", "V", "VI"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      },
+      {
+        "name": { "value": "Leia Organa", "status": "" },
+        "height": { "value": "150", "status": "" },
+        "mass": { "value": "49", "status": "" },
+        "gender": { "value": "Femme", "status": "" },
+        "eye_color": { "value": "Brun", "status": "" },
+        "homeworld": { "value": "Alderaan", "status": "" },
+        "films": { "value": ["IV", "V", "VI"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      },
+      {
+        "name": { "value": "Obi-Wan Kenobi", "status": "" },
+        "height": { "value": "182", "status": "" },
+        "mass": { "value": "77", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Bleu", "status": "" },
+        "homeworld": { "value": "Stewjon", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      },
+      {
+        "name": { "value": "Han Solo", "status": "" },
+        "height": { "value": "180", "status": "" },
+        "mass": { "value": "80", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Marron", "status": "" },
+        "homeworld": { "value": "Corellia", "status": "" },
+        "films": { "value": ["IV", "V", "VI"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      },
+      {
+        "name": { "value": "Chewbacca", "status": "" },
+        "height": { "value": "228", "status": "" },
+        "mass": { "value": "112", "status": "" },
+        "gender": { "value": "Mâle", "status": "" },
+        "eye_color": { "value": "Marron", "status": "" },
+        "homeworld": { "value": "Kashyyyk", "status": "" },
+        "films": { "value": ["IV", "V", "VI"], "status": "" },
+        "species": { "value": "Wookiee", "status": "" }
+      },
+      {
+        "name": { "value": "Lando Calrissian", "status": "" },
+        "height": { "value": "177", "status": "" },
+        "mass": { "value": "79", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Marron", "status": "" },
+        "homeworld": { "value": "Socorro", "status": "" },
+        "films": { "value": ["V", "VI"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      },
+      {
+        "name": { "value": "Boba Fett", "status": "" },
+        "height": { "value": "183", "status": "" },
+        "mass": { "value": "78", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Vert", "status": "" },
+        "homeworld": { "value": "Kamino", "status": "" },
+        "films": { "value": ["V", "VI"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      },
+      {
+        "name": { "value": "Yoda", "status": "" },
+        "height": { "value": "66", "status": "" },
+        "mass": { "value": "17", "status": "" },
+        "gender": { "value": "Mâle", "status": "" },
+        "eye_color": { "value": "Vert", "status": "" },
+        "homeworld": { "value": "Dagobah", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI"], "status": "" },
+        "species": { "value": "Inconnue", "status": "" }
+      },
+      {
+        "name": { "value": "Palpatine", "status": "" },
+        "height": { "value": "170", "status": "" },
+        "mass": { "value": "75", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Jaune", "status": "" },
+        "homeworld": { "value": "Naboo", "status": "" },
+        "films": { "value": ["I", "II", "III", "VI"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      },
+      {
+        "name": { "value": "Mace Windu", "status": "" },
+        "height": { "value": "188", "status": "" },
+        "mass": { "value": "84", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Violet", "status": "" },
+        "homeworld": { "value": "Haruun Kal", "status": "" },
+        "films": { "value": ["I", "II", "III"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      },
+      {
+        "name": { "value": "Qui-Gon Jinn", "status": "" },
+        "height": { "value": "193", "status": "" },
+        "mass": { "value": "89", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Bleu", "status": "" },
+        "homeworld": { "value": "Coruscant", "status": "" },
+        "films": { "value": ["I"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      },
+      {
+        "name": { "value": "Darth Maul", "status": "" },
+        "height": { "value": "175", "status": "" },
+        "mass": { "value": "80", "status": "" },
+        "gender": { "value": "Mâle", "status": "" },
+        "eye_color": { "value": "Jaune", "status": "" },
+        "homeworld": { "value": "Dathomir", "status": "" },
+        "films": { "value": ["I"], "status": "" },
+        "species": { "value": "Zabrak", "status": "" }
+      },
+      {
+        "name": { "value": "Jar Jar Binks", "status": "" },
+        "height": { "value": "196", "status": "" },
+        "mass": { "value": "66", "status": "" },
+        "gender": { "value": "Mâle", "status": "" },
+        "eye_color": { "value": "Jaune", "status": "" },
+        "homeworld": { "value": "Naboo", "status": "" },
+        "films": { "value": ["I"], "status": "" },
+        "species": { "value": "Gungan", "status": "" }
+      },
+      {
+        "name": { "value": "Padmé Amidala", "status": "" },
+        "height": { "value": "165", "status": "" },
+        "mass": { "value": "45", "status": "" },
+        "gender": { "value": "Femme", "status": "" },
+        "eye_color": { "value": "Brun", "status": "" },
+        "homeworld": { "value": "Naboo", "status": "" },
+        "films": { "value": ["I", "II", "III"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      },
+      {
+        "name": { "value": "Anakin Skywalker", "status": "" },
+        "height": { "value": "188", "status": "" },
+        "mass": { "value": "84", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Bleu", "status": "" },
+        "homeworld": { "value": "Tatooine", "status": "" },
+        "films": { "value": ["I", "II", "III"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      },
+      {
+        "name": { "value": "Bail Prestor Organa", "status": "" },
+        "height": { "value": "190", "status": "" },
+        "mass": { "value": "75", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Brun", "status": "" },
+        "homeworld": { "value": "Alderaan", "status": "" },
+        "films": { "value": ["III"], "status": "" },
+        "species": { "value": "Humain", "status": "" }
+      }
+    ]
+  }
+  

@@ -2,42 +2,44 @@ import { Component, Input } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { GuessResultComponent } from '../guess-result/guess-result.component';
 import { GuessInputComponent } from '../guess-input/guess-input.component';
-import { SwCharacter } from '../../models/swCharacter.model';
+import { Character } from '../../models/swCharacter.model';
 import { Univers } from '../../models/univers.enum';
 
 @Component({
-    selector: 'app-guess-container',
-    imports: [GuessInputComponent, GuessResultComponent],
-    templateUrl: './guess-container.component.html',
-    styleUrl: './guess-container.component.scss',
-    standalone: true
+  selector: 'app-guess-container',
+  imports: [GuessInputComponent, GuessResultComponent],
+  templateUrl: './guess-container.component.html',
+  styleUrl: './guess-container.component.scss',
+  standalone: true
 })
 export class GuessContainerComponent {
   headers: any[] = [];
-  target!: SwCharacter;
-  @Input() univer: Univers| null = null;
+  target!: Character;
+  @Input() univer: Univers | null = null;
 
-  allCharacters: SwCharacter[] = [];
-  guessedCharacters: SwCharacter[] = [];
+  allCharacters: Character[] = [];
+  guessedCharacters: Character[] = [];
   inputOptions: string[] = [];
   found: boolean = false;
 
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    const gameKey = 'starWars';
-    this.gameService.getGameData(gameKey).subscribe((data) => {
+    this.gameService.getGameData(this.univer).subscribe((data) => {
       if (data) {
         this.headers = data.headers;
         this.allCharacters = data.characters;
-        this.inputOptions = data.characters.map((character: SwCharacter) => character.name.value)
+        this.inputOptions = data.characters.map((character: Character) => {
+          return character.name.value
+        })
         const randomNumber = Math.floor(Math.random() * (this.allCharacters.length + 1));
         this.target = this.allCharacters[randomNumber];
       }
     });
   }
+
   handleGuess(guess: string) {
-    const guessedCharacter: SwCharacter | undefined = this.allCharacters.find((character: SwCharacter) => character.name.value === guess);
+    const guessedCharacter: Character | undefined = this.allCharacters.find((character: Character) => character.name.value === guess);
     if (!guessedCharacter) {
       return;
     }
@@ -56,8 +58,8 @@ export class GuessContainerComponent {
     }
   }
 
-  addStatusToCharacter(guessedCharacter: SwCharacter, target: SwCharacter): SwCharacter {
-    const updatedCharacter: SwCharacter = { ...guessedCharacter };
+  addStatusToCharacter(guessedCharacter: Character, target: Character): Character {
+    const updatedCharacter: Character = { ...guessedCharacter };
 
     for (const key in guessedCharacter) {
       if (guessedCharacter.hasOwnProperty(key)) {

@@ -1,6 +1,6 @@
-import { SwCharacter } from "./swCharacter.model";
+import { Character } from "./swCharacter.model";
 
 export interface GuessHeader {
-    key: keyof SwCharacter;
+    key: keyof Character;
     label: string;
 }

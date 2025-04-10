@@ -1,4 +1,4 @@
-export interface SwCharacter {
+export interface Character {
   name: { value: string, status: string };
   height: { value: string, status: string };
   mass: { value: string, status: string };

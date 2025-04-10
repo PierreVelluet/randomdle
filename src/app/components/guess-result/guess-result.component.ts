@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { GuessBlockComponent } from '../guess-block/guess-block.component';
-import { SwCharacter } from '../../models/swCharacter.model';
+import { Character } from '../../models/swCharacter.model';
 import { GuessHeader } from '../../models/guess-header.model';
 
 @Component({
@@ -13,7 +13,7 @@ import { GuessHeader } from '../../models/guess-header.model';
     standalone: true
 })
 export class GuessResultComponent {
-  @Input() guessedCharacters: SwCharacter[] = [];
+  @Input() guessedCharacters: Character[] = [];
   @Input() headers: GuessHeader[] = [];
-  @Input() target!: SwCharacter;
+  @Input() target!: Character;
 }

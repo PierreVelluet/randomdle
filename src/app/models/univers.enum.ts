@@ -1,6 +1,6 @@
 export enum Univers {
-    StarWars = 'StarWars',
-    LordOfTheRing = 'LordOfTheRings',
-    HarryPotter = 'HarryPotter'
+    StarWars = 'sw',
+    LordOfTheRing = 'lotr',
+    HarryPotter = 'hp'
   }
   

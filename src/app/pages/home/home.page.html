@@ -1,24 +1,14 @@
-<app-universes-container
-  *ngIf="!chosenUniver"
-  (chooseUniverse)="onChooseUniverse($event)"
-  [ngClass]="{
+<app-universes-container *ngIf="!chosenUniver" (chooseUniverse)="onChooseUniverse($event)" [ngClass]="{
     'animate__animated': true,
     'animate__backOutRight': isHidingUniverses,
-  }"
-  [ngStyle]="{
+  }" [ngStyle]="{
     'animation-delay': '0.5s',
     'animation-duration': '0.8s'
-  }"
-></app-universes-container>
-<app-guess-container
-  *ngIf="chosenUniver"
-  [univer]="chosenUniver"
-  [ngClass]="{
+  }"></app-universes-container>
+<app-guess-container *ngIf="chosenUniver" [univer]="chosenUniver" [ngClass]="{
     'animate__animated': true,
     'animate__fadeIn': true
-  }"
-  [ngStyle]="{
+  }" [ngStyle]="{
     'animation-delay': '0.2s',
     'animation-duration': '0.8s'
-  }"
-></app-guess-container>
+  }"></app-guess-container>

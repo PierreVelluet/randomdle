@@ -6,17 +6,17 @@ import { CommonModule } from '@angular/common';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @Component({
-    selector: 'app-universes-card',
-    imports: [MatCardModule, CommonModule, LazyLoadImageModule],
-    templateUrl: './universes-card.component.html',
-    styleUrl: './universes-card.component.scss',
-    standalone: true
+  selector: 'app-universes-card',
+  imports: [MatCardModule, CommonModule, LazyLoadImageModule],
+  templateUrl: './universes-card.component.html',
+  styleUrl: './universes-card.component.scss',
+  standalone: true
 })
-export class UniversesCardComponent implements OnInit  {
-  // @Input() public obj!: any;
+export class UniversesCardComponent implements OnInit {
+
   @Input() public isClickPrevented!: boolean;
   @Input() public defaultImage!: string;
-  @Input() public univer: string = ''; 
+  @Input() public univer: string = '';
 
   hovered: boolean;
   trimedDescription: string;
@@ -28,22 +28,15 @@ export class UniversesCardComponent implements OnInit  {
     this.trimedDescription = '';
   }
 
-  ngOnInit(){
-    this.assertInputsProvided();
+  ngOnInit() {
     console.log('🧪 univer input received:', this.univer);
     if (this.univer) {
-      this.defaultImage = `/assets/images/${this.univer}.png`;
+      this.defaultImage = `/assets/images/${this.univer}.webp`;
       this.lazyLoadImage = this.defaultImage;
     }
-  }
-
-  private assertInputsProvided(): void {
-   
   }
 
   public hoverHandler(): void {
     this.hovered = !this.hovered;
   }
-
-  openDialog(): void {}
 }

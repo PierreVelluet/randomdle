@@ -16,13 +16,10 @@ export class HomePage {
   chosenUniver: Univers | null = null;
   isHidingUniverses = false;
 
-  ngOnInit(): void {}
-
   onChooseUniverse(univer: Univers): void {
     this.isHidingUniverses = true;
-     // Wait for fadeOut animation to complete before actually switching
-  setTimeout(() => {
-    this.chosenUniver = univer;
-  }, 800); // Match the animation-duration
+    setTimeout(() => {
+      this.chosenUniver = univer;
+    }, 800);
   }
 }

@@ -1,16 +1,8 @@
 <div [ngClass]="['choosing-card']">
-  <img
-    class="portrait"
-    alt="Drawing of a star wars entity"
-    (mouseover)="hoverHandler()"
-    (mouseleave)="hoverHandler()"
-    [src]="defaultImage"
-    [lazyLoad]="defaultImage"
-    (click)="!isLoading && !isClickPrevented ? openDialog() : null"
-  />
+  <img class="portrait" alt="Drawing of a star wars entity" (mouseover)="hoverHandler()" (mouseleave)="hoverHandler()"
+    [src]="defaultImage" [lazyLoad]="defaultImage" />
   <mat-card-content class="cardBody">
     <div *ngIf="hovered">
-      <!-- <p [ngClass]="['entityName']">{{ obj.name }}</p> -->
       <p>{{ trimedDescription }}</p>
     </div>
   </mat-card-content>

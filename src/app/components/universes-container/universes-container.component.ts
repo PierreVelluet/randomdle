@@ -2,7 +2,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UniversesCardComponent } from '../universes-card/universes-card.component';
 import { Univers } from '../../models/univers.enum';
-import { R } from '@angular/core/event_dispatcher.d-PWnbqZDx';
 
 @Component({
   selector: 'app-universes-container',

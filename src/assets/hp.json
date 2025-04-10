@@ -1,0 +1,186 @@
+{
+    "name": "Harry Potter Dle",
+    "headers": [
+      { "key": "name", "label": "Personnage" },
+      { "key": "house", "label": "Maison" },
+      { "key": "sang", "label": "Sang" },
+      { "key": "gender", "label": "Genre" },
+      { "key": "eye_color", "label": "Couleur des yeux" },
+      { "key": "type_baguette", "label": "Baguette" },
+      { "key": "films", "label": "Films" }
+    ],
+    "characters": [
+      {
+        "name": { "value": "HARRY POTTER", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Sang-mêlé", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Vert", "status": "" },
+        "type_baguette": { "value": "Houx, plume de phénix, 27,5 cm", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "HERMIONE GRANGER", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Née-Moldue", "status": "" },
+        "gender": { "value": "Femme", "status": "" },
+        "eye_color": { "value": "Marron", "status": "" },
+        "type_baguette": { "value": "Vigne, ventricule de dragon, 27,3 cm", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "RON WEASLEY", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Bleu", "status": "" },
+        "type_baguette": { "value": "Frêne, crin de licorne, 35,5 cm", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "ALBUS DUMBLEDORE", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Sang-mêlé", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Bleu", "status": "" },
+        "type_baguette": { "value": "Sureau, crin de Sombral, 38 cm", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "SEVERUS SNAPE", "status": "" },
+        "house": { "value": "Slytherin", "status": "" },
+        "sang": { "value": "Sang-mêlé", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Noir", "status": "" },
+        "type_baguette": { "value": "Inconnue", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "DRACO MALFOY", "status": "" },
+        "house": { "value": "Slytherin", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Gris", "status": "" },
+        "type_baguette": { "value": "Aubépine, crin de licorne, 25 cm", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "LORD VOLDEMORT", "status": "" },
+        "house": { "value": "Slytherin", "status": "" },
+        "sang": { "value": "Sang-mêlé", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Rouge", "status": "" },
+        "type_baguette": { "value": "If, plume de phénix, 34 cm", "status": "" },
+        "films": { "value": ["I", "II", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "LUNA LOVEGOOD", "status": "" },
+        "house": { "value": "Ravenclaw", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Femme", "status": "" },
+        "eye_color": { "value": "Gris", "status": "" },
+        "type_baguette": { "value": "Inconnue", "status": "" },
+        "films": { "value": ["V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "NEVILLE LONGBOTTOM", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Marron", "status": "" },
+        "type_baguette": { "value": "Cerise, ventricule de dragon, 33 cm", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "GINNY WEASLEY", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Femme", "status": "" },
+        "eye_color": { "value": "Marron", "status": "" },
+        "type_baguette": { "value": "If, inconnue, 25,4 cm", "status": "" },
+        "films": { "value": ["II", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "MINERVA MCGONAGALL", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Femme", "status": "" },
+        "eye_color": { "value": "Vert", "status": "" },
+        "type_baguette": { "value": "Chêne, crin de licorne, 30 cm", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "RUBEUS HAGRID", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Noir", "status": "" },
+        "type_baguette": { "value": "Inconnue", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "SIRIUS BLACK", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Gris", "status": "" },
+        "type_baguette": { "value": "Aubépine, ventricule de dragon, 30 cm", "status": "" },
+        "films": { "value": ["III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "PETER PETTIGREW", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Gris", "status": "" },
+        "type_baguette": { "value": "Inconnue", "status": "" },
+        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "CHARLES WEASLEY", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Marron", "status": "" },
+        "type_baguette": { "value": "Inconnue", "status": "" },
+        "films": { "value": ["II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "FRED WEASLEY", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Marron", "status": "" },
+        "type_baguette": { "value": "Inconnue", "status": "" },
+        "films": { "value": ["II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "GEORGE WEASLEY", "status": "" },
+        "house": { "value": "Gryffindor", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Marron", "status": "" },
+        "type_baguette": { "value": "Inconnue", "status": "" },
+        "films": { "value": ["II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "BELLATRIX LESTRANGE", "status": "" },
+        "house": { "value": "Slytherin", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Femme", "status": "" },
+        "eye_color": { "value": "Noir", "status": "" },
+        "type_baguette": { "value": "Inconnue", "status": "" },
+        "films": { "value": ["IV", "V", "VI", "VII"], "status": "" }
+      },
+      {
+        "name": { "value": "LUCIUS MALFOY", "status": "" },
+        "house": { "value": "Slytherin", "status": "" },
+        "sang": { "value": "Sang-pur", "status": "" },
+        "gender": { "value": "Homme", "status": "" },
+        "eye_color": { "value": "Gris", "status": "" },
+        "type_baguette": { "value": "Inconnue", "status": "" },
+        "films": { "value": ["II", "III", "IV", "V", "VI", "VII"], "status": "" }
+      }
+    ]
+  }
+  
