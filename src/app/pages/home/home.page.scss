@@ -12,6 +12,29 @@
   justify-content: center;
 }
 
-// img {
-//   width: 300px;
-// }
+
+.sw_bg,
+.lotr_bg,
+.hp_bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.sw_bg {
+  background-image: url('/assets/images/sw_bg.webp');
+}
+
+.lotr_bg {
+  background-image: url('/assets/images/lotr_bg.webp');
+}
+
+.hp_bg {
+  background-image: url('/assets/images/hp_bg.webp');
+}

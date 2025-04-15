@@ -1,15 +1,20 @@
 <div class="guess-container">
   <div class="input-group">
     <div class="input-wrapper">
-      <input type="text" [(ngModel)]="guess" (keyup.enter)="submitGuess()" (input)="filterOptions()"
+      <!-- Input -->
+      <input type="text" [(ngModel)]="guess" (keydown)="handleKeyDown($event)" (input)="filterOptions()"
         placeholder="Entrez un personnage..." [class]="univer" />
+
+      <!-- Liste des options -->
       <ul *ngIf="filteredOptions.length > 0" [class]="univer + '_dropdown'">
-        <li *ngFor="let option of filteredOptions" (click)="selectOption(option)">
+        <li *ngFor="let option of filteredOptions; let i = index" [class.active]="i === activeOptionIndex"
+          (click)="selectOption(option)" tabindex="0">
           {{ option }}
         </li>
       </ul>
     </div>
 
+    <!-- Bouton de validation -->
     <button (click)="submitGuess()" [class]="univer + '_button'" [disabled]="!isValidGuess()">
       Valider
     </button>
