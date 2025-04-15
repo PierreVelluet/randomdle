@@ -7,7 +7,7 @@
 
       <!-- Liste des options -->
       <ul *ngIf="filteredOptions.length > 0" [class]="univer + '_dropdown'">
-        <li *ngFor="let option of filteredOptions; let i = index" [class.active]="i === activeOptionIndex"
+        <li #dropdownItem *ngFor="let option of filteredOptions; let i = index" [class.active]="i === activeOptionIndex"
           (click)="selectOption(option)" tabindex="0">
           {{ option }}
         </li>

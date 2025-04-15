@@ -1,3 +1,5 @@
+@import '../../..//styles//variables.scss';
+
 .sw_header_cell {
   word-wrap: break-word;
   white-space: normal;
@@ -7,14 +9,21 @@
   max-width: 150px;
   font-size: 0.9rem;
   position: relative;
+  text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+  font-family: $font-sw;
+  font-weight: bold;
 
   &::after {
     content: "";
     position: absolute;
     bottom: 0;
-    left: 50%; /* Positionne au centre */
-    transform: translateX(-50%); /* Centre le soulignement horizontalement */
-    width: 80%; /* Prend 80% de la largeur de la cellule */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
     height: 6px;
     background-color: #f9e700;
   }
@@ -29,8 +38,14 @@
   max-width: 150px;
   font-size: 0.9rem;
   position: relative;
-  font-family: 'IM Fell English SC', serif; // Tolkien-style font
-  color: #2e2e2e;
+  color: #740001;
+  text-shadow:
+    -1px -1px 0 #ffffff,
+    1px -1px 0 #ffffff,
+    -1px 1px 0 #ffffff,
+    1px 1px 0 #ffffff;
+  font-family: $font-lotr;
+  font-weight: 700;
 
   &::after {
     content: "";
@@ -40,7 +55,7 @@
     transform: translateX(-50%);
     width: 80%;
     height: 6px;
-    background-color: #5e4605; // Earthy gold/brown underline
+    background-color: #5e4605;
   }
 }
 
@@ -53,8 +68,13 @@
   max-width: 150px;
   font-size: 0.9rem;
   position: relative;
-  font-family: 'Cinzel Decorative', cursive; // Or any HP-like font
+  font-family: $font-hp;
   color: #4b2e83;
+  text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
 
   &::after {
     content: "";
@@ -64,7 +84,7 @@
     transform: translateX(-50%);
     width: 80%;
     height: 6px;
-    background-color: #740001; // Gryffindor red-style underline
+    background-color: #740001;
   }
 }
 
