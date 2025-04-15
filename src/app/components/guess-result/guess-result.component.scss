@@ -1,6 +1,7 @@
-@import '../../..//styles//variables.scss';
+@import '../../../styles/variables.scss';
 
-.sw_header_cell {
+// ✅ Style de base commun
+.header_cell {
   word-wrap: break-word;
   white-space: normal;
   text-align: center;
@@ -9,13 +10,15 @@
   max-width: 150px;
   font-size: 0.9rem;
   position: relative;
-  text-shadow:
-    -1px -1px 0 #fff,
-    1px -1px 0 #fff,
-    -1px 1px 0 #fff,
-    1px 1px 0 #fff;
-  font-family: $font-sw;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.6);
   font-weight: bold;
+}
+
+// ✅ Déclinaisons par univers
+.sw_header_cell {
+  @extend .header_cell;
+  font-family: $font-sw;
+  color: #ffd700;
 
   &::after {
     content: "";
@@ -30,22 +33,10 @@
 }
 
 .lotr_header_cell {
-  word-wrap: break-word;
-  white-space: normal;
-  text-align: center;
-  padding: 8px;
-  width: 100px;
-  max-width: 150px;
-  font-size: 0.9rem;
-  position: relative;
-  color: #740001;
-  text-shadow:
-    -1px -1px 0 #ffffff,
-    1px -1px 0 #ffffff,
-    -1px 1px 0 #ffffff,
-    1px 1px 0 #ffffff;
+  @extend .header_cell;
   font-family: $font-lotr;
   font-weight: 700;
+  color: #740001;
 
   &::after {
     content: "";
@@ -60,21 +51,9 @@
 }
 
 .hp_header_cell {
-  word-wrap: break-word;
-  white-space: normal;
-  text-align: center;
-  padding: 8px;
-  width: 100px;
-  max-width: 150px;
-  font-size: 0.9rem;
-  position: relative;
+  @extend .header_cell;
   font-family: $font-hp;
   color: #4b2e83;
-  text-shadow:
-    -1px -1px 0 white,
-    1px -1px 0 white,
-    -1px 1px 0 white,
-    1px 1px 0 white;
 
   &::after {
     content: "";
@@ -88,6 +67,7 @@
   }
 }
 
+// ✅ Commun à toutes les tables
 td {
   text-align: center;
   padding: 12px;

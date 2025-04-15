@@ -25,7 +25,7 @@
 }
 
 .sw {
-  font-family: 'Orbitron', sans-serif;
+  font-family: $font-sw;
   background-color: black;
   color: yellow;
   border: 2px solid yellow;
@@ -42,7 +42,7 @@
 }
 
 .hp {
-  font-family: 'Harry P', sans-serif;
+  font-family: $font-hp;
   /* Inspired by the Harry Potter font */
   background-color: #3e2a47;
   /* Dark purple background for the magical theme */
@@ -64,7 +64,7 @@
 }
 
 .lotr {
-  font-family: 'Ringbearer', sans-serif;
+  font-family: $font-lotr;
   /* Inspired by the Lord of the Rings font */
   background-color: #2f4f4f;
   /* Deep greenish-grey background for an Elven/forest feel */
@@ -106,7 +106,7 @@
   max-height: 200px;
   overflow-y: auto;
   z-index: 10;
-  font-family: 'Orbitron', sans-serif;
+  font-family: $font-sw;
 
   /* Masquer la scrollbar tout en gardant le scroll */
   scrollbar-width: none;
@@ -133,7 +133,7 @@
   max-height: 200px;
   overflow-y: auto;
   z-index: 10;
-  font-family: 'Ringbearer', sans-serif; /* Replace with a Tolkien-inspired font */
+  font-family:$font-lotr;
   
   /* Hide the scrollbar while keeping the scroll functionality */
   scrollbar-width: none;
@@ -160,7 +160,7 @@
   max-height: 200px;
   overflow-y: auto;
   z-index: 10;
-  font-family: 'Harry P', sans-serif; /* Replace with an actual Harry Potter-inspired font */
+  font-family: $font-hp;
   
   /* Hide the scrollbar while keeping the scroll functionality */
   scrollbar-width: none;
@@ -189,7 +189,7 @@
 }
 
 .sw_button {
-  font-family: 'Orbitron', sans-serif;
+  font-family: $font-sw;
   background: linear-gradient(90deg, #ffcc00, #ff8800);
   border: none;
   padding: 10px 20px;
@@ -216,7 +216,7 @@
 }
 
 .lotr_button {
-  font-family: 'Ringbearer', sans-serif; /* Replace with a Tolkien-inspired font */
+  font-family: $font-lotr;
   background: linear-gradient(90deg, #f4a261, #2f4f4f); /* Gold and earthy green-grey gradient for Middle-Earth feel */
   border: none;
   padding: 10px 20px;
@@ -243,7 +243,7 @@
 }
 
 .hp_button {
-  font-family: 'Harry P', sans-serif; /* Replace with an actual Harry Potter-inspired font */
+  font-family: $font-hp;
   background: linear-gradient(90deg, #f0e68c, #3e2a47); /* Golden and dark purple gradient representing magic */
   border: none;
   padding: 10px 20px;

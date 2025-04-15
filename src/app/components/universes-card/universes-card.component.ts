@@ -29,7 +29,6 @@ export class UniversesCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('🧪 univer input received:', this.univer);
     if (this.univer) {
       this.defaultImage = `/assets/images/${this.univer}.webp`;
       this.lazyLoadImage = this.defaultImage;
