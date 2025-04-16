@@ -1,3 +1,5 @@
+@import "../src//styles/variables.scss";
+
 html,
 body {
   margin: 0;
@@ -11,4 +13,38 @@ body {
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+// Style générique du tooltip
+.tooltip {
+  font-size: 12px;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: bold;
+  max-width: 200px;
+  text-align: center;
+}
+
+// Star Wars
+.sw-tooltip.tooltip {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffd700;
+  font-family: $font-sw;
+  border: 1px solid #ffd700;
+}
+
+// Lord of the Rings
+.lotr-tooltip.tooltip {
+  background-color: #f3f0e6;
+  color: #5e4605;
+  font-family: $font-lotr;
+  border: 1px solid #5e4605;
+}
+
+// Harry Potter
+.hp-tooltip.tooltip {
+  background-color: #1e1e1e;
+  color: #f9e700;
+  font-family: $font-hp;
+  border: 1px solid #4b2e83;
 }

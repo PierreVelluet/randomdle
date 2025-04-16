@@ -1,23 +1,24 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Status } from '../models/status.enum';
 import { Univers } from '../models/univers.enum';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @Component({
   selector: 'app-color-indicator',
-  imports: [CommonModule],
+  imports: [CommonModule, TooltipModule],
   templateUrl: './color-indicator.component.html',
   styleUrl: './color-indicator.component.scss',
-  standalone: true
+  standalone: true,
 })
 export class ColorIndicatorComponent {
-
   @Input() univer: Univers | null = null;
-  status: Status[] = Object.values(Status).filter((obj: Status) => obj != 'greater' && obj != 'smaller');
+  @Output() crossClicked = new EventEmitter<boolean>();
+  status: Status[] = Object.values(Status).filter(
+    (obj: Status) => obj != 'greater' && obj != 'smaller'
+  );
 
-  ngOnInit(): void {
-    console.log('status', this.status)
+  onClose(): void {
+    this.crossClicked.emit(false);
   }
-
-  onClose(): void { }
 }

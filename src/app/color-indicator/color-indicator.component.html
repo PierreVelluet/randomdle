@@ -1,7 +1,19 @@
 <div class="color-indicator-container" [ngClass]="univer + '-color-indicator'">
-    <button class="close-btn" (click)="onClose()">&times;</button>
-    <div class="indicator-content">
-      <div *ngFor="let st of status" [class]="univer">{{st}}</div>
+  <button class="close-btn" (click)="onClose()">&times;</button>
+  <div class="title">Indicateur de couleurs</div>
+
+  <div class="indicator-content">
+    <div class="indicator-item" *ngFor="let st of status">
+      <div
+        *ngIf="st === 'proche'; else other"
+        tooltip="Une ou plusieurs propriétés sont correctes, mais pas toutes."
+        [class]="[univer, st]"
+        containerClass="{{ univer }}-tooltip"
+      ></div>
+      <ng-template #other>
+        <div [class]="[univer, st]"></div>
+      </ng-template>
+      <span class="label">{{ st }}</span>
     </div>
   </div>
-  
+</div>

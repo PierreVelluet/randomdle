@@ -5,13 +5,19 @@ import { GuessInputComponent } from '../guess-input/guess-input.component';
 import { Character } from '../../models/swCharacter.model';
 import { Univers } from '../../models/univers.enum';
 import { ColorIndicatorComponent } from '../../color-indicator/color-indicator.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-guess-container',
-  imports: [GuessInputComponent, GuessResultComponent, ColorIndicatorComponent],
+  imports: [
+    CommonModule,
+    GuessInputComponent,
+    GuessResultComponent,
+    ColorIndicatorComponent,
+  ],
   templateUrl: './guess-container.component.html',
   styleUrl: './guess-container.component.scss',
-  standalone: true
+  standalone: true,
 })
 export class GuessContainerComponent {
   headers: any[] = [];
@@ -22,9 +28,10 @@ export class GuessContainerComponent {
   guessedCharacters: Character[] = [];
   inputOptions: string[] = [];
   found: boolean = false;
-  logoSrc: string = "";
+  logoSrc: string = '';
+  colorsIndicatorVisible: boolean = false;
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService) {}
 
   ngOnInit(): void {
     this.gameService.getGameData(this.univer).subscribe((data) => {
@@ -32,27 +39,39 @@ export class GuessContainerComponent {
         this.headers = data.headers;
         this.allCharacters = data.characters;
         this.inputOptions = data.characters.map((character: Character) => {
-          return character.name.value
-        })
-        const randomNumber = Math.floor(Math.random() * (this.allCharacters.length + 1));
+          return character.name.value;
+        });
+        const randomNumber = Math.floor(
+          Math.random() * (this.allCharacters.length + 1)
+        );
         this.target = this.allCharacters[randomNumber];
         this.logoSrc = `assets/images/${this.univer}_logo.webp`;
       }
     });
-
   }
 
   handleGuess(guess: string) {
-    const guessedCharacter: Character | undefined = this.allCharacters.find((character: Character) => character.name.value === guess);
+    const guessedCharacter: Character | undefined = this.allCharacters.find(
+      (character: Character) => character.name.value === guess
+    );
     if (!guessedCharacter) {
       return;
     }
 
-    const updatedCharacter = this.addStatusToCharacter(guessedCharacter, this.target);
+    const updatedCharacter = this.addStatusToCharacter(
+      guessedCharacter,
+      this.target
+    );
 
     if (updatedCharacter) {
       this.guessedCharacters.unshift(updatedCharacter);
-      this.inputOptions = this.inputOptions.filter((option: string) => option !== updatedCharacter.name.value);
+
+      if (this.guessedCharacters.length == 1)
+        this.colorsIndicatorVisible = true;
+
+      this.inputOptions = this.inputOptions.filter(
+        (option: string) => option !== updatedCharacter.name.value
+      );
     }
 
     if (this.target.name.value === guess) {
@@ -62,7 +81,10 @@ export class GuessContainerComponent {
     }
   }
 
-  addStatusToCharacter(guessedCharacter: Character, target: Character): Character {
+  addStatusToCharacter(
+    guessedCharacter: Character,
+    target: Character
+  ): Character {
     const updatedCharacter: Character = { ...guessedCharacter };
 
     for (const key in guessedCharacter) {
@@ -74,9 +96,13 @@ export class GuessContainerComponent {
 
         if (guessedValue === targetValue) {
           status = 'correct';
-        } else if (parseFloat(guessedValue as string) > parseFloat(targetValue as string)) {
+        } else if (
+          parseFloat(guessedValue as string) > parseFloat(targetValue as string)
+        ) {
           status = 'greater';
-        } else if (parseFloat(guessedValue as string) < parseFloat(targetValue as string)) {
+        } else if (
+          parseFloat(guessedValue as string) < parseFloat(targetValue as string)
+        ) {
           status = 'smaller';
         }
 
@@ -84,12 +110,16 @@ export class GuessContainerComponent {
           const guessedFilms = guessedCharacter[key].value || [];
           const targetFilms = target[key].value || [];
 
-          const filmsMatch = guessedFilms.every(film => targetFilms.includes(film));
+          const filmsMatch = guessedFilms.every((film) =>
+            targetFilms.includes(film)
+          );
 
           if (filmsMatch) {
             status = 'correct';
           } else {
-            const filmsPartialMatch = guessedFilms.some(film => targetFilms.includes(film));
+            const filmsPartialMatch = guessedFilms.some((film) =>
+              targetFilms.includes(film)
+            );
             if (filmsPartialMatch) {
               status = 'proche';
             }
@@ -101,5 +131,9 @@ export class GuessContainerComponent {
     }
 
     return updatedCharacter;
+  }
+
+  handleCrossClick(clicked: boolean): void {
+    this.colorsIndicatorVisible = clicked;
   }
 }
