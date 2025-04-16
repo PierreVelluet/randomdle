@@ -6,5 +6,5 @@
     (guessSubmitted)="handleGuess($event)"></app-guess-input>
   <app-guess-result [univer]="univer" [target]="target" [guessedCharacters]="guessedCharacters"
     [headers]="headers"></app-guess-result>
-    <app-color-indicator (crossClicked)="handleCrossClick($event)" *ngIf="colorsIndicatorVisible" [univer]="univer" ></app-color-indicator>
+  <app-color-indicator (crossClicked)="handleCrossClick($event)" *ngIf="colorsIndicatorVisible" [univer]="univer" ></app-color-indicator>
 </div>

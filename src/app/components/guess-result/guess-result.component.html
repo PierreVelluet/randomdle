@@ -2,20 +2,38 @@
   <table class="table">
     <thead>
       <tr>
-        <th *ngFor="let header of headers" [ngClass]="{'small-text': header.label.length > 8}" [class]="univer + '_header_cell'">
-          {{ header.label }}
+        <th
+          *ngFor="let header of headers"
+          [ngClass]="{
+            'small-text': header.label.length > 8
+          }"
+          [class]="univer + '_header_cell'"
+        >
+          <span
+            containerClass="{{ univer }}-tooltip"
+            [tooltip]="header.tooltip"
+            [container]="'body'"
+          >
+            {{ header.label }}
+          </span>
         </th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let character of guessedCharacters; let rowIndex = index">
         <td *ngFor="let header of headers; let colIndex = index">
-          <app-guess-block [univer]="univer" [status]="character[header.key].status" [attribute]="character[header.key].value" [ngClass]="{
-              'animate__animated': true,
-              'animate__fadeIn': true
-            }" [ngStyle]="{
-              'animation-delay': (colIndex) * 0.5 + 's'
-            }">
+          <app-guess-block
+            [univer]="univer"
+            [status]="character[header.key].status"
+            [attribute]="character[header.key].value"
+            [ngClass]="{
+              animate__animated: true,
+              animate__fadeIn: true
+            }"
+            [ngStyle]="{
+              'animation-delay': colIndex * 0.5 + 's'
+            }"
+          >
           </app-guess-block>
         </td>
       </tr>

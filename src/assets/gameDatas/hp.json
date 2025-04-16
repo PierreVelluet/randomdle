@@ -1,13 +1,41 @@
 {
     "name": "Harry Potter Dle",
     "headers": [
-      { "key": "name", "label": "Personnage" },
-      { "key": "house", "label": "Maison" },
-      { "key": "sang", "label": "Sang" },
-      { "key": "gender", "label": "Genre" },
-      { "key": "eye_color", "label": "Couleur des yeux" },
-      { "key": "type_baguette", "label": "Baguette" },
-      { "key": "films", "label": "Films" }
+      {
+        "key": "name",
+        "label": "Personnage",
+        "tooltip": "Nom du personnage"
+      },
+      {
+        "key": "house",
+        "label": "Maison",
+        "tooltip": "Maison à Poudlard"
+      },
+      {
+        "key": "sang",
+        "label": "Sang",
+        "tooltip": "Statut de sang (pur, mêlé, moldu...)"
+      },
+      {
+        "key": "gender",
+        "label": "Genre",
+        "tooltip": "Genre du personnage"
+      },
+      {
+        "key": "eye_color",
+        "label": "Couleur des yeux",
+        "tooltip": "Couleur des yeux du personnage"
+      },
+      {
+        "key": "type_baguette",
+        "label": "Baguette",
+        "tooltip": "Bois, cœur et longueur de la baguette"
+      },
+      {
+        "key": "films",
+        "label": "Films",
+        "tooltip": "Numéros des films Harry Potter concernés"
+      }
     ],
     "characters": [
       {

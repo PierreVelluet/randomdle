@@ -48,3 +48,7 @@ body::-webkit-scrollbar {
   font-family: $font-hp;
   border: 1px solid #4b2e83;
 }
+
+span, th, td, div, p {
+  cursor: default;
+}

@@ -1,14 +1,46 @@
 {
     "name": "Star Wars Dle",
     "headers": [
-      { "key": "name", "label": "Personnage" },
-      { "key": "height", "label": "Taille" },
-      { "key": "mass", "label": "Poids" },
-      { "key": "gender", "label": "Genre" },
-      { "key": "eye_color", "label": "Couleur des yeux" },
-      { "key": "homeworld", "label": "Planète d'origine" },
-      { "key": "films", "label": "Films" },
-      { "key": "species", "label": "Espèce" }
+      {
+        "key": "name",
+        "label": "Personnage",
+        "tooltip": "Nom du personnage"
+      },
+      {
+        "key": "height",
+        "label": "Taille",
+        "tooltip": "Taille du personnage en centimètres"
+      },
+      {
+        "key": "mass",
+        "label": "Poids",
+        "tooltip": "Masse du personnage en kilogrammes"
+      },
+      {
+        "key": "gender",
+        "label": "Genre",
+        "tooltip": "Genre du personnage (Homme, Femme, N/A)"
+      },
+      {
+        "key": "eye_color",
+        "label": "Couleur des yeux",
+        "tooltip": "Couleur des yeux du personnage"
+      },
+      {
+        "key": "homeworld",
+        "label": "Planète d'origine",
+        "tooltip": "Monde ou planète d’origine"
+      },
+      {
+        "key": "films",
+        "label": "Films",
+        "tooltip": "Numéros des films dans lesquels il apparaît"
+      },
+      {
+        "key": "species",
+        "label": "Espèce",
+        "tooltip": "Espèce du personnage"
+      }
     ],
     "characters": [
       {
