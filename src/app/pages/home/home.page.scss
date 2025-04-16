@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   text-align: center; // Centre le texte aussi
 }
 
@@ -16,14 +15,19 @@
 .sw_bg,
 .lotr_bg,
 .hp_bg {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem;
+  position: relative;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
 }
 
 
@@ -37,4 +41,12 @@
 
 .hp_bg {
   background-image: url('/assets/images/hp_bg.webp');
+}
+
+.parallax-content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  box-sizing: border-box;
+  padding-bottom: 150px; 
 }

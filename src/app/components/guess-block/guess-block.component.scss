@@ -1,126 +1,60 @@
 @import '../../..//styles//variables.scss';
 
-
-.sw_guess_block {
-  width: 100px;
-  height: 100px;
+// Base style for all guess blocks
+%guess-block-base {
+  width: 100%;
+  height: 100%;
+  height: 75px;
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out;
+  background-repeat: no-repeat;
+  background-position: center 10px;
+  background-size: 16px 16px;
+  font-size: 10px;
+  padding: 0px;
+  margin: 0px;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.sw_guess_block {
+  @extend %guess-block-base;
   border: 2px solid #ffd700;
   box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
   background: rgba(0, 0, 0, 0.8);
   color: #ffd700;
-  font-weight: bold;
-  text-align: center;
-  font-family: "Star Jedi", sans-serif;
-  text-transform: uppercase;
-  transition: transform 0.2s ease-in-out;
-  background-repeat: no-repeat;
-  background-position: center 10px; // ajuste la flèche
-  background-size: 16px 16px;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  input {
-    width: 90%;
-    height: 90%;
-    background: transparent;
-    border: none;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #ffd700;
-    font-weight: bold;
-    outline: none;
-
-    &::placeholder {
-      color: rgba(255, 215, 0, 0.5);
-    }
-  }
+  font-family: $font-sw;
 }
 
 .lotr_guess_block {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #5e4605; // Earthy brown/gold like the Elves
+  @extend %guess-block-base;
+  border: 2px solid #5e4605;
   box-shadow: 0 4px 8px rgba(94, 70, 5, 0.3);
-  background: rgba(243, 240, 230, 0.8); // Warm parchment background
-  color: #b69f45; // Gold-like color used in LOTR
-  font-weight: bold;
-  text-align: center;
-  font-family: 'IM Fell English SC', serif; // Classic, Tolkien-inspired font
-  text-transform: uppercase;
-  transition: transform 0.2s ease-in-out;
-  background-repeat: no-repeat;
-  background-position: center 10px;
-  background-size: 16px 16px;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  input {
-    width: 90%;
-    height: 90%;
-    background: transparent;
-    border: none;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #b69f45; // Gold text for the LOTR theme
-    font-weight: bold;
-    outline: none;
-
-    &::placeholder {
-      color: rgba(182, 159, 69, 0.5); // Faint gold for placeholders
-    }
-  }
+  background: rgba(243, 240, 230, 0.8);
+  color: #b69f45;
+  font-family: $font-lotr;
 }
 
 .hp_guess_block {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #4b2e83; // Dark purple, like Hogwarts' colors
+  @extend %guess-block-base;
+  border: 2px solid #4b2e83;
   box-shadow: 0 4px 8px rgba(75, 46, 131, 0.3);
-  background: rgba(255, 255, 255, 0.1); // Slight transparent background
-  color: #f9e700; // Gold-like color for the HP theme
-  font-weight: bold;
-  text-align: center;
-  font-family: 'Cinzel Decorative', cursive;
-  text-transform: uppercase;
-  transition: transform 0.2s ease-in-out;
-  background-repeat: no-repeat;
-  background-position: center 10px;
-  background-size: 16px 16px;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  input {
-    width: 90%;
-    height: 90%;
-    background: transparent;
-    border: none;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #f9e700; // Gold text
-    font-weight: bold;
-    outline: none;
-
-    &::placeholder {
-      color: rgba(255, 215, 0, 0.5); // Faint gold for placeholders
-    }
-  }
+  background: rgba(255, 255, 255, 0.1);
+  color: #f9e700;
+  font-family: $font-hp;
 }
-
 
 // ✅ Correct (Vert doux)
 .correct {
@@ -154,9 +88,15 @@
 // ↑ Flèche pour greater
 .greater {
   background-image: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.59 5.58L20 12l-8-8-8 8z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center 10px;
+  background-size: 16px 16px;
 }
 
 // ↓ Flèche pour smaller
 .smaller {
   background-image: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20"><path d="M4 12l1.41-1.41L11 16.17V4h2v12.17l5.59-5.58L20 12l-8 8-8-8z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center 10px;
+  background-size: 16px 16px;
 }
