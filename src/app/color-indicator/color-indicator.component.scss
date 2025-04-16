@@ -1,0 +1,106 @@
+@import '../../../src/styles//variables.scss';
+
+// ✅ Style général du container
+.color-indicator-container {
+    position: relative;
+    padding: 16px 24px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    max-width: 90vw;
+    margin: 20px auto;
+    transition: all 0.3s ease;
+}
+
+// ❌ Bouton de fermeture
+.close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+// ✅ Contenu des blocs (ligne d’indicateurs)
+.indicator-content {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+// 🔁 Style de base pour un bloc
+%guess-block-style {
+    width: 75px;
+    height: 75px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+    background-repeat: no-repeat;
+    background-position: center 10px;
+    background-size: 16px 16px;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+// ⭐ Star Wars
+.sw-color-indicator {
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid #ffd700;
+    color: #ffd700;
+    font-family: $font-sw;
+
+    .sw {
+        @extend %guess-block-style;
+        border: 2px solid #ffd700;
+        box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+        color: #ffd700;
+        background-color: $correct;
+    }
+}
+
+// 🧝‍♂️ Lord of the Rings
+.lotr-color-indicator {
+    background: rgba(243, 240, 230, 0.9);
+    border: 2px solid #5e4605;
+    color: #5e4605;
+    font-family: $font-lotr;
+
+    .lotr {
+        @extend %guess-block-style;
+        border: 2px solid #5e4605;
+        box-shadow: 0 4px 8px rgba(94, 70, 5, 0.3);
+        color: #5e4605;
+    }
+}
+
+// ⚡ Harry Potter
+.hp-color-indicator {
+    background: rgba(255, 255, 255, 0.07);
+    color: #4b2e83;
+    font-family: $font-hp;
+
+    .hp {
+        @extend %guess-block-style;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 2px solid #4b2e83;
+        box-shadow: 0 4px 8px rgba(75, 46, 131, 0.3);
+        color: #f9e700;
+    }
+}

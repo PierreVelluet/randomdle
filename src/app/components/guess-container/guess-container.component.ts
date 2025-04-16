@@ -4,10 +4,11 @@ import { GuessResultComponent } from '../guess-result/guess-result.component';
 import { GuessInputComponent } from '../guess-input/guess-input.component';
 import { Character } from '../../models/swCharacter.model';
 import { Univers } from '../../models/univers.enum';
+import { ColorIndicatorComponent } from '../../color-indicator/color-indicator.component';
 
 @Component({
   selector: 'app-guess-container',
-  imports: [GuessInputComponent, GuessResultComponent],
+  imports: [GuessInputComponent, GuessResultComponent, ColorIndicatorComponent],
   templateUrl: './guess-container.component.html',
   styleUrl: './guess-container.component.scss',
   standalone: true

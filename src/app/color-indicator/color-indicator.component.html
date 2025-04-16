@@ -1,0 +1,7 @@
+<div class="color-indicator-container" [ngClass]="univer + '-color-indicator'">
+    <button class="close-btn" (click)="onClose()">&times;</button>
+    <div class="indicator-content">
+      <div *ngFor="let st of status" [class]="univer">{{st}}</div>
+    </div>
+  </div>
+  

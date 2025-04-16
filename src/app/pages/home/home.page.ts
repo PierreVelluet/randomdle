@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HomePage {
   univers = Object.values(Univers);
-  chosenUniver: Univers | null = null;
+  chosenUniver: Univers | null = Univers.StarWars;
   isHidingUniverses = false;
 
   onChooseUniverse(univer: Univers): void {
