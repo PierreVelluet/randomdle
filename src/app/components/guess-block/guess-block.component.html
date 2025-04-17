@@ -1,1 +1,9 @@
-<div [ngClass]="[univer + '_guess_block', status]">{{attribute}}</div>
+<div
+  [ngClass]="[
+    theme + '_guess_block',
+    status,
+    attribute.length > 15 ? 'small-font' : ''
+  ]"
+>
+  {{ attribute }}
+</div>

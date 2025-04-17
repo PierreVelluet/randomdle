@@ -1,14 +1,14 @@
-<p class="univers-title" [ngClass]="{
+<p class="themes-title" [ngClass]="{
     animate__animated: true,
     animate__fadeInDown: true
   }" [ngStyle]="{
     'animation-delay': '1.5s'
   }">
-  Choisissez votre univers
+  Choisissez votre theme
 </p>
 
 <div class="card-container">
-  <app-universes-card *ngFor="let univer of univers; let i = index" [univer]="univer" (click)="onChooseUniverse(univer)"
+  <app-themes-card *ngFor="let theme of themes; let i = index" [theme]="theme" (click)="onChoosetheme(theme)"
     [ngClass]="{
       animate__animated: true,
       animate__fadeInLeft: i === 0,
@@ -17,5 +17,5 @@
     }" [ngStyle]="{
       'animation-delay': i * 0.5 + 's',
       'pointer-events': isClickable ? 'auto' : 'none' 
-    }"></app-universes-card>
+    }"></app-themes-card>
 </div>

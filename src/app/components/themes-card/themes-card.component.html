@@ -1,5 +1,5 @@
 <div [ngClass]="['choosing-card']">
-  <img class="portrait" alt="Drawing of a star wars entity" (mouseover)="hoverHandler()" (mouseleave)="hoverHandler()"
+  <img class="portrait" [alt]="theme + 'backround-image'" (mouseover)="hoverHandler()" (mouseleave)="hoverHandler()"
     [src]="defaultImage" [lazyLoad]="defaultImage" />
   <mat-card-content class="cardBody">
     <div *ngIf="hovered">

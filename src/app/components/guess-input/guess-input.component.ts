@@ -1,7 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, Output, QueryList, ViewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Univers } from '../../models/univers.enum';
+import { Theme } from '../../models/theme.enum';
 import { Keys } from '../../models/keys.enum';
 
 @Component({
@@ -15,7 +15,7 @@ export class GuessInputComponent {
   guess: string = '';
   @Output() guessSubmitted = new EventEmitter<string>();
   @Input() inputOptions: string[] = []
-  @Input() univer: Univers | null = null;
+  @Input() theme: Theme | null = null;
 
 
   @ViewChildren('dropdownItem') dropdownItems!: QueryList<ElementRef>;

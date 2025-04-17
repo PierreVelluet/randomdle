@@ -7,10 +7,10 @@
           [ngClass]="{
             'small-text': header.label.length > 8
           }"
-          [class]="univer + '_header_cell'"
+          [class]="theme + '_header_cell'"
         >
           <span
-            containerClass="{{ univer }}-tooltip"
+            containerClass="{{ theme }}-tooltip"
             [tooltip]="header.tooltip"
             [container]="'body'"
           >
@@ -23,7 +23,7 @@
       <tr *ngFor="let character of guessedCharacters; let rowIndex = index">
         <td *ngFor="let header of headers; let colIndex = index">
           <app-guess-block
-            [univer]="univer"
+            [theme]="theme"
             [status]="character[header.key].status"
             [attribute]="character[header.key].value"
             [ngClass]="{

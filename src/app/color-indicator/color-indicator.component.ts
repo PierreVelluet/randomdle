@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Status } from '../models/status.enum';
-import { Univers } from '../models/univers.enum';
+import { Theme } from '../models/theme.enum';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @Component({
@@ -12,7 +12,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
   standalone: true,
 })
 export class ColorIndicatorComponent {
-  @Input() univer: Univers | null = null;
+  @Input() theme: Theme | null = null;
   @Output() crossClicked = new EventEmitter<boolean>();
   status: Status[] = Object.values(Status).filter(
     (obj: Status) => obj != 'greater' && obj != 'smaller'

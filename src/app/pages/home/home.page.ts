@@ -1,25 +1,25 @@
 import { Component } from '@angular/core';
 import { GuessContainerComponent } from '../../components/guess-container/guess-container.component';
-import { UniversesContainerComponent } from '../../components/universes-container/universes-container.component';
-import { Univers } from '../../models/univers.enum';
+import { ThemesContainerComponent } from '../../components/themes-container/themes-container.component';
+import { Theme } from '../../models/theme.enum';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [GuessContainerComponent, UniversesContainerComponent, CommonModule],
+  imports: [GuessContainerComponent, ThemesContainerComponent, CommonModule],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
   standalone: true,
 })
 export class HomePage {
-  univers = Object.values(Univers);
-  chosenUniver: Univers | null = Univers.LordOfTheRing;
-  isHidingUniverses = false;
+  themes = Object.values(Theme);
+  chosenTheme: Theme | null = Theme.StarWars;
+  isHidingThemes = false;
 
-  onChooseUniverse(univer: Univers): void {
-    this.isHidingUniverses = true;
+  onChooseThemes(theme: Theme): void {
+    this.isHidingThemes = true;
     setTimeout(() => {
-      this.chosenUniver = univer;
+      this.chosenTheme = theme;
     }, 800);
   }
 }

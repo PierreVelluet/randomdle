@@ -85,6 +85,10 @@
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
 }
 
+.small-font {
+  font-size: 8px;
+}
+
 // ↑ Flèche pour greater
 .greater {
   background-image: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.59 5.58L20 12l-8-8-8 8z"/></svg>');

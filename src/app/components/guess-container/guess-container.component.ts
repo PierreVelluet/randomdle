@@ -3,7 +3,7 @@ import { GameService } from '../../services/game.service';
 import { GuessResultComponent } from '../guess-result/guess-result.component';
 import { GuessInputComponent } from '../guess-input/guess-input.component';
 import { Character } from '../../models/swCharacter.model';
-import { Univers } from '../../models/univers.enum';
+import { Theme } from '../../models/theme.enum';
 import { ColorIndicatorComponent } from '../../color-indicator/color-indicator.component';
 import { CommonModule } from '@angular/common';
 
@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
 export class GuessContainerComponent {
   headers: any[] = [];
   target!: Character;
-  @Input() univer: Univers | null = null;
+  @Input() theme: Theme | null = null;
 
   allCharacters: Character[] = [];
   guessedCharacters: Character[] = [];
@@ -34,7 +34,7 @@ export class GuessContainerComponent {
   constructor(private gameService: GameService) {}
 
   ngOnInit(): void {
-    this.gameService.getGameData(this.univer).subscribe((data) => {
+    this.gameService.getGameData(this.theme).subscribe((data) => {
       if (data) {
         this.headers = data.headers;
         this.allCharacters = data.characters;
@@ -45,7 +45,7 @@ export class GuessContainerComponent {
           Math.random() * (this.allCharacters.length + 1)
         );
         this.target = this.allCharacters[randomNumber];
-        this.logoSrc = `assets/images/${this.univer}_logo.webp`;
+        this.logoSrc = `assets/images/${this.theme}_logo.webp`;
       }
     });
   }

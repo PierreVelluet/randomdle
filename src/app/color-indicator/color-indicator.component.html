@@ -1,4 +1,4 @@
-<div class="color-indicator-container" [ngClass]="univer + '-color-indicator'">
+<div class="color-indicator-container animate__animated animate__slideInUp" [ngClass]="theme + '-color-indicator'">
   <button class="close-btn" (click)="onClose()">&times;</button>
   <div class="title">Indicateur de couleurs</div>
 
@@ -7,11 +7,11 @@
       <div
         *ngIf="st === 'proche'; else other"
         tooltip="Une ou plusieurs propriétés sont correctes, mais pas toutes."
-        [class]="[univer, st]"
-        containerClass="{{ univer }}-tooltip"
+        [class]="[theme, st]"
+        containerClass="{{ theme }}-tooltip"
       ></div>
       <ng-template #other>
-        <div [class]="[univer, st]"></div>
+        <div [class]="[theme, st]"></div>
       </ng-template>
       <span class="label">{{ st }}</span>
     </div>

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GuessBlockComponent } from '../guess-block/guess-block.component';
 import { Character } from '../../models/swCharacter.model';
 import { GuessHeader } from '../../models/guess-header.model';
-import { Univers } from '../../models/univers.enum';
+import { Theme } from '../../models/theme.enum';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @Component({
@@ -17,7 +17,7 @@ export class GuessResultComponent {
   @Input() guessedCharacters: Character[] = [];
   @Input() headers: GuessHeader[] = [];
   @Input() target!: Character;
-  @Input() univer: Univers | null = null;
+  @Input() theme: Theme | null = null;
 
   ngOnInit(): void {}
 }

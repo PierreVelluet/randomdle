@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Univers } from '../../models/univers.enum';
+import { Theme } from '../../models/theme.enum';
 
 @Component({
   selector: 'app-guess-block',
@@ -12,5 +12,5 @@ import { Univers } from '../../models/univers.enum';
 export class GuessBlockComponent {
   @Input() attribute: string | string[] = '';
   @Input() status: string = '';
-  @Input() univer: Univers | null = null;
+  @Input() theme: Theme | null = null;
 }

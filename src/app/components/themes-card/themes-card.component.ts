@@ -2,21 +2,20 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { CommonModule } from '@angular/common';
-
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @Component({
-  selector: 'app-universes-card',
+  selector: 'app-themes-card',
   imports: [MatCardModule, CommonModule, LazyLoadImageModule],
-  templateUrl: './universes-card.component.html',
-  styleUrl: './universes-card.component.scss',
+  templateUrl: './themes-card.component.html',
+  styleUrl: './themes-card.component.scss',
   standalone: true
 })
-export class UniversesCardComponent implements OnInit {
+export class ThemesCardComponent implements OnInit {
 
   @Input() public isClickPrevented!: boolean;
   @Input() public defaultImage!: string;
-  @Input() public univer: string = '';
+  @Input() public theme: string = '';
 
   hovered: boolean;
   trimedDescription: string;
@@ -29,8 +28,8 @@ export class UniversesCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.univer) {
-      this.defaultImage = `/assets/images/${this.univer}.webp`;
+    if (this.theme) {
+      this.defaultImage = `/assets/images/${this.theme}.webp`;
       this.lazyLoadImage = this.defaultImage;
     }
   }
