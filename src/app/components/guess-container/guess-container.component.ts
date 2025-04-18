@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { GuessResultComponent } from '../guess-result/guess-result.component';
 import { GuessInputComponent } from '../guess-input/guess-input.component';
@@ -33,7 +33,15 @@ export class GuessContainerComponent {
 
   constructor(private gameService: GameService) {}
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['theme'] && this.theme) {
+      // Theme was just set → now fetch data or init
+      console.log('<guess-container.component> this.theme', this.theme);
+      this.initGameData();
+    }
+  }
+
+  initGameData(): void {
     this.gameService.getGameData(this.theme).subscribe((data) => {
       if (data) {
         this.headers = data.headers;

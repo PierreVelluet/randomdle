@@ -1,21 +1,21 @@
-<p class="themes-title" [ngClass]="{
-    animate__animated: true,
-    animate__fadeInDown: true
-  }" [ngStyle]="{
-    'animation-delay': '1.5s'
-  }">
-  Choisissez votre theme
-</p>
-
 <div class="card-container">
-  <app-themes-card *ngFor="let theme of themes; let i = index" [theme]="theme" (click)="onChoosetheme(theme)"
-    [ngClass]="{
-      animate__animated: true,
-      animate__fadeInLeft: i === 0,
-      animate__fadeInUp: i === 1,
-      animate__fadeInRight: i === 2
-    }" [ngStyle]="{
-      'animation-delay': i * 0.5 + 's',
-      'pointer-events': isClickable ? 'auto' : 'none' 
-    }"></app-themes-card>
+  <div
+    class="theme-section"
+    *ngFor="let theme of themes; let i = index"
+    [class]="theme + '_bg'"
+  >
+    <app-themes-card
+      [theme]="theme"
+      (click)="onChoosetheme(theme)"
+      [ngClass]="{
+        animate__animated: true,
+        animate__fadeIn: true,
+        card: true
+      }"
+      [ngStyle]="{
+        'animation-delay': i * 0.5 + 's',
+        'pointer-events': isClickable ? 'auto' : 'none'
+      }"
+    ></app-themes-card>
+  </div>
 </div>

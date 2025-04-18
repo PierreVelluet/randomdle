@@ -1,19 +1,74 @@
 .card-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  width: 100vw;
-  margin-left: -5%;
+  width: 100%;
+  min-height: 100vh;
 }
 
-.themes-title {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 600;
-  color: black;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-  margin: 2rem 0;
-  letter-spacing: 1px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+.theme-section {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  transition: background-image 1s ease-in-out;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(20, 20, 20, 0.65),
+      rgba(20, 20, 20, 0.65)
+    );
+    z-index: 1;
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  @media screen and (min-width: 768px) {
+    background-position: center top;
+  }
+}
+
+.card {
+  margin-left: -35%;
+  margin-bottom: 45%;
+}
+
+.sw_bg,
+.lotr_bg,
+.hp_bg {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  flex: 1;
+
+  @media screen and (min-width: 768px) {
+    background-position: center top;
+  }
+}
+
+.sw_bg {
+  background-image: url("/assets/images/sw_bg_opening.webp");
+}
+
+.lotr_bg {
+  background-image: url("/assets/images/lotr_bg_opening.webp");
+}
+
+.hp_bg {
+  background-image: url("/assets/images/hp_bg_opening.webp");
 }

@@ -1,18 +1,23 @@
 <div class="parallax-wrapper" [class]="chosenTheme + '_bg'">
-  <div class="parallax-content">
-    <app-themes-container *ngIf="!chosenTheme" (chooseTheme)="onChooseThemes($event)" [ngClass]="{
-    'animate__animated': true,
-    'animate__backOutRight': isHidingThemes,
-  }" [ngStyle]="{
-    'animation-delay': '0.5s',
-    'animation-duration': '0.8s'
-  }"></app-themes-container>
-    <app-guess-container *ngIf="chosenTheme" [theme]="chosenTheme" [ngClass]="{
-    'animate__animated': true,
-    'animate__fadeIn': true
-  }" [ngStyle]="{
-    'animation-delay': '0.2s',
-    'animation-duration': '0.8s'
-  }"></app-guess-container>
+  <!-- Theme Selection Screen -->
+  <div
+    class="screen screen-theme"
+    [ngClass]="{
+      'slide-in': !chosenTheme,
+      'slide-out': chosenTheme
+    }"
+  >
+    <app-themes-container (chooseTheme)="onChooseThemes($event)"></app-themes-container>
   </div>
-</div>
+
+  <!-- Guess Screen -->
+  <div
+    class="screen screen-guess"
+    [ngClass]="{
+      'slide-in': chosenTheme,
+      'offscreen-right': !chosenTheme
+    }"
+  >
+    <app-guess-container [theme]="chosenTheme"></app-guess-container>
+  </div>
+</div> 
