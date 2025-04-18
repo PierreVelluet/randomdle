@@ -1,4 +1,4 @@
-@import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
 
 // ✅ Style de base commun pour les cellules d'en-tête
 %header-cell {
@@ -37,20 +37,25 @@
   @extend %header-cell;
   font-family: $font-sw;
   color: #ffd700;
-
+  font-size: 3rem;
+  color: black;
+  -webkit-text-stroke: 0.95px #ffe81f;
+  text-transform: uppercase;
   &::after {
     background-color: #f9e700;
   }
 }
-
 .lotr_header_cell {
   @extend %header-cell;
   font-family: $font-lotr;
-  font-weight: 700;
-  color: #c8bfbf;
+  font-weight: 600;
+  color: #f0e7c0; // Lightened for visibility
+  -webkit-text-stroke: 0.6px #2e1f00; // More contrast
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
 
   &::after {
-    background-color: #5e4605;
+    background-color: #3a2e14; // Weathered wood tone
   }
 }
 
