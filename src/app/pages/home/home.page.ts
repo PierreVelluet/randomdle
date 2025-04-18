@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HomePage {
   themes = Object.values(Theme);
-  chosenTheme: Theme | null = Theme.StarWars;
+  chosenTheme: Theme | null = null;
   isHidingThemes = false;
 
   onChooseThemes(theme: Theme): void {

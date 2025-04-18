@@ -102,18 +102,19 @@
 
 // ⚡ Harry Potter
 .hp-color-indicator {
-  background: rgba(255, 255, 255, 0.07);
-  color: #4b2e83;
+  background-color: #2b183c; // Deep magical purple
+  border: 2px solid #740001; // Gryffindor red (rich tone)
+  color: #f9e700; // Golden spellbook yellow
   font-family: $font-hp;
 
   .hp {
     @extend %guess-block-style;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid #4b2e83;
-    box-shadow: 0 4px 8px rgba(75, 46, 131, 0.3);
-    color: #f9e700;
+    border: 2px solid #d3a625; // Hogwarts gold
+    box-shadow: 0 4px 10px rgba(212, 168, 37, 0.3);
+    color: #fffbea;
   }
 }
+
 
 // 🟢 Statuts
 .incorrect {
