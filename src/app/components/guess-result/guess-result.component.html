@@ -1,4 +1,18 @@
 <div class="container">
+  <div class="themed-container" [class]="theme">
+    <div class="progress-container">
+      <div
+        class="progress-bar"
+        [style.width]="(guessedCharacters.length / 7) * 100 + '%'"
+        [style.background]="getProgressBarColor(guessedCharacters.length)"
+      ></div>
+    </div>
+    <div [class]="theme + '_progress-text'">
+      {{ guessedCharacters.length }} / 7 essai{{
+        guessedCharacters.length > 1 ? "s" : ""
+      }}
+    </div>
+  </div>
   <table class="table">
     <thead>
       <tr>

@@ -1,214 +1,384 @@
 {
-    "name": "Harry Potter Dle",
-    "headers": [
-      {
-        "key": "name",
-        "label": "Personnage",
-        "tooltip": "Nom du personnage"
-      },
-      {
-        "key": "house",
-        "label": "Maison",
-        "tooltip": "Maison à Poudlard"
-      },
-      {
-        "key": "sang",
-        "label": "Sang",
-        "tooltip": "Statut de sang (pur, mêlé, moldu...)"
-      },
-      {
-        "key": "gender",
-        "label": "Genre",
-        "tooltip": "Genre du personnage"
-      },
-      {
-        "key": "eye_color",
-        "label": "Couleur des yeux",
-        "tooltip": "Couleur des yeux du personnage"
-      },
-      {
-        "key": "type_baguette",
-        "label": "Baguette",
-        "tooltip": "Bois, cœur et longueur de la baguette"
-      },
-      {
-        "key": "films",
-        "label": "Films",
-        "tooltip": "Numéros des films Harry Potter concernés"
-      }
-    ],
-    "characters": [
-      {
-        "name": { "value": "HARRY POTTER", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Sang-mêlé", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Vert", "status": "" },
-        "type_baguette": { "value": "Houx, plume de phénix, 27,5 cm", "status": "" },
-        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "HERMIONE GRANGER", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Née-Moldue", "status": "" },
-        "gender": { "value": "Femme", "status": "" },
-        "eye_color": { "value": "Marron", "status": "" },
-        "type_baguette": { "value": "Vigne, ventricule de dragon, 27,3 cm", "status": "" },
-        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "RON WEASLEY", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Bleu", "status": "" },
-        "type_baguette": { "value": "Frêne, crin de licorne, 35,5 cm", "status": "" },
-        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "ALBUS DUMBLEDORE", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Sang-mêlé", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Bleu", "status": "" },
-        "type_baguette": { "value": "Sureau, crin de Sombral, 38 cm", "status": "" },
-        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "SEVERUS SNAPE", "status": "" },
-        "house": { "value": "Slytherin", "status": "" },
-        "sang": { "value": "Sang-mêlé", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Noir", "status": "" },
-        "type_baguette": { "value": "Inconnue", "status": "" },
-        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "DRACO MALFOY", "status": "" },
-        "house": { "value": "Slytherin", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Gris", "status": "" },
-        "type_baguette": { "value": "Aubépine, crin de licorne, 25 cm", "status": "" },
-        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "LORD VOLDEMORT", "status": "" },
-        "house": { "value": "Slytherin", "status": "" },
-        "sang": { "value": "Sang-mêlé", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Rouge", "status": "" },
-        "type_baguette": { "value": "If, plume de phénix, 34 cm", "status": "" },
-        "films": { "value": ["I", "II", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "LUNA LOVEGOOD", "status": "" },
-        "house": { "value": "Ravenclaw", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Femme", "status": "" },
-        "eye_color": { "value": "Gris", "status": "" },
-        "type_baguette": { "value": "Inconnue", "status": "" },
-        "films": { "value": ["V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "NEVILLE LONGBOTTOM", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Marron", "status": "" },
-        "type_baguette": { "value": "Cerise, ventricule de dragon, 33 cm", "status": "" },
-        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "GINNY WEASLEY", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Femme", "status": "" },
-        "eye_color": { "value": "Marron", "status": "" },
-        "type_baguette": { "value": "If, inconnue, 25,4 cm", "status": "" },
-        "films": { "value": ["II", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "MINERVA MCGONAGALL", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Femme", "status": "" },
-        "eye_color": { "value": "Vert", "status": "" },
-        "type_baguette": { "value": "Chêne, crin de licorne, 30 cm", "status": "" },
-        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "RUBEUS HAGRID", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Noir", "status": "" },
-        "type_baguette": { "value": "Inconnue", "status": "" },
-        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "SIRIUS BLACK", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Gris", "status": "" },
-        "type_baguette": { "value": "Aubépine, ventricule de dragon, 30 cm", "status": "" },
-        "films": { "value": ["III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "PETER PETTIGREW", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Gris", "status": "" },
-        "type_baguette": { "value": "Inconnue", "status": "" },
-        "films": { "value": ["I", "II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "CHARLES WEASLEY", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Marron", "status": "" },
-        "type_baguette": { "value": "Inconnue", "status": "" },
-        "films": { "value": ["II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "FRED WEASLEY", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Marron", "status": "" },
-        "type_baguette": { "value": "Inconnue", "status": "" },
-        "films": { "value": ["II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "GEORGE WEASLEY", "status": "" },
-        "house": { "value": "Gryffindor", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Marron", "status": "" },
-        "type_baguette": { "value": "Inconnue", "status": "" },
-        "films": { "value": ["II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "BELLATRIX LESTRANGE", "status": "" },
-        "house": { "value": "Slytherin", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Femme", "status": "" },
-        "eye_color": { "value": "Noir", "status": "" },
-        "type_baguette": { "value": "Inconnue", "status": "" },
-        "films": { "value": ["IV", "V", "VI", "VII"], "status": "" }
-      },
-      {
-        "name": { "value": "LUCIUS MALFOY", "status": "" },
-        "house": { "value": "Slytherin", "status": "" },
-        "sang": { "value": "Sang-pur", "status": "" },
-        "gender": { "value": "Homme", "status": "" },
-        "eye_color": { "value": "Gris", "status": "" },
-        "type_baguette": { "value": "Inconnue", "status": "" },
-        "films": { "value": ["II", "III", "IV", "V", "VI", "VII"], "status": "" }
-      }
-    ]
-  }
-  
+  "name": "Harry Potter Dle",
+  "headers": [
+    {
+      "key": "name",
+      "label": "Personnage",
+      "tooltip": "Nom du personnage"
+    },
+    {
+      "key": "house",
+      "label": "Maison",
+      "tooltip": "Maison à Poudlard"
+    },
+    {
+      "key": "sang",
+      "label": "Sang",
+      "tooltip": "Statut de sang (pur, mêlé, moldu...)"
+    },
+    {
+      "key": "gender",
+      "label": "Genre",
+      "tooltip": "Genre du personnage"
+    },
+    {
+      "key": "eye_color",
+      "label": "Couleur des yeux",
+      "tooltip": "Couleur des yeux du personnage"
+    },
+    {
+      "key": "work",
+      "label": "Profession",
+      "tooltip": "Type de métier exercé au quotidien"
+    },
+    {
+      "key": "dead_or_alive",
+      "label": "Mort/vivant",
+      "tooltip": "Mort ou vivant à la fin de la saga"
+    }
+  ],
+  "characters": [
+    {
+      "name": { "value": "Harry Potter", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-mêlé", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Vert", "status": "" },
+      "work": { "value": "Étudiant", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Hermione Granger", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Née-moldue", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Marron", "status": "" },
+      "work": { "value": "Étudiante", "status": "" },
+      "dead_or_alive": { "value": "Vivante", "status": "" }
+    },
+    {
+      "name": { "value": "Ron Weasley", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Bleu", "status": "" },
+      "work": { "value": "Étudiant", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Drago Malefoy", "status": "" },
+      "house": { "value": "Serpentard", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Gris", "status": "" },
+      "work": { "value": "Étudiant", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Albus Dumbledore", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-mêlé", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Bleu", "status": "" },
+      "work": { "value": "Professeur", "status": "" },
+      "dead_or_alive": { "value": "Mort", "status": "" }
+    },
+    {
+      "name": { "value": "Severus Rogue", "status": "" },
+      "house": { "value": "Serpentard", "status": "" },
+      "sang": { "value": "Sang-mêlé", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Noir", "status": "" },
+      "work": { "value": "Professeur", "status": "" },
+      "dead_or_alive": { "value": "Mort", "status": "" }
+    },
+    {
+      "name": { "value": "Minerva McGonagall", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Vert", "status": "" },
+      "work": { "value": "Professeure", "status": "" },
+      "dead_or_alive": { "value": "Vivante", "status": "" }
+    },
+    {
+      "name": { "value": "Neville Londubat", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Marron", "status": "" },
+      "work": { "value": "Étudiant", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Luna Lovegood", "status": "" },
+      "house": { "value": "Serdaigle", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Gris", "status": "" },
+      "work": { "value": "Étudiante", "status": "" },
+      "dead_or_alive": { "value": "Vivante", "status": "" }
+    },
+    {
+      "name": { "value": "Ginny Weasley", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Marron", "status": "" },
+      "work": { "value": "Étudiante", "status": "" },
+      "dead_or_alive": { "value": "Vivante", "status": "" }
+    },
+    {
+      "name": { "value": "Fred Weasley", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Marron", "status": "" },
+      "work": { "value": "Étudiant", "status": "" },
+      "dead_or_alive": { "value": "Mort", "status": "" }
+    },
+    {
+      "name": { "value": "George Weasley", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Marron", "status": "" },
+      "work": { "value": "Étudiant", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Bill Weasley", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Marron", "status": "" },
+      "work": { "value": "Employé du ministère", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Charlie Weasley", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Marron", "status": "" },
+      "work": { "value": "Dragonologue", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Percy Weasley", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Marron", "status": "" },
+      "work": { "value": "Employé du ministère", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Arthur Weasley", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Bleu", "status": "" },
+      "work": { "value": "Employé du ministère", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Molly Weasley", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Marron", "status": "" },
+      "work": { "value": "Mère au foyer", "status": "" },
+      "dead_or_alive": { "value": "Vivante", "status": "" }
+    },
+    {
+      "name": { "value": "Rubeus Hagrid", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-mêlé", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Noir", "status": "" },
+      "work": { "value": "Garde-chasse", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Sirius Black", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Gris", "status": "" },
+      "work": { "value": "Prisonnier d'Azkaban", "status": "" },
+      "dead_or_alive": { "value": "Mort", "status": "" }
+    },
+    {
+      "name": { "value": "Remus Lupin", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-mêlé", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Miel", "status": "" },
+      "work": { "value": "Professeur", "status": "" },
+      "dead_or_alive": { "value": "Mort", "status": "" }
+    },
+    {
+      "name": { "value": "Nymphadora Tonks", "status": "" },
+      "house": { "value": "Serdaigle", "status": "" },
+      "sang": { "value": "Sang-mêlé", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Mauve", "status": "" },
+      "work": { "value": "Auror", "status": "" },
+      "dead_or_alive": { "value": "Morte", "status": "" }
+    },
+    {
+      "name": { "value": "Dolores Ombrage", "status": "" },
+      "house": { "value": "Serdaigle", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Violet", "status": "" },
+      "work": { "value": "Professeur", "status": "" },
+      "dead_or_alive": { "value": "Vivante", "status": "" }
+    },
+    {
+      "name": { "value": "Horace Slughorn", "status": "" },
+      "house": { "value": "Serpentard", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Gris", "status": "" },
+      "work": { "value": "Professeur", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Gilderoy Lockhart", "status": "" },
+      "house": { "value": "Serdaigle", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Bleu", "status": "" },
+      "work": { "value": "Professeur", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Fleur Delacour", "status": "" },
+      "house": { "value": "Beauxbâtons", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Bleu", "status": "" },
+      "work": { "value": "Étudiante", "status": "" },
+      "dead_or_alive": { "value": "Vivante", "status": "" }
+    },
+    {
+      "name": { "value": "Victor Krum", "status": "" },
+      "house": { "value": "Durmstrang", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Noir", "status": "" },
+      "work": { "value": "Joueur de Quidditch", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Cedric Diggory", "status": "" },
+      "house": { "value": "Poufsouffle", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Marron", "status": "" },
+      "work": { "value": "Étudiant", "status": "" },
+      "dead_or_alive": { "value": "Mort", "status": "" }
+    },
+    {
+      "name": { "value": "Luna Lovegood", "status": "" },
+      "house": { "value": "Serdaigle", "status": "" },
+      "sang": { "value": "Sang-mêlé", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Lune", "status": "" },
+      "work": { "value": "Étudiante", "status": "" },
+      "dead_or_alive": { "value": "Vivante", "status": "" }
+    },
+    {
+      "name": { "value": "Tom Riddle (Voldemort)", "status": "" },
+      "house": { "value": "Serpentard", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Rouge", "status": "" },
+      "work": { "value": "Seigneur des Ténèbres", "status": "" },
+      "dead_or_alive": { "value": "Mort", "status": "" }
+    },
+    {
+      "name": { "value": "Bellatrix Lestrange", "status": "" },
+      "house": { "value": "Serpentard", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Noir", "status": "" },
+      "work": { "value": "Mangemorte", "status": "" },
+      "dead_or_alive": { "value": "Mort", "status": "" }
+    },
+    {
+      "name": { "value": "Lucius Malefoy", "status": "" },
+      "house": { "value": "Serpentard", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Gris", "status": "" },
+      "work": { "value": "Ancien Mangemorte", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Narcissa Malefoy", "status": "" },
+      "house": { "value": "Serpentard", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Bleu", "status": "" },
+      "work": { "value": "Mère et épouse", "status": "" },
+      "dead_or_alive": { "value": "Vivante", "status": "" }
+    },
+    {
+      "name": { "value": "Dolores Ombrage", "status": "" },
+      "house": { "value": "Serdaigle", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Violet", "status": "" },
+      "work": { "value": "Professeur", "status": "" },
+      "dead_or_alive": { "value": "Vivante", "status": "" }
+    },
+    {
+      "name": { "value": "Kingsley Shacklebolt", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Marron", "status": "" },
+      "work": { "value": "Auror", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Horace Slughorn", "status": "" },
+      "house": { "value": "Serpentard", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Gris", "status": "" },
+      "work": { "value": "Professeur de potions", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Arthur Weasley", "status": "" },
+      "house": { "value": "Gryffondor", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Bleu", "status": "" },
+      "work": { "value": "Employé du Ministère", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    },
+    {
+      "name": { "value": "Fleur Delacour", "status": "" },
+      "house": { "value": "Beauxbâtons", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Femme", "status": "" },
+      "eye_color": { "value": "Bleu", "status": "" },
+      "work": { "value": "Étudiante", "status": "" },
+      "dead_or_alive": { "value": "Vivante", "status": "" }
+    },
+    {
+      "name": { "value": "Victor Krum", "status": "" },
+      "house": { "value": "Durmstrang", "status": "" },
+      "sang": { "value": "Sang-pur", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Noir", "status": "" },
+      "work": { "value": "Joueur de Quidditch", "status": "" },
+      "dead_or_alive": { "value": "Vivant", "status": "" }
+    }
+  ]
+}

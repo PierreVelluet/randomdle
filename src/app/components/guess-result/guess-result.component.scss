@@ -102,3 +102,47 @@ app-guess-block {
   box-sizing: border-box;
   margin: 3px;
 }
+/* Styles communs à tous les thèmes */
+.themed-container {
+  padding: 20px;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #fff;
+  text-align: center;
+  margin: 20px;
+  position: relative;
+}
+
+/* Barre de progression */
+.progress-container {
+  width: 100%;
+  height: 10px;
+  background-color: rgb(214, 214, 201);
+  border-radius: 5px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  transition: background-color 0.3s ease, width 0.3s ease; /* Transition de couleur et de largeur */
+}
+
+.progress-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: $lotr-green;
+}
+
+.sw_progress-text {
+  font-family: $font-sw;
+  color: beige;
+}
+.lotr_progress-text {
+  font-family: $font-lotr;
+  color: beige;
+}
+.hp_progress-text {
+  color: beige;
+}
