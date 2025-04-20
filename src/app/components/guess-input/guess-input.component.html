@@ -2,7 +2,7 @@
   <div class="input-group">
     <div class="input-wrapper">
       <!-- Input -->
-      <input type="text" [(ngModel)]="guess" (keydown)="handleKeyDown($event)" (input)="filterOptions()"
+      <input [disabled]="guessedCharactersLength >= 7 || found" type="text" [(ngModel)]="guess" (keydown)="handleKeyDown($event)" (input)="filterOptions()"
         placeholder="Entrez un personnage..." [class]="theme" />
 
       <!-- Liste des options -->

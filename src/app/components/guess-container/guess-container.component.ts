@@ -1,4 +1,10 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { GuessResultComponent } from '../guess-result/guess-result.component';
 import { GuessInputComponent } from '../guess-input/guess-input.component';
@@ -23,9 +29,11 @@ export class GuessContainerComponent {
   headers: any[] = [];
   target!: Character;
   @Input() theme: Theme | null = null;
+  @Output() onThemeComplete = new EventEmitter<boolean>();
 
   allCharacters: Character[] = [];
   guessedCharacters: Character[] = [];
+  maxGuessNumber: number = 1;
   inputOptions: string[] = [];
   found: boolean = false;
   logoSrc: string = '';
@@ -35,8 +43,6 @@ export class GuessContainerComponent {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['theme'] && this.theme) {
-      // Theme was just set → now fetch data or init
-      console.log('<guess-container.component> this.theme', this.theme);
       this.initGameData();
     }
   }
@@ -83,8 +89,18 @@ export class GuessContainerComponent {
     }
 
     if (this.target.name.value === guess) {
+      this.found = true;
       setTimeout(() => {
         window.ConfettiManager.triggerConfetti();
+      }, 3000);
+      setTimeout(() => {
+        this.onThemeComplete.emit(true);
+      }, 4000);
+    }
+
+    if (this.guessedCharacters.length >= this.maxGuessNumber) {
+      setTimeout(() => {
+        this.onThemeComplete.emit(false);
       }, 3000);
     }
   }

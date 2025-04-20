@@ -13,13 +13,20 @@ import { CommonModule } from '@angular/common';
 })
 export class HomePage {
   themes = Object.values(Theme);
-  chosenTheme: Theme | null = Theme.LordOfTheRing;
+  chosenTheme: Theme | null = null;
   isHidingThemes = false;
 
   onChooseThemes(theme: Theme): void {
-    this.isHidingThemes = true;
+    this.chosenTheme = theme;
+
     setTimeout(() => {
-      this.chosenTheme = theme;
+      this.isHidingThemes = true;
     }, 800);
+  }
+
+  onThemeComplete(succeed: boolean): void {
+    console.log(succeed);
+    this.isHidingThemes = false;
+    //this.chosenTheme = null;
   }
 }

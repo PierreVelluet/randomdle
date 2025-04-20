@@ -18,11 +18,12 @@ export class GuessResultComponent {
   @Input() headers: GuessHeader[] = [];
   @Input() target!: Character;
   @Input() theme: Theme | null = null;
+  @Input() maxGuessNumber!:number;
 
   ngOnInit(): void {}
 
   getProgressBarColor(progress: number): string {
-    const percentage = progress / 7;
+    const percentage = progress / this.maxGuessNumber;
     const red = Math.min(255, Math.floor(255 * percentage));
     const green = Math.min(255, Math.floor(255 * (1 - percentage)));
     return `rgb(${red}, ${green}, 0)`;

@@ -3,8 +3,8 @@
   <div
     class="screen screen-theme"
     [ngClass]="{
-      'slide-in': !chosenTheme,
-      'slide-out': chosenTheme
+      'slide-in': !isHidingThemes,
+      'slide-out': isHidingThemes
     }"
   >
     <app-themes-container (chooseTheme)="onChooseThemes($event)"></app-themes-container>
@@ -14,10 +14,10 @@
   <div
     class="screen screen-guess"
     [ngClass]="{
-      'slide-in': chosenTheme,
-      'offscreen-right': !chosenTheme
+      'slide-in': isHidingThemes,
+      'offscreen-right': !isHidingThemes,
     }"
   >
-    <app-guess-container [theme]="chosenTheme"></app-guess-container>
+    <app-guess-container (onThemeComplete)="onThemeComplete($event)" [theme]="chosenTheme"></app-guess-container>
   </div>
 </div> 
