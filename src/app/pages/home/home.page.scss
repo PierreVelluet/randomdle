@@ -32,7 +32,6 @@
 .parallax-wrapper {
   position: relative;
   height: 100vh;
-  overflow: hidden; // Keep only this
   padding: 0;
 }
 
@@ -41,11 +40,14 @@
   top: 0;
   transition: transform 0.8s ease-in-out;
   will-change: transform;
-  overflow: hidden;
   position: absolute;
-  height: 100%; // <- add this
-  max-height: 100%; // already present
+  height: 100%; 
+  max-height: 100%;
   position: fixed;
+}
+
+.screen-guess {
+  position: relative;
 }
 
 .offscreen-left {
