@@ -47,6 +47,19 @@ export class GuessContainerComponent {
     }
   }
 
+  reset(): void {
+    console.log('RESET');
+    this.guessedCharacters = [];
+    console.log(
+      '<guess-container.component>  this.guessedCharacters',
+      this.guessedCharacters
+    );
+    this.inputOptions = [];
+    this.found = false;
+    this.colorsIndicatorVisible = false;
+    //this.initGameData();
+  }
+
   initGameData(): void {
     this.gameService.getGameData(this.theme).subscribe((data) => {
       if (data) {
@@ -88,20 +101,24 @@ export class GuessContainerComponent {
       );
     }
 
+    this.checkGuessResult(guess);
+  }
+
+  checkGuessResult(guess: string): void {
     if (this.target.name.value === guess) {
-      this.found = true;
       setTimeout(() => {
+        this.found = true;
         window.ConfettiManager.triggerConfetti();
-      }, 3000);
-      setTimeout(() => {
         this.onThemeComplete.emit(true);
-      }, 4000);
+        this.reset();
+      }, 2000);
     }
 
     if (this.guessedCharacters.length >= this.maxGuessNumber) {
       setTimeout(() => {
         this.onThemeComplete.emit(false);
-      }, 3000);
+        this.reset();
+      }, 2000);
     }
   }
 

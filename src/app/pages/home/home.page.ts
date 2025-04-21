@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { GuessContainerComponent } from '../../components/guess-container/guess-container.component';
 import { ThemesContainerComponent } from '../../components/themes-container/themes-container.component';
 import { Theme } from '../../models/theme.enum';
@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
 })
 export class HomePage {
+  guessContainerComponent!: GuessContainerComponent;
+
   themes = Object.values(Theme);
   chosenTheme: Theme | null = null;
   isHidingThemes = false;
@@ -25,8 +27,6 @@ export class HomePage {
   }
 
   onThemeComplete(succeed: boolean): void {
-    console.log(succeed);
     this.isHidingThemes = false;
-    //this.chosenTheme = null;
   }
 }
