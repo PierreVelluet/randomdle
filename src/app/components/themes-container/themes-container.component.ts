@@ -1,28 +1,48 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ThemesCardComponent } from '../themes-card/themes-card.component';
-import { Theme } from '../../models/theme.enum';
+import { Theme, ThemeData } from '../../models/theme.enum';
+import { GlobalStateService } from '../../global-state.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-themes-container',
-  imports: [ThemesCardComponent, CommonModule],
+  imports: [CommonModule],
   templateUrl: './themes-container.component.html',
   styleUrl: './themes-container.component.scss',
   standalone: true,
 })
-export class ThemesContainerComponent {
-  @Output() chooseTheme: EventEmitter<Theme> = new EventEmitter<Theme>();
+export class ThemesContainerComponent implements OnInit, OnDestroy {
   themes = Object.values(Theme);
-  isClickable: boolean = false;
+  themesDatas: ThemeData[] | null = null;
+
+  private destroy$ = new Subject<void>();
+
+  constructor(private globalState: GlobalStateService) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.isClickable = true;
-    }, 3000);
+    this.globalState.themesDatas$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((themesDatas: ThemeData[] | null) => {
+        this.themesDatas = themesDatas;
+      });
   }
 
   onChoosetheme(theme: Theme): void {
-    if (!this.isClickable) return;
-    this.chooseTheme.emit(theme);
+    this.globalState.setTheme(theme);
+  }
+
+  isThemeDone(theme: Theme): boolean {
+    const data = this.themesDatas?.find((t) => t.themeName === theme);
+    return !!data?.done;
+  }
+
+  isThemeSuccess(theme: Theme): boolean {
+    const data = this.themesDatas?.find((t) => t.themeName === theme);
+    return !!data?.success;
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

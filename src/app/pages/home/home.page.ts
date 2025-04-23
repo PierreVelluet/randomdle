@@ -1,32 +1,50 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 import { GuessContainerComponent } from '../../components/guess-container/guess-container.component';
 import { ThemesContainerComponent } from '../../components/themes-container/themes-container.component';
 import { Theme } from '../../models/theme.enum';
-import { CommonModule } from '@angular/common';
+import { GlobalStateService } from '../../global-state.service';
 
 @Component({
   selector: 'app-home',
-  imports: [GuessContainerComponent, ThemesContainerComponent, CommonModule],
+  standalone: true,
+  imports: [CommonModule, GuessContainerComponent, ThemesContainerComponent],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
-  standalone: true,
 })
-export class HomePage {
-  guessContainerComponent!: GuessContainerComponent;
-
-  themes = Object.values(Theme);
+export class HomePage implements OnInit, OnDestroy {
+  readonly themes = Object.values(Theme);
   chosenTheme: Theme | null = null;
   isHidingThemes = false;
 
-  onChooseThemes(theme: Theme): void {
-    this.chosenTheme = theme;
+  private readonly destroy$ = new Subject<void>();
 
-    setTimeout(() => {
-      this.isHidingThemes = true;
-    }, 800);
+  constructor(private readonly globalState: GlobalStateService) {}
+
+  ngOnInit(): void {
+    this.globalState.currentTheme$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((theme) => {
+        if (theme) {
+          this.chosenTheme = theme;
+          setTimeout(() => (this.isHidingThemes = true), 50);
+        }
+      });
+
+    this.globalState.currentThemeData$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((themeData) => {
+        if (themeData?.done) {
+          this.isHidingThemes = false;
+        }
+      });
   }
 
-  onThemeComplete(succeed: boolean): void {
-    this.isHidingThemes = false;
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

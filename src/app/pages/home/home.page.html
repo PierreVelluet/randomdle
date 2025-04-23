@@ -7,9 +7,7 @@
       'slide-out': isHidingThemes
     }"
   >
-    <app-themes-container
-      (chooseTheme)="onChooseThemes($event)"
-    ></app-themes-container>
+    <app-themes-container></app-themes-container>
   </div>
 
   <!-- Guess Screen -->
@@ -20,9 +18,6 @@
       'offscreen-right': !isHidingThemes,
     }"
   >
-    <app-guess-container
-      (onThemeComplete)="onThemeComplete($event)"
-      [theme]="chosenTheme"
-    ></app-guess-container>
+    <app-guess-container [theme]="chosenTheme"></app-guess-container>
   </div>
 </div>

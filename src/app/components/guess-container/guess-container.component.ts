@@ -12,6 +12,7 @@ import { Character } from '../../models/swCharacter.model';
 import { Theme } from '../../models/theme.enum';
 import { ColorIndicatorComponent } from '../../color-indicator/color-indicator.component';
 import { CommonModule } from '@angular/common';
+import { GlobalStateService } from '../../global-state.service';
 
 @Component({
   selector: 'app-guess-container',
@@ -39,7 +40,7 @@ export class GuessContainerComponent {
   logoSrc: string = '';
   colorsIndicatorVisible: boolean = false;
 
-  constructor(private gameService: GameService) {}
+  constructor(private gameService: GameService, private globalStateService: GlobalStateService) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['theme'] && this.theme) {
@@ -109,14 +110,21 @@ export class GuessContainerComponent {
       setTimeout(() => {
         this.found = true;
         window.ConfettiManager.triggerConfetti();
-        this.onThemeComplete.emit(true);
+        this.globalStateService.updateCurrentThemeData({
+          done: true,
+          success: true
+        });
+        
         this.reset();
       }, 2000);
     }
 
     if (this.guessedCharacters.length >= this.maxGuessNumber) {
       setTimeout(() => {
-        this.onThemeComplete.emit(false);
+        this.globalStateService.updateCurrentThemeData({
+          done: true,
+          success: true
+        });
         this.reset();
       }, 2000);
     }
