@@ -1,9 +1,7 @@
 import {
   Component,
   EventEmitter,
-  Input,
   Output,
-  SimpleChanges,
 } from '@angular/core';
 import { GameService } from '../../services/game.service';
 import { GuessResultComponent } from '../guess-result/guess-result.component';
@@ -13,6 +11,8 @@ import { Theme } from '../../models/theme.enum';
 import { ColorIndicatorComponent } from '../../color-indicator/color-indicator.component';
 import { CommonModule } from '@angular/common';
 import { GlobalStateService } from '../../global-state.service';
+import { Subject, takeUntil } from 'rxjs';
+import { GameLogicService } from '../../services/game-logic.service';
 
 @Component({
   selector: 'app-guess-container',
@@ -29,7 +29,7 @@ import { GlobalStateService } from '../../global-state.service';
 export class GuessContainerComponent {
   headers: any[] = [];
   target!: Character;
-  @Input() theme: Theme | null = null;
+  theme!: Theme;
   @Output() onThemeComplete = new EventEmitter<boolean>();
 
   allCharacters: Character[] = [];
@@ -40,25 +40,26 @@ export class GuessContainerComponent {
   logoSrc: string = '';
   colorsIndicatorVisible: boolean = false;
 
-  constructor(private gameService: GameService, private globalStateService: GlobalStateService) {}
+  constructor(private gameService: GameService, private globalStateService: GlobalStateService, private gameLogicService: GameLogicService) { }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['theme'] && this.theme) {
-      this.initGameData();
-    }
+  private readonly destroy$ = new Subject<void>();
+
+  ngOnInit(): void {
+    this.globalStateService.currentTheme$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((theme: Theme | null) => {
+        if (theme) {
+          this.theme = theme;
+          this.initGameData();
+        }
+      });
   }
 
   reset(): void {
-    console.log('RESET');
     this.guessedCharacters = [];
-    console.log(
-      '<guess-container.component>  this.guessedCharacters',
-      this.guessedCharacters
-    );
     this.inputOptions = [];
     this.found = false;
     this.colorsIndicatorVisible = false;
-    //this.initGameData();
   }
 
   initGameData(): void {
@@ -86,7 +87,7 @@ export class GuessContainerComponent {
       return;
     }
 
-    const updatedCharacter = this.addStatusToCharacter(
+    const updatedCharacter = this.gameLogicService.addStatusToCharacter(
       guessedCharacter,
       this.target
     );
@@ -114,7 +115,7 @@ export class GuessContainerComponent {
           done: true,
           success: true
         });
-        
+
         this.reset();
       }, 2000);
     }
@@ -130,59 +131,12 @@ export class GuessContainerComponent {
     }
   }
 
-  addStatusToCharacter(
-    guessedCharacter: Character,
-    target: Character
-  ): Character {
-    const updatedCharacter: Character = { ...guessedCharacter };
-
-    for (const key in guessedCharacter) {
-      if (guessedCharacter.hasOwnProperty(key)) {
-        const guessedValue = guessedCharacter[key].value;
-        const targetValue = target[key].value;
-
-        let status: string = 'incorrect';
-
-        if (guessedValue === targetValue) {
-          status = 'correct';
-        } else if (
-          parseFloat(guessedValue as string) > parseFloat(targetValue as string)
-        ) {
-          status = 'greater';
-        } else if (
-          parseFloat(guessedValue as string) < parseFloat(targetValue as string)
-        ) {
-          status = 'smaller';
-        }
-
-        if (key === 'films') {
-          const guessedFilms = guessedCharacter[key].value || [];
-          const targetFilms = target[key].value || [];
-
-          const filmsMatch = guessedFilms.every((film) =>
-            targetFilms.includes(film)
-          );
-
-          if (filmsMatch) {
-            status = 'correct';
-          } else {
-            const filmsPartialMatch = guessedFilms.some((film) =>
-              targetFilms.includes(film)
-            );
-            if (filmsPartialMatch) {
-              status = 'proche';
-            }
-          }
-        }
-
-        updatedCharacter[key].status = status;
-      }
-    }
-
-    return updatedCharacter;
-  }
-
   handleCrossClick(clicked: boolean): void {
     this.colorsIndicatorVisible = clicked;
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
