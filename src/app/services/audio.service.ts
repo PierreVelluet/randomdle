@@ -1,20 +1,42 @@
 import { Injectable } from '@angular/core';
 import { Theme } from '../models/theme.enum';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AudioService {
-  private themeAudio: HTMLAudioElement = new Audio();
+  themeAudio: HTMLAudioElement = new Audio();
+
+  private isPlayingSubject = new BehaviorSubject<boolean>(false);
+  isPlaying$ = this.isPlayingSubject.asObservable();
+
   private fadeInterval: any;
   private fadeInInterval: any;
+  private initialThemeVolume: number = 0.75;
+  private initialAmbiantVolume: number = 0.25;
 
-  constructor() { }
+  constructor() {
+    this.setupAudioEvents();
+  }
+
+  private setupAudioEvents() {
+    this.themeAudio.addEventListener('playing', () => {
+      this.isPlayingSubject.next(true);
+    });
+
+    this.themeAudio.addEventListener('pause', () => {
+      this.isPlayingSubject.next(false);
+    });
+
+    this.themeAudio.addEventListener('ended', () => {
+      this.isPlayingSubject.next(false);
+    });
+  }
 
   playAudio(theme: Theme | null): void {
     const newSrc = 'assets/audios/' + (theme ?? 'ambiant') + '_audio_' + (Math.floor(Math.random() * 3) + 1) + '.mp3';
 
-    // If already playing something, fade out first
     if (!this.themeAudio.paused) {
       this.fadeOut(() => {
         this.startNewAudio(newSrc, theme);
@@ -24,13 +46,21 @@ export class AudioService {
     }
   }
 
+  get themeVolume(): number {
+    return this.initialThemeVolume;
+  }
+
+  get ambiantVolume(): number {
+    return this.initialAmbiantVolume;
+  }
+
   private startNewAudio(src: string, theme: Theme | null) {
     this.themeAudio.src = src;
     this.themeAudio.load();
     this.themeAudio.volume = 0;
     this.themeAudio.play();
     this.themeAudio.loop = true;
-    this.fadeIn(theme ? 0.75 : 0.25);
+    this.fadeIn(theme ? this.initialThemeVolume : this.initialAmbiantVolume);
   }
 
   private fadeOut(callback: () => void) {
@@ -56,6 +86,10 @@ export class AudioService {
         clearInterval(this.fadeInInterval);
       }
     }, 75);
+  }
+
+  setVolume(volume: number): void {
+    this.themeAudio.volume = volume;
   }
 
   reStartAudio() {

@@ -50,15 +50,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      to bottom,
-      rgba(20, 20, 20, 0.65),
-      rgba(20, 20, 20, 0.65)
-    );
+    background: linear-gradient(to bottom,
+        rgba(20, 20, 20, 0.65),
+        rgba(20, 20, 20, 0.65));
     z-index: 1;
   }
 
-  > * {
+  >* {
     position: relative;
     z-index: 2;
   }
@@ -230,13 +228,15 @@
 .success-box {
   border: 2px solid #28a745;
   box-shadow: 0 0 10px #28a745aa;
-  background: rgba(40, 167, 69, 0.05); /* soft green glow */
+  background: rgba(40, 167, 69, 0.05);
+  /* soft green glow */
 }
 
 .failed-box {
   border: 2px solid #dc3545;
   box-shadow: 0 0 10px #dc3545aa;
-  background: rgba(220, 53, 69, 0.05); /* soft red glow */
+  background: rgba(220, 53, 69, 0.05);
+  /* soft red glow */
 }
 
 .box-success:hover {

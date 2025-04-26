@@ -1,7 +1,11 @@
-<button (click)="toggleSound()" class="btn sound-btn">
-  <i [ngClass]="isSoundOn ? 'fas fa-volume-up' : 'fas fa-volume-mute'"></i>
-</button>
+<div *ngIf="isSoundIconVisible">
+  <button (click)="toggleSound()" class="btn sound-btn">
+    <i [ngClass]="isSoundOn ? 'fas fa-volume-up' : 'fas fa-volume-mute'"></i>
+  </button>
 
+  <input *ngIf="isSoundOn" #volumeSlider type="range" min="0" max="1" step="0.01" [value]="currentVolume"
+    (input)="onVolumeChange($event)" class="volume-slider" />
+</div>
 
 <div class="parallax-wrapper" [class]="chosenTheme + '_bg'">
   <!-- Theme Selection Screen -->

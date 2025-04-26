@@ -10,7 +10,6 @@ import { ColorIndicatorComponent } from '../../color-indicator/color-indicator.c
 import { CommonModule } from '@angular/common';
 import { GlobalStateService } from '../../global-state.service';
 import { Subject, takeUntil } from 'rxjs';
-import { AudioService } from '../../services/audio.service';
 
 @Component({
   selector: 'app-guess-container',

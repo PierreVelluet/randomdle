@@ -74,10 +74,10 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 40px;
+  font-size: 25px;
   color: #6a1c20;
   position: absolute;
-  top: 16px;
+  top: 10px;
   left: 16px;
   z-index: 1000;
 }
@@ -97,4 +97,80 @@
 
 .sound-btn:active i {
   transform: scale(0.95);
+}
+
+.volume-slider {
+  position: absolute;
+  top: 60px;
+  left: 16px;
+  z-index: 1000;
+  width: 90px;
+  height: 4px;
+  appearance: none;
+  /* Reset default styling */
+  border-radius: 5px;
+  outline: none;
+  background: linear-gradient(to right, #6a1c20 50%, #e5d5b0 50%);
+  /* Half red, half beige */
+  transition: background 0.2s;
+}
+
+/* Chrome & Edge - Track */
+.volume-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 5px;
+}
+
+/* Chrome & Edge - Thumb */
+.volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -5px;
+  /* Align with track */
+  position: relative;
+}
+
+/* Firefox - Track */
+.volume-slider::-moz-range-track {
+  height: 6px;
+  border-radius: 5px;
+}
+
+/* Firefox - Thumb */
+.volume-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* IE - Track */
+.volume-slider::-ms-track {
+  height: 6px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.volume-slider::-ms-fill-lower {
+  background: #6a1c20;
+  /* Filled part */
+}
+
+.volume-slider::-ms-fill-upper {
+  background: #e5d5b0;
+  /* Unfilled part */
+}
+
+.volume-slider::-ms-thumb {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
 }

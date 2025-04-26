@@ -1,48 +1,28 @@
 <div class="card-container">
-  <div
-    class="theme-section"
-    *ngFor="let theme of themes; let i = index"
-    [class]="theme + '_bg'"
-  >
-    <div
-      [ngStyle]="{
+  <div class="theme-section" *ngFor="let theme of themes; let i = index" [class]="theme + '_bg'">
+    <div [ngStyle]="{
         'animation-delay': i * 0.5 + 's'
-      }"
-      [ngClass]="[
+      }" [ngClass]="[
         'animate__animated',
         'animate__fadeIn',
         'card',
         isThemeDone(theme) && isThemeSuccess(theme) ? 'success-box' : '',
         isThemeDone(theme) && !isThemeSuccess(theme) ? 'failed-box' : '',
         theme + '-card'
-      ]"
-    >
-      <div
-        class="logo-container d-flex justify-content-center align-items-center"
-      >
-        <img
-        [src]="'assets/images/' + theme + '_logo.webp'"
-          alt="Theme's logo"
-          class="img-fluid"
-        />
+      ]">
+      <div class="logo-container d-flex justify-content-center align-items-center">
+        <img [src]="'assets/images/' + theme + '_logo.webp'" alt="Theme's logo" class="img-fluid" />
       </div>
 
       <!-- If the task is not done, show a button. If it's done, show success or failure block -->
       <div *ngIf="!isThemeDone(theme)">
-        <button
-          [disabled]="isThemeDone(theme)"
-          [ngClass]="theme + '-button'"
-          (click)="onChoosetheme(theme)"
-        >
+        <button [disabled]="isThemeDone(theme)" [ngClass]="theme + '-button'" (click)="onChoosetheme(theme)">
           Go
         </button>
       </div>
 
       <!-- Success or Failure Block when task is done -->
-      <div
-        *ngIf="isThemeDone(theme)"
-        [ngClass]="isThemeSuccess(theme) ? 'success-block' : 'failed-block'"
-      >
+      <div *ngIf="isThemeDone(theme)" [ngClass]="isThemeSuccess(theme) ? 'success-block' : 'failed-block'">
         <ng-container *ngIf="isThemeSuccess(theme); else failTemplate">
           <span class="success-icon">&#10003;&nbsp;</span> Success
         </ng-container>
