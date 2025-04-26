@@ -1,16 +1,11 @@
-import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  Output,
-  QueryList,
-  ViewChildren,
-} from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Theme } from '../../models/theme.enum';
 import { Keys } from '../../models/keys.enum';
+import { GlobalStateService } from '../../global-state.service';
+import { GameLogicService } from '../../services/game-logic.service';
+import { Subject } from 'rxjs';
+import { Character } from '../../models/swCharacter.model';
 
 @Component({
   selector: 'app-guess-input',
@@ -21,16 +16,19 @@ import { Keys } from '../../models/keys.enum';
 })
 export class GuessInputComponent {
   guess: string = '';
-  @Output() guessSubmitted = new EventEmitter<string>();
-  @Input() inputOptions: string[] = [];
-  @Input() theme: Theme | null = null;
-  @Input() found: boolean = false;
-  @Input() guessedCharactersLength: number = 0;
+  private readonly destroy$ = new Subject<void>();
+  private readonly timeoutDelay = 2000;
 
   @ViewChildren('dropdownItem') dropdownItems!: QueryList<ElementRef>;
 
   filteredOptions: string[] = [];
   activeOptionIndex: number = -1;
+  currentThemeData$ = this.globalState.currentThemeData$;
+
+  constructor(
+    private globalState: GlobalStateService,
+    private gameLogicService: GameLogicService
+  ) { }
 
   filterOptions() {
     if (!this.guess.trim()) {
@@ -39,9 +37,10 @@ export class GuessInputComponent {
       return;
     }
 
-    this.filteredOptions = this.inputOptions.filter((option) =>
-      option.toLowerCase().includes(this.guess.toLowerCase())
-    );
+    this.filteredOptions = this.globalState
+      .getCurrentThemeData()?.inputItems.filter((option) =>
+        option.toLowerCase().includes(this.guess.toLowerCase())
+      ) ?? [];
   }
 
   selectOption(option: string) {
@@ -50,12 +49,62 @@ export class GuessInputComponent {
   }
 
   isValidGuess(): boolean {
-    return this.inputOptions.includes(this.guess);
+    return (this.globalState.getCurrentThemeData()?.inputItems ?? []).includes(this.guess);
+  }
+
+  handleGuess(guess: string) {
+    const currentThemeData = this.globalState.getCurrentThemeData();
+    if (!currentThemeData) return;
+
+    const updatedCharacter = this.gameLogicService.findGuessedCharacter(
+      guess,
+      currentThemeData.items,
+      currentThemeData.targetItem
+    );
+
+    if (updatedCharacter) {
+      const oldGuessedItems: Character[] = currentThemeData.guessedItems ?? [];
+      this.globalState.updateCurrentThemeData({
+        guessedItems: [updatedCharacter, ...oldGuessedItems],
+        inputItems: (currentThemeData.inputItems ?? []).filter(
+          (option: string) => option !== updatedCharacter.name.value
+        ),
+      });
+    }
+
+    if (this.globalState.getCurrentThemeData().guessedItems.length == 1)
+      this.globalState.setColorsIndicatorVisibility(true);
+
+    this.checkGuessResult(guess);
+  }
+
+  checkGuessResult(guess: string): void {
+    const currentThemeData = this.globalState.getCurrentThemeData();
+    if (!currentThemeData) return;
+
+    if (currentThemeData.targetItem?.name.value === guess) {
+      setTimeout(() => {
+        window.ConfettiManager.triggerConfetti();
+        this.globalState.updateCurrentThemeData({
+          done: true,
+          success: true,
+        });
+      }, this.timeoutDelay);
+    }
+
+    if ((currentThemeData.guessedItems?.length ?? 0) >= currentThemeData.maxGuessNumber) {
+      setTimeout(() => {
+        this.globalState.updateCurrentThemeData({
+          done: true,
+          success: false,
+        });
+      }, this.timeoutDelay);
+    }
   }
 
   submitGuess() {
     if (this.isValidGuess()) {
-      this.guessSubmitted.emit(this.guess.trim());
+      this.handleGuess(this.guess);
       this.guess = '';
       this.filteredOptions = [];
     }
@@ -65,16 +114,14 @@ export class GuessInputComponent {
     switch (event.key) {
       case Keys.ArrowDown:
         event.preventDefault();
-        this.activeOptionIndex =
-          (this.activeOptionIndex + 1) % this.filteredOptions.length;
+        this.activeOptionIndex = (this.activeOptionIndex + 1) % this.filteredOptions.length;
         this.scrollToActiveOption();
         break;
 
       case Keys.ArrowUp:
         event.preventDefault();
         this.activeOptionIndex =
-          (this.activeOptionIndex - 1 + this.filteredOptions.length) %
-          this.filteredOptions.length;
+          (this.activeOptionIndex - 1 + this.filteredOptions.length) % this.filteredOptions.length;
         this.scrollToActiveOption();
         break;
 
@@ -103,5 +150,10 @@ export class GuessInputComponent {
         block: 'nearest',
       });
     }
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

@@ -127,11 +127,13 @@ app-guess-block {
   height: 100%;
   transition: background-color 0.3s ease, width 0.3s ease; /* Transition de couleur et de largeur */
 }
-
 .progress-text {
   font-size: 18px;
   font-weight: bold;
   color: $lotr-green;
+  
+  /* Adding a text shadow for contour effect */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7), -2px -2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .sw_progress-text {

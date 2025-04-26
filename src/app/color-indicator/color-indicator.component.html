@@ -1,19 +1,18 @@
-<div class="color-indicator-container animate__animated animate__slideInUp" [ngClass]="theme + '-color-indicator'">
-  <button class="close-btn" (click)="onClose()">&times;</button>
-  <div class="title">Indicateur de couleurs</div>
+<ng-container *ngIf="currentThemeData$ | async as themeData">
+  <div class="color-indicator-container animate__animated animate__slideInUp"
+    [ngClass]="themeData.themeName + '-color-indicator'">
+    <button class="close-btn" (click)="onClose()">&times;</button>
+    <div class="title">Indicateur de couleurs</div>
 
-  <div class="indicator-content">
-    <div class="indicator-item" *ngFor="let st of status">
-      <div
-        *ngIf="st === 'proche'; else other"
-        tooltip="Une ou plusieurs propriétés sont correctes, mais pas toutes."
-        [class]="[theme, st]"
-        containerClass="{{ theme }}-tooltip"
-      ></div>
-      <ng-template #other>
-        <div [class]="[theme, st]"></div>
-      </ng-template>
-      <span class="label">{{ st }}</span>
+    <div class="indicator-content">
+      <div class="indicator-item" *ngFor="let st of status">
+        <div *ngIf="st === 'proche'; else other" tooltip="Une ou plusieurs propriétés sont correctes, mais pas toutes."
+          [class]="[themeData.themeName, st]" containerClass="{{ themeData.themeName }}-tooltip"></div>
+        <ng-template #other>
+          <div [class]="[themeData.themeName, st]"></div>
+        </ng-template>
+        <span class="label">{{ st }}</span>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>

@@ -1,29 +1,15 @@
-<div
-  class="guess-wrapper container-fluid d-flex flex-column align-items-center"
->
+<div class="guess-wrapper container-fluid d-flex flex-column align-items-center">
   <div class="logo-container d-flex justify-content-center align-items-center">
-    <img [src]="logoSrc" alt="Theme's logo" class="img-fluid" />
+    <ng-container *ngIf="currentThemeData$ | async as themeData">
+      <img [src]="themeData.logoSrc" alt="Theme's logo" class="img-fluid" />
+    </ng-container>
   </div>
 
-  <app-guess-input
-    [found]="found"
-    [theme]="theme"
-    [inputOptions]="inputOptions"
-    [guessedCharactersLength]="guessedCharacters.length"
-    (guessSubmitted)="handleGuess($event)"
-  ></app-guess-input>
+  <app-guess-input></app-guess-input>
 
-  <app-guess-result
-    [maxGuessNumber]="maxGuessNumber"
-    [theme]="theme"
-    [target]="target"
-    [guessedCharacters]="guessedCharacters"
-    [headers]="headers"
-  ></app-guess-result>
+  <app-guess-result></app-guess-result>
 
-  <app-color-indicator
-    *ngIf="colorsIndicatorVisible"
-    [theme]="theme"
-    (crossClicked)="handleCrossClick($event)"
-  ></app-color-indicator>
+  <ng-container *ngIf="isColorsIndicatorVisible$ | async as isColorsIndicatorVisible">
+    <app-color-indicator></app-color-indicator>
+  </ng-container>
 </div>

@@ -1,56 +1,42 @@
 <div class="container">
-  <div class="themed-container" [class]="theme">
-    <div class="progress-container">
-      <div
-        class="progress-bar"
-        [style.width]="(guessedCharacters.length / 7) * 100 + '%'"
-        [style.background]="getProgressBarColor(guessedCharacters.length)"
-      ></div>
+  <ng-container *ngIf="currentThemeData$ | async as themeData">
+    <div class="themed-container" [class]="themeData.themeName">
+      <div class="progress-container">
+        <div class="progress-bar" [style.width]="(themeData.guessedItems.length  / themeData.maxGuessNumber) * 100 + '%'"
+          [style.background]="getProgressBarColor(themeData.guessedItems.length)"></div>
+      </div>
+      <div [ngClass]="[themeData.themeName + '_progress-text', 'progress-text']">
+        {{ themeData.guessedItems.length }} / {{themeData.maxGuessNumber}} essai{{
+        themeData.guessedItems.length > 1 ? "s" : ""
+        }}
+      </div>
     </div>
-    <div [class]="theme + '_progress-text'">
-      {{ guessedCharacters.length }} / 7 essai{{
-        guessedCharacters.length > 1 ? "s" : ""
-      }}
-    </div>
-  </div>
-  <table class="table">
-    <thead>
-      <tr>
-        <th
-          *ngFor="let header of headers"
-          [ngClass]="{
+    <table class="table">
+      <thead>
+        <tr>
+          <th *ngFor="let header of themeData.headers" [ngClass]="{
             'small-text': header.label.length > 8
-          }"
-          [class]="theme + '_header_cell'"
-        >
-          <span
-            containerClass="{{ theme }}-tooltip"
-            [tooltip]="header.tooltip"
-            [container]="'body'"
-          >
-            {{ header.label }}
-          </span>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let character of guessedCharacters; let rowIndex = index">
-        <td *ngFor="let header of headers; let colIndex = index">
-          <app-guess-block
-            [theme]="theme"
-            [status]="character[header.key].status"
-            [attribute]="character[header.key].value"
-            [ngClass]="{
+          }" [class]="themeData.themeName + '_header_cell'">
+            <span containerClass="{{ themeData.themeName }}-tooltip" [tooltip]="header.tooltip" [container]="'body'">
+              {{ header.label }}
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of themeData.guessedItems; let rowIndex = index">
+          <td *ngFor="let header of themeData.headers; let colIndex = index">
+            <app-guess-block [theme]="themeData.themeName" [status]="item[header.key].status"
+              [attribute]="item[header.key].value" [ngClass]="{
               animate__animated: true,
               animate__fadeIn: true
-            }"
-            [ngStyle]="{
+            }" [ngStyle]="{
               'animation-delay': colIndex * 0.5 + 's'
-            }"
-          >
-          </app-guess-block>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+            }">
+            </app-guess-block>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
 </div>

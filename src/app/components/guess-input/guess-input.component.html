@@ -1,22 +1,27 @@
 <div class="guess-container">
-  <div class="input-group">
-    <div class="input-wrapper">
-      <!-- Input -->
-      <input [disabled]="guessedCharactersLength >= 7 || found" type="text" [(ngModel)]="guess" (keydown)="handleKeyDown($event)" (input)="filterOptions()"
-        placeholder="Entrez un personnage..." [class]="theme" />
+  <ng-container *ngIf="currentThemeData$ | async as themeData">
+    <div class="input-group">
+      <div class="input-wrapper">
+        <!-- Input -->
 
-      <!-- Liste des options -->
-      <ul *ngIf="filteredOptions.length > 0" [class]="theme + '_dropdown'">
-        <li #dropdownItem *ngFor="let option of filteredOptions; let i = index" [class.active]="i === activeOptionIndex"
-          (click)="selectOption(option)" tabindex="0">
-          {{ option }}
-        </li>
-      </ul>
+        <input [disabled]="themeData.guessedItems.length >= 7 || themeData.done" type="text" [(ngModel)]="guess"
+          (keydown)="handleKeyDown($event)" (input)="filterOptions()" placeholder="Entrez un personnage..."
+          [class]="themeData.themeName" />
+
+        <!-- Liste des options -->
+        <ul *ngIf="filteredOptions.length > 0" [class]="themeData.themeName + '_dropdown'">
+          <li #dropdownItem *ngFor="let option of filteredOptions; let i = index"
+            [class.active]="i === activeOptionIndex" (click)="selectOption(option)" tabindex="0">
+            {{ option }}
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- Bouton de validation -->
+      <button (click)="submitGuess()" [class]="themeData.themeName + '_button'" [disabled]="!isValidGuess()">
+        Valider
+      </button>
     </div>
-
-    <!-- Bouton de validation -->
-    <button (click)="submitGuess()" [class]="theme + '_button'" [disabled]="!isValidGuess()">
-      Valider
-    </button>
-  </div>
+  </ng-container>
 </div>

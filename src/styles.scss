@@ -49,6 +49,15 @@ body::-webkit-scrollbar {
   border: 1px solid #4b2e83;
 }
 
-span, th, td, div, p {
+span,
+th,
+td,
+div,
+p {
   cursor: default;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
 }

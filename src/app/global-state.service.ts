@@ -8,12 +8,39 @@ import { Theme, ThemeData } from './models/theme.enum';
 export class GlobalStateService {
   private readonly currentThemeSubject = new BehaviorSubject<Theme | null>(null);
   private readonly themesDataSubject = new BehaviorSubject<ThemeData[]>(this.initializeThemesData());
+  private readonly isColorsIndicatorVisible = new BehaviorSubject<boolean>(false);
 
-  constructor() {}
+  constructor() { }
+
+  baseCharacter = {
+    "name": { "value": "Luke Skywalker", "status": "" },
+    "height": { "value": "172", "status": "" },
+    "mass": { "value": "77", "status": "" },
+    "gender": { "value": "Homme", "status": "" },
+    "eye_color": { "value": "Bleu", "status": "" },
+    "homeworld": { "value": "Tatooine", "status": "" },
+    "films": { "value": ["IV", "V", "VI", "III"], "status": "" },
+    "species": { "value": "Humain", "status": "" }
+  }
+
+  baseThemeData = {
+    themeName: Theme.StarWars,
+    winStreak: 0,
+    done: false,
+    success: false,
+    headers: [],
+    inputItems: [],
+    items: [],
+    guessedItems: [],
+    logoSrc: "",
+    targetItem: this.baseCharacter,
+    maxGuessNumber: 7
+  }
 
   // Public Observables
   readonly currentTheme$ = this.currentThemeSubject.asObservable();
   readonly themesDatas$ = this.themesDataSubject.asObservable();
+  readonly isColorsIndicatorVisible$ = this.isColorsIndicatorVisible.asObservable();
 
   readonly currentThemeData$: Observable<ThemeData | undefined> = combineLatest([
     this.currentTheme$,
@@ -29,9 +56,12 @@ export class GlobalStateService {
     this.currentThemeSubject.next(theme);
   }
 
-  getCurrentThemeData(): ThemeData | undefined {
+  setColorsIndicatorVisibility(isVisible: boolean): void {
+    this.isColorsIndicatorVisible.next(isVisible);
+  }
+  getCurrentThemeData(): ThemeData {
     const theme = this.currentThemeSubject.value;
-    return theme ? this.themesDataSubject.value.find((d) => d.themeName === theme) : undefined;
+    return this.themesDataSubject.value.find((d) => d.themeName === theme) ?? this.baseThemeData;
   }
 
   updateCurrentThemeData(updatedFields: Partial<ThemeData>): void {
@@ -52,6 +82,13 @@ export class GlobalStateService {
       winStreak: 0,
       done: false,
       success: false,
+      headers: [],
+      inputItems: [],
+      items: [],
+      guessedItems: [],
+      logoSrc: "",
+      targetItem: this.baseCharacter,
+      maxGuessNumber: 7
     }));
   }
 }

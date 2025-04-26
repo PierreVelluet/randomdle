@@ -7,9 +7,23 @@ import { Status } from '../models/status.enum';
 })
 export class GameLogicService {
 
-  constructor() { }
+  findGuessedCharacter(guess: string, items: Character[], targetItem: Character): Character | null {
+    const guessedCharacter: Character | undefined = items.find(
+      (character: Character) => character.name.value === guess
+    );
+    if (!guessedCharacter) {
+      return null;
+    }
 
-  addStatusToCharacter(
+    const updatedCharacter = this.addStatusToCharacter(
+      guessedCharacter,
+      targetItem
+    );
+
+    return updatedCharacter;
+  }
+
+  private addStatusToCharacter(
     guessedCharacter: Character,
     target: Character
   ): Character {
