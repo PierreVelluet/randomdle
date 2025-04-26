@@ -204,9 +204,10 @@
 
 /* Success Block Styling */
 .success-block {
-  background-color: #28a745;
+  background-color: #23973e;
   color: white;
   box-shadow: 0 0 10px #28a74577;
+  width: 100px;
 }
 
 .success-icon {
@@ -215,9 +216,10 @@
 
 /* Failed Block Styling */
 .failed-block {
-  background-color: #dc3545;
+  background-color: #c02e3c;
   color: white;
   box-shadow: 0 0 10px #dc3545aa;
+  width: 100px;
 }
 
 .fail-icon {

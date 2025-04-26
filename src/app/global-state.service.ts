@@ -91,4 +91,5 @@ export class GlobalStateService {
       maxGuessNumber: 7
     }));
   }
+
 }

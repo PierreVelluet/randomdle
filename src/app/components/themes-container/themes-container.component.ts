@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Theme, ThemeData } from '../../models/theme.enum';
 import { GlobalStateService } from '../../global-state.service';
 import { Subject, takeUntil } from 'rxjs';
+import { AudioService } from '../../services/audio.service';
 
 @Component({
   selector: 'app-themes-container',
@@ -17,7 +18,7 @@ export class ThemesContainerComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<void>();
 
-  constructor(private globalState: GlobalStateService) {}
+  constructor(private globalState: GlobalStateService, private audioService: AudioService) { }
 
   ngOnInit(): void {
     this.globalState.themesDatas$
@@ -29,6 +30,7 @@ export class ThemesContainerComponent implements OnInit, OnDestroy {
 
   onChoosetheme(theme: Theme): void {
     this.globalState.setTheme(theme);
+    this.audioService.playAudio(theme)
   }
 
   isThemeDone(theme: Theme): boolean {

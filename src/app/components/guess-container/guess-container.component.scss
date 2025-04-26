@@ -1,31 +1,30 @@
 .guess-wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-y: auto; 
-    //padding: 2rem 1rem;
-    text-align: center;
-    padding-bottom: 100px;
-  }
-  
-  .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  
-  .logo-container img {
-    max-width: 300px;
-    width: 100%;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
-  }
-  
-  .logo-container img:hover {
-    opacity: 1;
-  }
-  
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  //padding: 2rem 1rem;
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.logo-container img {
+  max-width: 300px;
+  width: 100%;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.logo-container img:hover {
+  opacity: 1;
+}

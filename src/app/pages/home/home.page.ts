@@ -7,6 +7,7 @@ import { GuessContainerComponent } from '../../components/guess-container/guess-
 import { ThemesContainerComponent } from '../../components/themes-container/themes-container.component';
 import { Theme } from '../../models/theme.enum';
 import { GlobalStateService } from '../../global-state.service';
+import { AudioService } from '../../services/audio.service';
 
 @Component({
   selector: 'app-home',
@@ -19,10 +20,11 @@ export class HomePage implements OnInit, OnDestroy {
   readonly themes = Object.values(Theme);
   chosenTheme: Theme | null = null;
   isHidingThemes = false;
+  isSoundOn: boolean = true;
 
   private readonly destroy$ = new Subject<void>();
 
-  constructor(private readonly globalState: GlobalStateService) {}
+  constructor(private readonly globalState: GlobalStateService, private audioService: AudioService) { }
 
   ngOnInit(): void {
     this.globalState.currentTheme$
@@ -41,6 +43,15 @@ export class HomePage implements OnInit, OnDestroy {
           this.isHidingThemes = false;
         }
       });
+  }
+
+  toggleSound() {
+    if (this.isSoundOn) {
+      this.audioService.pauseAudio();
+    } else {
+      this.audioService.reStartAudio();
+    }
+    this.isSoundOn = !this.isSoundOn;
   }
 
   ngOnDestroy(): void {

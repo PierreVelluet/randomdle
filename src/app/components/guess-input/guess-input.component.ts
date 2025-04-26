@@ -6,6 +6,7 @@ import { GlobalStateService } from '../../global-state.service';
 import { GameLogicService } from '../../services/game-logic.service';
 import { Subject } from 'rxjs';
 import { Character } from '../../models/swCharacter.model';
+import { AudioService } from '../../services/audio.service';
 
 @Component({
   selector: 'app-guess-input',
@@ -17,7 +18,7 @@ import { Character } from '../../models/swCharacter.model';
 export class GuessInputComponent {
   guess: string = '';
   private readonly destroy$ = new Subject<void>();
-  private readonly timeoutDelay = 2000;
+  private readonly timeoutDelay = 3500;
 
   @ViewChildren('dropdownItem') dropdownItems!: QueryList<ElementRef>;
 
@@ -27,7 +28,8 @@ export class GuessInputComponent {
 
   constructor(
     private globalState: GlobalStateService,
-    private gameLogicService: GameLogicService
+    private gameLogicService: GameLogicService,
+    private audioService: AudioService
   ) { }
 
   filterOptions() {
@@ -89,6 +91,7 @@ export class GuessInputComponent {
           done: true,
           success: true,
         });
+        this.audioService.fadeOutAndStopAudio();
       }, this.timeoutDelay);
     }
 
@@ -98,7 +101,9 @@ export class GuessInputComponent {
           done: true,
           success: false,
         });
+        this.audioService.fadeOutAndStopAudio();
       }, this.timeoutDelay);
+
     }
   }
 

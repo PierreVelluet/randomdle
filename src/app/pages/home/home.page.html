@@ -1,23 +1,22 @@
+<button (click)="toggleSound()" class="btn sound-btn">
+  <i [ngClass]="isSoundOn ? 'fas fa-volume-up' : 'fas fa-volume-mute'"></i>
+</button>
+
+
 <div class="parallax-wrapper" [class]="chosenTheme + '_bg'">
   <!-- Theme Selection Screen -->
-  <div
-    class="screen screen-theme"
-    [ngClass]="{
+  <div class="screen screen-theme" [ngClass]="{
       'slide-in': !isHidingThemes,
       'slide-out': isHidingThemes
-    }"
-  >
+    }">
     <app-themes-container></app-themes-container>
   </div>
 
   <!-- Guess Screen -->
-  <div
-    class="screen screen-guess"
-    [ngClass]="{
+  <div class="screen screen-guess" [ngClass]="{
       'slide-in': isHidingThemes,
       'offscreen-right': !isHidingThemes,
-    }"
-  >
+    }">
     <app-guess-container></app-guess-container>
   </div>
 </div>
