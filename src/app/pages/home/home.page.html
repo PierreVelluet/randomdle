@@ -3,26 +3,39 @@
     <i [ngClass]="isSoundOn ? 'fas fa-volume-up' : 'fas fa-volume-mute'"></i>
   </button>
 
-  <input *ngIf="isSoundOn" #volumeSlider type="range" min="0" max="1" step="0.01" [value]="currentVolume"
-    (input)="onVolumeChange($event)" class="volume-slider" />
+  <input
+    *ngIf="isSoundOn"
+    #volumeSlider
+    type="range"
+    min="0"
+    max="1"
+    step="0.01"
+    [value]="currentVolume"
+    (input)="onVolumeChange($event)"
+    class="volume-slider"
+  />
 </div>
 
 <div class="parallax-wrapper" [class]="chosenTheme + '_bg'">
   <!-- Theme Selection Screen -->
-  <div class="screen screen-theme" [ngClass]="{
+  <div
+    class="screen screen-theme"
+    [ngClass]="{
       'slide-in': !isHidingThemes,
       'slide-out': isHidingThemes
-    }">
+    }"
+  >
     <app-themes-container></app-themes-container>
   </div>
 
   <!-- Guess Screen -->
-  <div class="screen screen-guess" [ngClass]="{
+  <div
+    class="screen screen-guess"
+    [ngClass]="{
       'slide-in': isHidingThemes,
       'offscreen-right': !isHidingThemes,
-    }">
+    }"
+  >
     <app-guess-container></app-guess-container>
   </div>
 </div>
-
-<app-modal></app-modal>
