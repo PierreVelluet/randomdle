@@ -9,6 +9,7 @@ export class GlobalStateService {
   private readonly currentThemeSubject = new BehaviorSubject<Theme | null>(null);
   private readonly themesDataSubject = new BehaviorSubject<ThemeData[]>(this.initializeThemesData());
   private readonly isColorsIndicatorVisible = new BehaviorSubject<boolean>(false);
+  private readonly showModal = new BehaviorSubject<boolean>(false);
 
   constructor() { }
 
@@ -41,6 +42,7 @@ export class GlobalStateService {
   readonly currentTheme$ = this.currentThemeSubject.asObservable();
   readonly themesDatas$ = this.themesDataSubject.asObservable();
   readonly isColorsIndicatorVisible$ = this.isColorsIndicatorVisible.asObservable();
+  readonly showModal$ = this.showModal.asObservable();
 
   readonly currentThemeData$: Observable<ThemeData | undefined> = combineLatest([
     this.currentTheme$,
@@ -73,6 +75,10 @@ export class GlobalStateService {
     );
 
     this.themesDataSubject.next(updated);
+  }
+
+  setShowModal(shown: boolean): void {
+    this.showModal.next(shown);
   }
 
   // Private Methods

@@ -8,11 +8,13 @@ import { ThemesContainerComponent } from '../../components/themes-container/them
 import { Theme } from '../../models/theme.enum';
 import { GlobalStateService } from '../../global-state.service';
 import { AudioService } from '../../services/audio.service';
+import { ModalService } from '../../services/modal.service';
+import { ModalComponent } from '../../result-modal/result-modal.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, GuessContainerComponent, ThemesContainerComponent],
+  imports: [CommonModule, GuessContainerComponent, ThemesContainerComponent, ModalComponent],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })
@@ -22,10 +24,11 @@ export class HomePage implements OnInit, OnDestroy {
   isHidingThemes = false;
   isSoundOn: boolean = true;
   isSoundIconVisible: boolean = false;
+  showModal = false;
 
   private readonly destroy$ = new Subject<void>();
 
-  constructor(private readonly globalState: GlobalStateService, private audioService: AudioService) {
+  constructor(private readonly globalState: GlobalStateService, private audioService: AudioService, private modalService: ModalService) {
     this.audioService.isPlaying$.subscribe(isPlaying => {
       if (isPlaying)
         this.isSoundIconVisible = true;
@@ -41,17 +44,6 @@ export class HomePage implements OnInit, OnDestroy {
   currentVolume = 0.75;
   ngAfterViewInit() {
     this.updateSliderBackground(this.currentVolume);
-  }
-  onVolumeChange(event: any) {
-    const volume = parseFloat(event.target.value);
-    this.currentVolume = volume;
-    this.audioService.setVolume(volume);
-    this.updateSliderBackground(volume);
-  }
-
-  updateSliderBackground(volume: number) {
-    const percentage = volume * 100;
-    this.volumeSlider.nativeElement.style.background = `linear-gradient(to right, #6a1c20 0%, #6a1c20 ${percentage}%, beige ${percentage}%, beige 100%)`;
   }
 
   ngOnInit(): void {
@@ -70,8 +62,31 @@ export class HomePage implements OnInit, OnDestroy {
         if (themeData?.done) {
           this.isHidingThemes = false;
         }
+        if (themeData?.guessedItems.length == 1) {
+          this.globalState.setShowModal(true);
+        }
+      });
+
+    this.modalService.modalState$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(state => {
+        this.showModal = state;
       });
   }
+
+  onVolumeChange(event: any) {
+    const volume = parseFloat(event.target.value);
+    this.currentVolume = volume;
+    this.audioService.setVolume(volume);
+    this.updateSliderBackground(volume);
+  }
+
+  updateSliderBackground(volume: number) {
+    const percentage = volume * 100;
+    this.volumeSlider.nativeElement.style.background = `linear-gradient(to right, #6a1c20 0%, #6a1c20 ${percentage}%, beige ${percentage}%, beige 100%)`;
+  }
+
+
 
   toggleSound() {
     if (this.isSoundOn) {

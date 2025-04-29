@@ -16,9 +16,25 @@ export class ColorIndicatorComponent {
   constructor(private globalState: GlobalStateService) { }
   currentThemeData$ = this.globalState.currentThemeData$;
 
-  status: Status[] = Object.values(Status).filter(
-    (obj: Status) => obj != Status.Greater && obj != Status.Smaller
-  );
+  status = [
+    {
+      name: "proche",
+      tooltip: "Une ou plusieurs informations sont correctes, mais pas toutes."
+    },
+    {
+      name: "correct",
+      tooltip: "L'information est correcte."
+    },
+    {
+      name: "incorrect",
+      tooltip: "L'information est incorrecte."
+    },
+  ]
+
+  //correct, proche
+  // status: Status[] = Object.values(Status).filter(
+  //   (obj: Status) => obj != Status.Greater && obj != Status.Smaller
+  // );
 
   onClose(): void {
     this.globalState.setColorsIndicatorVisibility(false);

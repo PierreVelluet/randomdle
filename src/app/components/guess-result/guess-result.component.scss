@@ -7,10 +7,10 @@
   overflow-wrap: break-word;
 
   font-weight: bold;
-  width: 75px;
-  max-width: 75px;
-  min-width: 75px;
-  height: 75px;
+  width: 90px;
+  max-width: 90px;
+  min-width: 90px;
+  height: 90px;
   padding: 0;
   box-sizing: border-box;
   word-wrap: break-word;
@@ -36,20 +36,21 @@
   @extend %header-cell;
   font-family: $font-sw;
   color: #ffd700;
-  font-size: 3rem;
   color: black;
   -webkit-text-stroke: 0.95px #ffe81f;
   text-transform: uppercase;
+
   &::after {
     background-color: #f9e700;
   }
 }
+
 .lotr_header_cell {
   @extend %header-cell;
   font-family: $font-lotr;
   font-weight: 600;
-  color: #f0e7c0; // Lightened for visibility
-  -webkit-text-stroke: 0.6px #2e1f00; // More contrast
+  color: #ede8d6; // Lightened for visibility
+  -webkit-text-stroke: 0.6px #302000; // More contrast
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
   letter-spacing: 1px;
 
@@ -90,7 +91,7 @@ app-guess-block {
 }
 
 .table th {
-  font-size: 0.9rem;
+  font-size: 1.0rem;
 }
 
 .table th,
@@ -101,6 +102,7 @@ app-guess-block {
   box-sizing: border-box;
   margin: 3px;
 }
+
 /* Styles communs à tous les thèmes */
 .themed-container {
   padding: 20px;
@@ -111,39 +113,4 @@ app-guess-block {
   text-align: center;
   margin: 20px;
   position: relative;
-}
-
-/* Barre de progression */
-.progress-container {
-  width: 100%;
-  height: 10px;
-  background-color: rgb(214, 214, 201);
-  border-radius: 5px;
-  margin: 10px 0;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  transition: background-color 0.3s ease, width 0.3s ease; /* Transition de couleur et de largeur */
-}
-.progress-text {
-  font-size: 18px;
-  font-weight: bold;
-  color: $lotr-green;
-  
-  /* Adding a text shadow for contour effect */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7), -2px -2px 4px rgba(0, 0, 0, 0.7);
-}
-
-.sw_progress-text {
-  font-family: $font-sw;
-  color: beige;
-}
-.lotr_progress-text {
-  font-family: $font-lotr;
-  color: beige;
-}
-.hp_progress-text {
-  color: beige;
 }

@@ -1,16 +1,5 @@
 <div class="container">
   <ng-container *ngIf="currentThemeData$ | async as themeData">
-    <div class="themed-container" [class]="themeData.themeName">
-      <div class="progress-container">
-        <div class="progress-bar" [style.width]="(themeData.guessedItems.length  / themeData.maxGuessNumber) * 100 + '%'"
-          [style.background]="getProgressBarColor(themeData.guessedItems.length)"></div>
-      </div>
-      <div [ngClass]="[themeData.themeName + '_progress-text', 'progress-text']">
-        {{ themeData.guessedItems.length }} / {{themeData.maxGuessNumber}} essai{{
-        themeData.guessedItems.length > 1 ? "s" : ""
-        }}
-      </div>
-    </div>
     <table class="table">
       <thead>
         <tr>

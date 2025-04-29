@@ -5,8 +5,8 @@
   position: relative;
   padding: 16px 24px;
   border-radius: 12px;
-  width: 500px;
-  height: 220px;
+  width: 450px;
+  height: 180px;
   margin: 40px auto;
   display: flex;
   flex-direction: column;
@@ -55,8 +55,8 @@
 
 // 🧱 Style de base des blocs
 %guess-block-style {
-  width: 75px;
-  height: 75px;
+  width: 55px;
+  height: 55px;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -131,7 +131,6 @@
 
 .title {
   font-size: 1.35rem;
-  text-transform: capitalize;
 }
 
 // Label en dessous du bloc

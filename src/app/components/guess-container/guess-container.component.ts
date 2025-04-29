@@ -10,6 +10,7 @@ import { ColorIndicatorComponent } from '../../color-indicator/color-indicator.c
 import { CommonModule } from '@angular/common';
 import { GlobalStateService } from '../../global-state.service';
 import { Subject, takeUntil } from 'rxjs';
+import { RulesIndicatorComponent } from '../../rules-indicator/rules-indicator.component';
 
 @Component({
   selector: 'app-guess-container',
@@ -18,6 +19,7 @@ import { Subject, takeUntil } from 'rxjs';
     GuessInputComponent,
     GuessResultComponent,
     ColorIndicatorComponent,
+    RulesIndicatorComponent
   ],
   templateUrl: './guess-container.component.html',
   styleUrl: './guess-container.component.scss',
