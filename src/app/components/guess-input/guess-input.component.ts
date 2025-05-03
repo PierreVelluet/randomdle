@@ -85,25 +85,17 @@ export class GuessInputComponent {
     if (!currentThemeData) return;
 
     if (currentThemeData.targetItem?.name.value === guess) {
-      setTimeout(() => {
-        window.ConfettiManager.triggerConfetti();
-        this.globalState.updateCurrentThemeData({
-          done: true,
-          success: true,
-        });
-        this.audioService.fadeOutAndStopAudio();
-      }, this.timeoutDelay);
+      this.globalState.updateCurrentThemeData({
+        done: true,
+        success: true,
+      });
     }
 
     if ((currentThemeData.guessedItems?.length ?? 0) >= currentThemeData.maxGuessNumber) {
-      setTimeout(() => {
-        this.globalState.updateCurrentThemeData({
-          done: true,
-          success: false,
-        });
-        this.audioService.fadeOutAndStopAudio();
-      }, this.timeoutDelay);
-
+      this.globalState.updateCurrentThemeData({
+        done: true,
+        success: false,
+      });
     }
   }
 

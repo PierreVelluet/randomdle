@@ -25,10 +25,9 @@ import { AudioService } from '../../services/audio.service';
 export class HomePage implements OnInit, OnDestroy {
   readonly themes = Object.values(Theme);
   chosenTheme: Theme | null = null;
-  isHidingThemes = false;
   isSoundOn: boolean = true;
   isSoundIconVisible: boolean = false;
-
+  isHidingThemes: boolean = false;
   private readonly destroy$ = new Subject<void>();
 
   constructor(
@@ -56,20 +55,12 @@ export class HomePage implements OnInit, OnDestroy {
       .subscribe((theme) => {
         if (theme) {
           this.chosenTheme = theme;
-          setTimeout(() => (this.isHidingThemes = true), 50);
+          setTimeout(() => (this.globalState.setIsHidingTheme(true)), 50);
         }
       });
-
-    this.globalState.currentThemeData$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((themeData) => {
-        if (themeData?.done) {
-          this.isHidingThemes = false;
-        }
-        if (themeData?.guessedItems.length == 1) {
-          this.globalState.setShowModal(true);
-        }
-      });
+    this.globalState.isHidingThemes$.subscribe(value => {
+      this.isHidingThemes = value;
+    });
   }
 
   onVolumeChange(event: any) {

@@ -5,12 +5,13 @@ import { GameService } from '../../services/game.service';
 import { GuessResultComponent } from '../guess-result/guess-result.component';
 import { GuessInputComponent } from '../guess-input/guess-input.component';
 import { Character } from '../../models/swCharacter.model';
-import { Theme } from '../../models/theme.enum';
+import { Theme, ThemeData } from '../../models/theme.enum';
 import { ColorIndicatorComponent } from '../../color-indicator/color-indicator.component';
 import { CommonModule } from '@angular/common';
 import { GlobalStateService } from '../../global-state.service';
 import { Subject, takeUntil } from 'rxjs';
 import { RulesIndicatorComponent } from '../../rules-indicator/rules-indicator.component';
+import { EndPanelComponent } from '../../end-panel/end-panel.component';
 
 @Component({
   selector: 'app-guess-container',
@@ -19,7 +20,8 @@ import { RulesIndicatorComponent } from '../../rules-indicator/rules-indicator.c
     GuessInputComponent,
     GuessResultComponent,
     ColorIndicatorComponent,
-    RulesIndicatorComponent
+    RulesIndicatorComponent,
+    EndPanelComponent
   ],
   templateUrl: './guess-container.component.html',
   styleUrl: './guess-container.component.scss',
@@ -37,6 +39,15 @@ export class GuessContainerComponent {
       .pipe(takeUntil(this.destroy$))
       .subscribe((theme: Theme | null) => {
         if (theme) this.initGameData();
+      });
+
+      this.globalState.currentThemeData$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((themeData: ThemeData | undefined) => {
+        console.log('themeData', themeData)
+        if (themeData && themeData?.guessedItems?.length > 1) {
+    
+        }
       });
   }
 
