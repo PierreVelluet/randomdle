@@ -18,7 +18,6 @@ import { AudioService } from '../../services/audio.service';
 export class GuessInputComponent {
   guess: string = '';
   private readonly destroy$ = new Subject<void>();
-  private readonly timeoutDelay = 3500;
 
   @ViewChildren('dropdownItem') dropdownItems!: QueryList<ElementRef>;
 
@@ -30,7 +29,7 @@ export class GuessInputComponent {
     private globalState: GlobalStateService,
     private gameLogicService: GameLogicService,
     private audioService: AudioService
-  ) { }
+  ) {}
 
   filterOptions() {
     if (!this.guess.trim()) {
@@ -39,10 +38,12 @@ export class GuessInputComponent {
       return;
     }
 
-    this.filteredOptions = this.globalState
-      .getCurrentThemeData()?.inputItems.filter((option) =>
-        option.toLowerCase().includes(this.guess.toLowerCase())
-      ) ?? [];
+    this.filteredOptions =
+      this.globalState
+        .getCurrentThemeData()
+        ?.inputItems.filter((option) =>
+          option.toLowerCase().includes(this.guess.toLowerCase())
+        ) ?? [];
   }
 
   selectOption(option: string) {
@@ -51,7 +52,9 @@ export class GuessInputComponent {
   }
 
   isValidGuess(): boolean {
-    return (this.globalState.getCurrentThemeData()?.inputItems ?? []).includes(this.guess);
+    return (this.globalState.getCurrentThemeData()?.inputItems ?? []).includes(
+      this.guess
+    );
   }
 
   handleGuess(guess: string) {
@@ -84,14 +87,16 @@ export class GuessInputComponent {
     const currentThemeData = this.globalState.getCurrentThemeData();
     if (!currentThemeData) return;
 
-    if (currentThemeData.targetItem?.name.value === guess) {
+    if (currentThemeData.targetItem?.name.value == guess) {
       this.globalState.updateCurrentThemeData({
         done: true,
         success: true,
       });
     }
 
-    if ((currentThemeData.guessedItems?.length ?? 0) >= currentThemeData.maxGuessNumber) {
+    if (
+      currentThemeData.guessedItems?.length >= currentThemeData.maxGuessNumber
+    ) {
       this.globalState.updateCurrentThemeData({
         done: true,
         success: false,
@@ -111,14 +116,16 @@ export class GuessInputComponent {
     switch (event.key) {
       case Keys.ArrowDown:
         event.preventDefault();
-        this.activeOptionIndex = (this.activeOptionIndex + 1) % this.filteredOptions.length;
+        this.activeOptionIndex =
+          (this.activeOptionIndex + 1) % this.filteredOptions.length;
         this.scrollToActiveOption();
         break;
 
       case Keys.ArrowUp:
         event.preventDefault();
         this.activeOptionIndex =
-          (this.activeOptionIndex - 1 + this.filteredOptions.length) % this.filteredOptions.length;
+          (this.activeOptionIndex - 1 + this.filteredOptions.length) %
+          this.filteredOptions.length;
         this.scrollToActiveOption();
         break;
 

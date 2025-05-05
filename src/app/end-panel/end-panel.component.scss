@@ -2,117 +2,139 @@
 
 /* ✅ Main container */
 .end-panel-container {
-    position: relative;
-    padding: 30px 24px;
-    width: 400px;
-    height: 100px;
-    margin-top: 20px;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    gap: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border-top-left-radius: 52px;
-    border-bottom-right-radius: 52px;
+  position: relative;
+  padding: 30px 24px;
+  width: 400px;
+  height: 100px;
+  margin-top: 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-top-left-radius: 52px;
+  border-bottom-right-radius: 52px;
 }
 
 .changing-container {
-    width: 100%;
+  width: 100%;
 }
 
 /* ================================
    🎨 Theme-Specific Panel Styles
 ================================== */
 %panel-style {
-    border: 2px solid;
-    font-family: inherit;
-    color: inherit;
-    background: inherit;
+  border: 2px solid;
+  font-family: inherit;
+  color: inherit;
+  background: inherit;
 }
 
 .sw-end-panel {
-    @extend %panel-style;
-    background: rgba(0, 0, 0, 0.85);
-    border-color: #ffd700;
-    color: #ffd700;
-    font-family: $font-sw;
+  @extend %panel-style;
+  background: rgba(0, 0, 0, 0.85);
+  border-color: #ffd700;
+  color: #ffd700;
+  font-family: $font-sw;
 }
 
 .lotr-end-panel {
-    @extend %panel-style;
-    background: rgba(243, 240, 230, 0.9);
-    border-color: #5e4605;
-    color: #5e4605;
-    font-family: $font-lotr;
+  @extend %panel-style;
+  background: rgba(243, 240, 230, 0.9);
+  border-color: #5e4605;
+  color: #5e4605;
+  font-family: $font-lotr;
 }
 
 .hp-end-panel {
-    @extend %panel-style;
-    background-color: #2b183c;
-    border-color: #740001;
-    color: #f9e700;
-    font-family: $font-hp;
+  @extend %panel-style;
+  background-color: #2b183c;
+  border-color: #740001;
+  color: #f9e700;
+  font-family: $font-hp;
 }
 
 /* ✅ Reveal Style */
-.success-reveal {
-    color: #28a745;
-    font-weight: bold;
-    font-size: 1.5em;
-    text-shadow: 1px 1px 4px rgba(0, 128, 0, 0.6);
-    transition: all 0.3s ease;
+.label-text {
+  color: #888;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.name-text {
+  color: #fff;
+  font-weight: bold;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* ✅ Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ================================
    🔘 Button Base + Themes
 ================================== */
 @mixin themed-button($font, $gradient, $hover-gradient, $glow) {
-    font-family: $font;
-    background: $gradient;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    color: black;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    border-radius: 5px;
-    box-shadow: 0 0 10px $glow;
-    height: 100%;
-    margin-top: 1px;
+  font-family: $font;
+  background: $gradient;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: black;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  box-shadow: 0 0 10px $glow;
+  height: 100%;
+  margin-top: 1px;
 
-    &:hover {
-        background: $hover-gradient;
-        transform: scale(1.05);
-    }
+  &:hover {
+    background: $hover-gradient;
+    transform: scale(1.05);
+  }
 
-    &:disabled {
-        background: gray;
-        cursor: not-allowed;
-        box-shadow: none;
-    }
+  &:disabled {
+    background: gray;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
 }
 
 .sw_button {
-    @include themed-button($font-sw,
-        linear-gradient(90deg, #ffcc00, #ff8800),
-        linear-gradient(90deg, #ff8800, #ffcc00),
-        rgba(255, 200, 0, 0.8));
+  @include themed-button(
+    $font-sw,
+    linear-gradient(90deg, #ffcc00, #ff8800),
+    linear-gradient(90deg, #ff8800, #ffcc00),
+    rgba(255, 200, 0, 0.8)
+  );
 }
 
 .lotr_button {
-    @include themed-button($font-lotr,
-        linear-gradient(90deg, #f4a261, #2f4f4f),
-        linear-gradient(90deg, #2f4f4f, #f4a261),
-        rgba(244, 162, 97, 0.8));
+  @include themed-button(
+    $font-lotr,
+    linear-gradient(90deg, #f4a261, #2f4f4f),
+    linear-gradient(90deg, #2f4f4f, #f4a261),
+    rgba(244, 162, 97, 0.8)
+  );
 }
 
 .hp_button {
-    @include themed-button($font-hp,
-        linear-gradient(90deg, #f0e68c, #3e2a47),
-        linear-gradient(90deg, #3e2a47, #f0e68c),
-        rgba(240, 230, 140, 0.8));
+  @include themed-button(
+    $font-hp,
+    linear-gradient(90deg, #f0e68c, #3e2a47),
+    linear-gradient(90deg, #3e2a47, #f0e68c),
+    rgba(240, 230, 140, 0.8)
+  );
 }

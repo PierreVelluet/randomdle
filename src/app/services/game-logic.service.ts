@@ -3,11 +3,14 @@ import { Character } from '../models/swCharacter.model';
 import { Status } from '../models/status.enum';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GameLogicService {
-
-  findGuessedCharacter(guess: string, items: Character[], targetItem: Character): Character | null {
+  findGuessedCharacter(
+    guess: string,
+    items: Character[],
+    targetItem: Character
+  ): Character | null {
     const guessedCharacter: Character | undefined = items.find(
       (character: Character) => character.name.value === guess
     );
@@ -37,9 +40,10 @@ export class GameLogicService {
 
       let status: Status = Status.Incorrect;
       if (key === 'films') {
-        status = this.getFilmsStatus(guessedValue, target);
-      }
-      else if (guessedValue === targetValue) {
+        if (guessedCharacter === target) {
+          status = Status.Correct;
+        } else status = this.getFilmsStatus(guessedValue, target);
+      } else if (guessedValue === targetValue) {
         status = Status.Correct;
       } else if (!isNaN(+guessedValue) && !isNaN(+targetValue)) {
         status = this.getNumericStatus(guessedValue, target);
@@ -72,5 +76,4 @@ export class GameLogicService {
     if (anyMatch) return Status.Proche;
     return Status.Incorrect;
   }
-
 }

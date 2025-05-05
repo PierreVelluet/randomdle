@@ -1,12 +1,16 @@
 <ng-container *ngIf="currentThemeData$ | async as themeData">
     <div class="end-panel-container" [ngClass]="themeData.themeName + '-end-panel'">
-        <div *ngIf="themeData.guessedItems.length >= 1">
-            <span class="success-reveal">{{ revealedText }}</span>
-        </div>
-        <!-- Bouton de navigation vers theme container-->
-        <button (click)="processToThemeChoice()" [class]="themeData.themeName + '_button'">
-            Continuer ...
-        </button>
+      <div *ngIf="themeData.guessedItems.length >= themeData.maxGuessNumber" class="changing-container">
+        <span class="label-text">{{ labelText }}</span>
+        <span class="name-text">{{ revealedName }}</span>
+      </div>
+  
+      <button
+        (click)="processToThemeChoice()"
+        [class]="themeData.themeName + '_button'"
+      >
+        Continuer ...
+      </button>
     </div>
-
-</ng-container>
+  </ng-container>
+  

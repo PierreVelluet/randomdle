@@ -32,14 +32,14 @@
       "tooltip": "Planète d'origine du personnage"
     },
     {
-      "key": "films",
-      "label": "Films",
-      "tooltip": "Films dans lesquels le personnage apparaît"
-    },
-    {
       "key": "species",
       "label": "Espèce",
       "tooltip": "Espèce du personnage"
+    },
+    {
+      "key": "faction",
+      "label": "Faction",
+      "tooltip": "Faction du personnage"
     }
   ],
   "characters": [
@@ -50,8 +50,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Bleu", "status": "" },
       "homeworld": { "value": "Comté", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Hobbit", "status": "" }
+      "species": { "value": "Hobbit", "status": "" },
+      "faction": { "value": "La Communauté de l'Anneau", "status": "" }
     },
     {
       "name": { "value": "Aragorn", "status": "" },
@@ -60,8 +60,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Gris", "status": "" },
       "homeworld": { "value": "Gondor", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Humain", "status": "" }
+      "species": { "value": "Humain", "status": "" },
+      "faction": { "value": "Les Hommes du Gondor", "status": "" }
     },
     {
       "name": { "value": "Gandalf", "status": "" },
@@ -70,8 +70,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Gris", "status": "" },
       "homeworld": { "value": "Valinor", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Maïar", "status": "" }
+      "species": { "value": "Maïar", "status": "" },
+      "faction": { "value": "La Communauté de l'Anneau", "status": "" }
     },
     {
       "name": { "value": "Legolas", "status": "" },
@@ -80,8 +80,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Bleu", "status": "" },
       "homeworld": { "value": "Forêt Noire", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Elfe", "status": "" }
+      "species": { "value": "Elfe", "status": "" },
+      "faction": { "value": "La Communauté de l'Anneau", "status": "" }
     },
     {
       "name": { "value": "Gimli", "status": "" },
@@ -90,8 +90,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Marron", "status": "" },
       "homeworld": { "value": "Erebor", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Nain", "status": "" }
+      "species": { "value": "Nain", "status": "" },
+      "faction": { "value": "La Communauté de l'Anneau", "status": "" }
     },
     {
       "name": { "value": "Samwise Gamgee", "status": "" },
@@ -100,8 +100,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Noisette", "status": "" },
       "homeworld": { "value": "Comté", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Hobbit", "status": "" }
+      "species": { "value": "Hobbit", "status": "" },
+      "faction": { "value": "La Communauté de l'Anneau", "status": "" }
     },
     {
       "name": { "value": "Boromir", "status": "" },
@@ -110,8 +110,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Marron", "status": "" },
       "homeworld": { "value": "Gondor", "status": "" },
-      "films": { "value": ["I"], "status": "" },
-      "species": { "value": "Humain", "status": "" }
+      "species": { "value": "Humain", "status": "" },
+      "faction": { "value": "Les Hommes du Gondor", "status": "" }
     },
     {
       "name": { "value": "Saroumane", "status": "" },
@@ -120,8 +120,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Noir", "status": "" },
       "homeworld": { "value": "Valinor", "status": "" },
-      "films": { "value": ["II", "III"], "status": "" },
-      "species": { "value": "Maïar", "status": "" }
+      "species": { "value": "Maïar", "status": "" },
+      "faction": { "value": "Les Serviteurs de Sauron", "status": "" }
     },
     {
       "name": { "value": "Gollum", "status": "" },
@@ -130,8 +130,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Bleu", "status": "" },
       "homeworld": { "value": "Montagnes Brumeuses", "status": "" },
-      "films": { "value": ["II", "III"], "status": "" },
-      "species": { "value": "Hobbit (anciennement)", "status": "" }
+      "species": { "value": "Hobbit (anciennement)", "status": "" },
+      "faction": { "value": "Indépendant", "status": "" }
     },
     {
       "name": { "value": "Pippin Took", "status": "" },
@@ -140,8 +140,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Vert", "status": "" },
       "homeworld": { "value": "Comté", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Hobbit", "status": "" }
+      "species": { "value": "Hobbit", "status": "" },
+      "faction": { "value": "La Communauté de l'Anneau", "status": "" }
     },
     {
       "name": { "value": "Merry Brandybuck", "status": "" },
@@ -150,8 +150,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Marron", "status": "" },
       "homeworld": { "value": "Comté", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Hobbit", "status": "" }
+      "species": { "value": "Hobbit", "status": "" },
+      "faction": { "value": "La Communauté de l'Anneau", "status": "" }
     },
     {
       "name": { "value": "Elrond", "status": "" },
@@ -160,8 +160,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Gris", "status": "" },
       "homeworld": { "value": "Rivendell", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Elfe", "status": "" }
+      "species": { "value": "Elfe", "status": "" },
+      "faction": { "value": "Les Elfes de Fondcombe", "status": "" }
     },
     {
       "name": { "value": "Galadriel", "status": "" },
@@ -170,18 +170,8 @@
       "gender": { "value": "Femme", "status": "" },
       "eye_color": { "value": "Gris", "status": "" },
       "homeworld": { "value": "Lothlórien", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Elfe", "status": "" }
-    },
-    {
-      "name": { "value": "Bilbo Baggins", "status": "" },
-      "height": { "value": "130", "status": "" },
-      "mass": { "value": "75", "status": "" },
-      "gender": { "value": "Homme", "status": "" },
-      "eye_color": { "value": "Gris", "status": "" },
-      "homeworld": { "value": "Comté", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Hobbit", "status": "" }
+      "species": { "value": "Elfe", "status": "" },
+      "faction": { "value": "Les Elfes de Lothlórien", "status": "" }
     },
     {
       "name": { "value": "Elendil", "status": "" },
@@ -190,8 +180,8 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Bleu", "status": "" },
       "homeworld": { "value": "Gondor", "status": "" },
-      "films": { "value": ["III"], "status": "" },
-      "species": { "value": "Humain", "status": "" }
+      "species": { "value": "Humain", "status": "" },
+      "faction": { "value": "Les Hommes de Númenor", "status": "" }
     },
     {
       "name": { "value": "Théoden", "status": "" },
@@ -200,38 +190,108 @@
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Bleu", "status": "" },
       "homeworld": { "value": "Rohan", "status": "" },
-      "films": { "value": ["II", "III"], "status": "" },
-      "species": { "value": "Humain", "status": "" }
+      "species": { "value": "Humain", "status": "" },
+      "faction": { "value": "Les Rohirrim", "status": "" }
     },
     {
-      "name": { "value": "Eomer", "status": "" },
-      "height": { "value": "185", "status": "" },
-      "mass": { "value": "80", "status": "" },
-      "gender": { "value": "Homme", "status": "" },
-      "eye_color": { "value": "Bleu", "status": "" },
-      "homeworld": { "value": "Rohan", "status": "" },
-      "films": { "value": ["II", "III"], "status": "" },
-      "species": { "value": "Humain", "status": "" }
-    },
-    {
-      "name": { "value": "Arwen", "status": "" },
+      "name": { "value": "Éowyn", "status": "" },
       "height": { "value": "170", "status": "" },
       "mass": { "value": "60", "status": "" },
       "gender": { "value": "Femme", "status": "" },
-      "eye_color": { "value": "Marron", "status": "" },
-      "homeworld": { "value": "Rivendell", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Elfe", "status": "" }
+      "eye_color": { "value": "Bleu", "status": "" },
+      "homeworld": { "value": "Rohan", "status": "" },
+      "species": { "value": "Humaine", "status": "" },
+      "faction": { "value": "Rohirrim", "status": "" }
     },
     {
-      "name": { "value": "Bilbo Baggins", "status": "" },
-      "height": { "value": "130", "status": "" },
-      "mass": { "value": "75", "status": "" },
+      "name": { "value": "Faramir", "status": "" },
+      "height": { "value": "185", "status": "" },
+      "mass": { "value": "85", "status": "" },
       "gender": { "value": "Homme", "status": "" },
       "eye_color": { "value": "Gris", "status": "" },
-      "homeworld": { "value": "Comté", "status": "" },
-      "films": { "value": ["I", "II", "III"], "status": "" },
-      "species": { "value": "Hobbit", "status": "" }
+      "homeworld": { "value": "Gondor", "status": "" },
+      "species": { "value": "Humain", "status": "" },
+      "faction": { "value": "Gondor", "status": "" }
+    },
+    {
+      "name": { "value": "Radagast", "status": "" },
+      "height": { "value": "175", "status": "" },
+      "mass": { "value": "70", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Marron", "status": "" },
+      "homeworld": { "value": "Valinor", "status": "" },
+      "species": { "value": "Maïar", "status": "" },
+      "faction": { "value": "Istari", "status": "" }
+    },
+    {
+      "name": { "value": "Tom Bombadil", "status": "" },
+      "height": { "value": "160", "status": "" },
+      "mass": { "value": "70", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Bleu", "status": "" },
+      "homeworld": { "value": "Vieille Forêt", "status": "" },
+      "species": { "value": "Inconnu", "status": "" },
+      "faction": { "value": "Neutre", "status": "" }
+    },
+    {
+      "name": { "value": "Thranduil", "status": "" },
+      "height": { "value": "190", "status": "" },
+      "mass": { "value": "80", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Vert", "status": "" },
+      "homeworld": { "value": "Forêt Noire", "status": "" },
+      "species": { "value": "Elfe", "status": "" },
+      "faction": { "value": "Elfes Sylvains", "status": "" }
+    },
+    {
+      "name": { "value": "Witch-king d'Angmar", "status": "" },
+      "height": { "value": "200", "status": "" },
+      "mass": { "value": "Inconnu", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Rouge", "status": "" },
+      "homeworld": { "value": "Angmar", "status": "" },
+      "species": { "value": "Spectre", "status": "" },
+      "faction": { "value": "Nazgûl", "status": "" }
+    },
+    {
+      "name": { "value": "Gríma Langue de Serpent", "status": "" },
+      "height": { "value": "175", "status": "" },
+      "mass": { "value": "65", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Noir", "status": "" },
+      "homeworld": { "value": "Rohan", "status": "" },
+      "species": { "value": "Humain", "status": "" },
+      "faction": { "value": "Serviteur de Saroumane", "status": "" }
+    },
+    {
+      "name": { "value": "Lurtz", "status": "" },
+      "height": { "value": "190", "status": "" },
+      "mass": { "value": "100", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Jaune", "status": "" },
+      "homeworld": { "value": "Isengard", "status": "" },
+      "species": { "value": "Uruk-hai", "status": "" },
+      "faction": { "value": "Isengard", "status": "" }
+    },
+    {
+      "name": { "value": "Gothmog", "status": "" },
+      "height": { "value": "180", "status": "" },
+      "mass": { "value": "90", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Rouge", "status": "" },
+      "homeworld": { "value": "Mordor", "status": "" },
+      "species": { "value": "Orque", "status": "" },
+      "faction": { "value": "Mordor", "status": "" }
+    },
+    {
+      "name": { "value": "Adar", "status": "" },
+      "height": { "value": "185", "status": "" },
+      "mass": { "value": "80", "status": "" },
+      "gender": { "value": "Homme", "status": "" },
+      "eye_color": { "value": "Gris", "status": "" },
+      "homeworld": { "value": "Mordor", "status": "" },
+      "species": { "value": "Elfe corrompu", "status": "" },
+      "faction": { "value": "Uruks", "status": "" }
     }
   ]
 }

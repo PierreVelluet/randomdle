@@ -7,54 +7,51 @@ import { AudioService } from '../services/audio.service';
 
 @Component({
   selector: 'app-end-panel',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './end-panel.component.html',
   styleUrl: './end-panel.component.scss',
-  standalone: true
 })
 export class EndPanelComponent {
   private readonly destroy$ = new Subject<void>();
   currentThemeData$ = this.globalState.currentThemeData$;
-  revealedText = '';
-  fullText = '';
+  labelText = 'Réponse:';
+  nameToReveal = '';
+  revealedName = '';
   revealSpeed = 50;
 
-  constructor(private globalState: GlobalStateService, private audioService: AudioService) { }
-  private readonly timeoutDelay = 3500;
-  ngOnInit(): void {
+  constructor(
+    private globalState: GlobalStateService,
+    private audioService: AudioService
+  ) {}
 
+  ngOnInit(): void {
     this.globalState.currentThemeData$
       .pipe(takeUntil(this.destroy$))
       .subscribe((themeData: ThemeData | undefined) => {
-        if (themeData && themeData?.guessedItems?.length > 1) {
-          this.revealName(themeData.targetItem.name.value)
+        if (themeData && themeData.done) {
+          this.revealName(themeData.targetItem.name.value);
         }
 
-        if (themeData && themeData.done && themeData.success) {
+        if (themeData?.done && themeData.success) {
           window.ConfettiManager.triggerConfetti();
         }
       });
   }
 
-  // this.globalState.currentThemeData$
-  // .pipe(takeUntil(this.destroy$))
-  // .subscribe((themeData) => {
-  //   if (themeData?.done) {
-  //     this.isHidingThemes = false;
-  //   }
-  // });
   processToThemeChoice(): void {
     this.globalState.setIsHidingTheme(false);
+    this.audioService.fadeOutAndStopAudio();
   }
 
   revealName(name: string) {
-    this.revealedText = '';
-    this.fullText = name;
+    this.revealedName = '';
+    this.nameToReveal = name;
     let index = 0;
 
     const interval = setInterval(() => {
-      if (index < this.fullText.length) {
-        this.revealedText += this.fullText[index];
+      if (index < this.nameToReveal.length) {
+        this.revealedName += this.nameToReveal[index];
         index++;
       } else {
         clearInterval(interval);

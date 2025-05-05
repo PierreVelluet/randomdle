@@ -26,3 +26,7 @@
 .logo-container img:hover {
   opacity: 1;
 }
+
+.animate__animated.animate__fadeIn {
+  --animate-duration: 1.5s;
+}

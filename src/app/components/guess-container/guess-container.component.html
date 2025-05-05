@@ -1,20 +1,24 @@
 <ng-container *ngIf="currentThemeData$ | async as themeData">
-  <div class="guess-wrapper container-fluid d-flex flex-column align-items-center">
-    <div class="logo-container d-flex justify-content-center align-items-center">
+  <div
+    class="guess-wrapper container-fluid d-flex flex-column align-items-center"
+  >
+    <div
+      class="logo-container d-flex justify-content-center align-items-center"
+    >
       <app-rules-indicator></app-rules-indicator>
+      <app-guess-input></app-guess-input>
     </div>
 
-    <ng-container *ngIf="themeData.done; else guessInput">
-      <app-end-panel></app-end-panel>
-    </ng-container>
-    <ng-template #guessInput>
-      <app-guess-input></app-guess-input>
+    <ng-template #endPanel>
+      <div class="animate__animated animate__fadeIn">
+        <app-end-panel></app-end-panel>
+      </div>
     </ng-template>
-
-    <app-guess-result></app-guess-result>
-
-    <ng-container *ngIf="isColorsIndicatorVisible$ | async as isColorsIndicatorVisible">
-      <app-color-indicator></app-color-indicator>
-    </ng-container>
   </div>
+
+  <app-guess-result></app-guess-result>
+
+  <ng-container *ngIf="isColorsIndicatorVisible$ | async">
+    <app-color-indicator *ngIf="!themeData.done"></app-color-indicator>
+  </ng-container>
 </ng-container>

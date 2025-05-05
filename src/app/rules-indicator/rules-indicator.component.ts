@@ -3,25 +3,33 @@ import { GlobalStateService } from '../global-state.service';
 import { CommonModule } from '@angular/common';
 import { Status } from '../models/status.enum';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { AudioService } from '../services/audio.service';
 
 @Component({
   selector: 'app-rules-indicator',
   imports: [CommonModule, TooltipModule],
   templateUrl: './rules-indicator.component.html',
   styleUrl: './rules-indicator.component.scss',
-  standalone: true
+  standalone: true,
 })
 export class RulesIndicatorComponent {
-  constructor(private globalState: GlobalStateService) { }
-
+  constructor(
+    private globalState: GlobalStateService,
+    private audioService: AudioService
+  ) {}
+  labelText = 'Réponse:';
+  nameToReveal = '';
+  revealedName = '';
+  revealSpeed = 50;
   currentThemeData$ = this.globalState.currentThemeData$;
   status: Status[] = Object.values(Status).filter(
     (obj: Status) => obj != Status.Greater && obj != Status.Smaller
   );
 
   getProgressBarColor(progress: number): string {
-    const percentage = progress / this.globalState.getCurrentThemeData().maxGuessNumber;
-    console.log('percentage', percentage)
+    const percentage =
+      progress / this.globalState.getCurrentThemeData().maxGuessNumber;
+    console.log('percentage', percentage);
     const red = Math.min(255, Math.floor(255 * percentage));
     const green = Math.min(255, Math.floor(255 * (1 - percentage)));
     return `rgb(${red}, ${green}, 0)`;
@@ -29,5 +37,25 @@ export class RulesIndicatorComponent {
 
   onClose(): void {
     this.globalState.setColorsIndicatorVisibility(false);
+  }
+
+  processToThemeChoice(): void {
+    this.globalState.setIsHidingTheme(false);
+    this.audioService.fadeOutAndStopAudio();
+  }
+
+  revealName(name: string) {
+    this.revealedName = '';
+    this.nameToReveal = name;
+    let index = 0;
+
+    const interval = setInterval(() => {
+      if (index < this.nameToReveal.length) {
+        this.revealedName += this.nameToReveal[index];
+        index++;
+      } else {
+        clearInterval(interval);
+      }
+    }, this.revealSpeed);
   }
 }
