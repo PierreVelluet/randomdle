@@ -69,7 +69,7 @@ export class GuessContainerComponent {
             logoSrc: `assets/images/${
               this.globalState.getCurrentThemeData().themeName
             }_logo.webp`,
-            targetItem: data.characters[randomNumber],
+            targetItem: data.characters[0],
           });
         }
       });

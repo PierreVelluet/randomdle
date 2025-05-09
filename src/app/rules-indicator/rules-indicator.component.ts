@@ -1,38 +1,54 @@
-import { Component } from '@angular/core';
-import { GlobalStateService } from '../global-state.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Status } from '../models/status.enum';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { Subject, takeUntil } from 'rxjs';
+
+import { GlobalStateService } from '../global-state.service';
 import { AudioService } from '../services/audio.service';
+import { ThemeData } from '../models/theme.enum';
+import { Status } from '../models/status.enum';
 
 @Component({
   selector: 'app-rules-indicator',
+  standalone: true,
   imports: [CommonModule, TooltipModule],
   templateUrl: './rules-indicator.component.html',
   styleUrl: './rules-indicator.component.scss',
-  standalone: true,
 })
-export class RulesIndicatorComponent {
+export class RulesIndicatorComponent implements OnInit, OnDestroy {
   constructor(
     private globalState: GlobalStateService,
     private audioService: AudioService
-  ) {}
-  labelText = 'Réponse:';
+  ) { }
+
+  private readonly destroy$ = new Subject<void>();
+  private revealInterval?: ReturnType<typeof setInterval>;
+
+  labelText = '';
   nameToReveal = '';
   revealedName = '';
-  revealSpeed = 50;
+  revealSpeed = 40;
   currentThemeData$ = this.globalState.currentThemeData$;
-  status: Status[] = Object.values(Status).filter(
-    (obj: Status) => obj != Status.Greater && obj != Status.Smaller
+
+  readonly filteredStatuses = Object.values(Status).filter(
+    s => s !== Status.Greater && s !== Status.Smaller
   );
 
-  getProgressBarColor(progress: number): string {
-    const percentage =
-      progress / this.globalState.getCurrentThemeData().maxGuessNumber;
-    console.log('percentage', percentage);
-    const red = Math.min(255, Math.floor(255 * percentage));
-    const green = Math.min(255, Math.floor(255 * (1 - percentage)));
-    return `rgb(${red}, ${green}, 0)`;
+  ngOnInit(): void {
+    this.currentThemeData$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((themeData: ThemeData | undefined) => {
+        if (themeData?.done) {
+          this.revealName(themeData.targetItem.name.value);
+        }
+
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+    this.clearRevealInterval();
   }
 
   onClose(): void {
@@ -44,18 +60,33 @@ export class RulesIndicatorComponent {
     this.audioService.fadeOutAndStopAudio();
   }
 
-  revealName(name: string) {
+  getProgressBarColor(progress: number): string {
+    const max = this.globalState.getCurrentThemeData().maxGuessNumber;
+    const percent = progress / max;
+    const red = Math.floor(255 * percent);
+    const green = Math.floor(255 * (1 - percent));
+    return `rgb(${red}, ${green}, 0)`;
+  }
+
+  private revealName(name: string): void {
+    this.clearRevealInterval();
     this.revealedName = '';
     this.nameToReveal = name;
-    let index = 0;
 
-    const interval = setInterval(() => {
+    let index = 0;
+    this.revealInterval = setInterval(() => {
       if (index < this.nameToReveal.length) {
-        this.revealedName += this.nameToReveal[index];
-        index++;
+        this.revealedName += this.nameToReveal[index++];
       } else {
-        clearInterval(interval);
+        this.clearRevealInterval();
       }
     }, this.revealSpeed);
+  }
+
+  private clearRevealInterval(): void {
+    if (this.revealInterval) {
+      clearInterval(this.revealInterval);
+      this.revealInterval = undefined;
+    }
   }
 }

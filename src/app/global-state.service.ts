@@ -95,7 +95,7 @@ export class GlobalStateService {
       guessedItems: [],
       logoSrc: "",
       targetItem: this.baseCharacter,
-      maxGuessNumber: 1
+      maxGuessNumber: 2
     }));
   }
 

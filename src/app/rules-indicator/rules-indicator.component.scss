@@ -10,7 +10,7 @@
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     gap: 16px;
@@ -23,24 +23,34 @@
     width: 100%;
 }
 
-/* 🧪 Theme-specific backgrounds */
+/* 🎨 Theme-specific rule indicator panels */
+%rule-indicator-style {
+    border: 2px solid;
+    font-family: inherit;
+    color: inherit;
+    background: inherit;
+}
+
 .sw-rule-indicator {
+    @extend %rule-indicator-style;
     background: rgba(0, 0, 0, 0.85);
-    border: 2px solid #ffd700;
+    border-color: #ffd700;
     color: #ffd700;
     font-family: $font-sw;
 }
 
 .lotr-rule-indicator {
+    @extend %rule-indicator-style;
     background: rgba(243, 240, 230, 0.9);
-    border: 2px solid #5e4605;
+    border-color: #5e4605;
     color: #5e4605;
     font-family: $font-lotr;
 }
 
 .hp-rule-indicator {
+    @extend %rule-indicator-style;
     background-color: #2b183c;
-    border: 2px solid #740001;
+    border-color: #740001;
     color: #f9e700;
     font-family: $font-hp;
 }
@@ -51,7 +61,7 @@
     height: 35px;
 }
 
-/* 📊 Progress bar container */
+/* 📊 Progress container */
 .progress-container {
     width: 100%;
     height: 10px;
@@ -71,22 +81,19 @@
     transition: background-color 0.3s ease, width 0.3s ease;
 }
 
-/* 🔤 Progress Text (global style) */
+/* 🔤 Progress text */
 .progress-text {
     font-size: 18px;
     font-weight: bold;
     color: $lotr-green;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7), -2px -2px 4px rgba(0, 0, 0, 0.7);
 
-    /* If inside LOTR theme, override to darker */
     .lotr-rule-indicator & {
         color: darken($lotr-green, 20%);
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), -1px -1px 2px rgba(0, 0, 0, 0.3);
     }
 }
 
-
-/* 🎨 Theme-specific Progress Texts */
 .sw_progress-text {
     font-family: $font-sw;
     color: beige;
@@ -99,4 +106,107 @@
 
 .hp_progress-text {
     color: beige;
+}
+
+/* ✅ Base name-text style */
+.name-text {
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ✨ Theme-specific name text colors */
+.sw_name-text {
+    @extend .name-text;
+    color: #ffd700; // Star Wars yellow
+    font-family: $font-sw;
+}
+
+.lotr_name-text {
+    @extend .name-text;
+    color: #5e4605; // Middle-Earth brown
+    font-family: $font-lotr;
+}
+
+.hp_name-text {
+    @extend .name-text;
+    color: #f9e700; // Magic yellow
+    font-family: $font-hp;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(3px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   🔘 Button Base + Themes
+================================== */
+@mixin themed-button($font, $gradient, $hover-gradient, $glow) {
+    font-family: $font;
+    background: $gradient;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: black;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+    box-shadow: 0 0 10px $glow;
+    height: 100%;
+    margin-top: 20px;
+
+    &:hover {
+        background: $hover-gradient;
+        transform: scale(1.05);
+    }
+
+    &:disabled {
+        background: gray;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
+}
+
+.sw_button {
+    @include themed-button($font-sw,
+        linear-gradient(90deg, #ffcc00, #ff8800),
+        linear-gradient(90deg, #ff8800, #ffcc00),
+        rgba(255, 200, 0, 0.8));
+}
+
+.lotr_button {
+    @include themed-button($font-lotr,
+        linear-gradient(90deg, #f4a261, #2f4f4f),
+        linear-gradient(90deg, #2f4f4f, #f4a261),
+        rgba(244, 162, 97, 0.8));
+}
+
+.hp_button {
+    @include themed-button($font-hp,
+        linear-gradient(90deg, #f0e68c, #3e2a47),
+        linear-gradient(90deg, #3e2a47, #f0e68c),
+        rgba(240, 230, 140, 0.8));
+}
+
+.result-icon {
+    font-size: 1.7rem;
+    margin-right: 8px;
+    position: relative;
+    bottom: -4px;
+}
+
+.result-icon.success-icon {
+    color: limegreen;
+}
+
+.result-icon.failure-icon {
+    color: crimson;
 }

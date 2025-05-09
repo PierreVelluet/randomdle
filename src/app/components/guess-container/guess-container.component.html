@@ -1,19 +1,9 @@
 <ng-container *ngIf="currentThemeData$ | async as themeData">
-  <div
-    class="guess-wrapper container-fluid d-flex flex-column align-items-center"
-  >
-    <div
-      class="logo-container d-flex justify-content-center align-items-center"
-    >
+  <div class="guess-wrapper">
+    <div class="logo-container">
       <app-rules-indicator></app-rules-indicator>
       <app-guess-input></app-guess-input>
     </div>
-
-    <ng-template #endPanel>
-      <div class="animate__animated animate__fadeIn">
-        <app-end-panel></app-end-panel>
-      </div>
-    </ng-template>
   </div>
 
   <app-guess-result></app-guess-result>

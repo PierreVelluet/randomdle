@@ -1,8 +1,5 @@
 <ng-container *ngIf="currentThemeData$ | async as themeData">
-  <div
-    class="rule-indicator-container"
-    [ngClass]="themeData.themeName + '-rule-indicator'"
-  >
+  <div class="rule-indicator-container" [ngClass]="themeData.themeName + '-rule-indicator'">
     <div *ngIf="!themeData.done">
       <div class="title">Devine le personnage d'aujourd'hui!</div>
       <div class="changing-container">
@@ -11,44 +8,40 @@
         </div>
         <ng-template #started>
           <div class="progress-container">
-            <div
-              class="progress-bar"
-              [style.width]="
+            <div class="progress-bar" [style.width]="
                 (themeData.guessedItems.length / themeData.maxGuessNumber) *
                   100 +
                 '%'
-              "
-              [style.background]="
+              " [style.background]="
                 getProgressBarColor(themeData.guessedItems.length)
-              "
-            ></div>
+              "></div>
           </div>
 
-          <div
-            [ngClass]="[
+          <div [ngClass]="[
               themeData.themeName + '_progress-text',
               'progress-text'
-            ]"
-          >
+            ]">
             {{ themeData.guessedItems.length }} /
             {{ themeData.maxGuessNumber }} essai{{
-              themeData.guessedItems.length > 1 ? "s" : ""
+            themeData.guessedItems.length > 1 ? "s" : ""
             }}
           </div>
         </ng-template>
       </div>
     </div>
     <div *ngIf="themeData.done">
-      <div class="end-panel-container" [ngClass]="themeData.themeName + '-end-panel'">
-        <div *ngIf="themeData.guessedItems.length >= themeData.maxGuessNumber" class="changing-container">
-          <span class="label-text">{{ labelText }}</span>
-          <span class="name-text">{{ revealedName }}</span>
+      <div [ngClass]="themeData.themeName + '-end-panel'">
+        <div *ngIf="themeData.done" class="changing-container">
+          <span class="result-icon" [ngClass]="themeData.success ? 'success-icon' : 'failure-icon'">
+            <i class="fa" [ngClass]="themeData.success ? 'fa-check' : 'fa-times'"></i>
+          </span>
+
+          <span [ngClass]="themeData.themeName + '_name-text'" class="name-text">
+            {{ revealedName }}
+          </span>
         </div>
-    
-        <button
-          (click)="processToThemeChoice()"
-          [class]="themeData.themeName + '_button'"
-        >
+
+        <button (click)="processToThemeChoice()" [class]="themeData.themeName + '_button'">
           Continuer ...
         </button>
       </div>

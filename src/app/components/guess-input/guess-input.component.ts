@@ -29,7 +29,7 @@ export class GuessInputComponent {
     private globalState: GlobalStateService,
     private gameLogicService: GameLogicService,
     private audioService: AudioService
-  ) {}
+  ) { }
 
   filterOptions() {
     if (!this.guess.trim()) {
@@ -92,9 +92,7 @@ export class GuessInputComponent {
         done: true,
         success: true,
       });
-    }
-
-    if (
+    } else if (
       currentThemeData.guessedItems?.length >= currentThemeData.maxGuessNumber
     ) {
       this.globalState.updateCurrentThemeData({
