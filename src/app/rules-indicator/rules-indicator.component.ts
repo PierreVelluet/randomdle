@@ -5,7 +5,7 @@ import { Subject, takeUntil } from 'rxjs';
 
 import { GlobalStateService } from '../global-state.service';
 import { AudioService } from '../services/audio.service';
-import { ThemeData } from '../models/theme.enum';
+import { GameState, ThemeData } from '../models/theme.enum';
 import { Status } from '../models/status.enum';
 
 @Component({
@@ -23,7 +23,7 @@ export class RulesIndicatorComponent implements OnInit, OnDestroy {
 
   private readonly destroy$ = new Subject<void>();
   private revealInterval?: ReturnType<typeof setInterval>;
-
+  GameState = GameState;
   labelText = '';
   nameToReveal = '';
   revealedName = '';
@@ -38,10 +38,9 @@ export class RulesIndicatorComponent implements OnInit, OnDestroy {
     this.currentThemeData$
       .pipe(takeUntil(this.destroy$))
       .subscribe((themeData: ThemeData | undefined) => {
-        if (themeData?.done) {
+        if (themeData && themeData?.gameState != GameState.IN_PROGRESS) {
           this.revealName(themeData.targetItem.name.value);
         }
-
       });
   }
 

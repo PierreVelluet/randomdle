@@ -3,11 +3,10 @@
     <div class="input-group">
       <div class="input-wrapper">
         <!-- Input -->
-
-        <input [disabled]="themeData.guessedItems.length >= 7 || themeData.done" type="text" [(ngModel)]="guess"
-          (keydown)="handleKeyDown($event)" (input)="filterOptions()" placeholder="Entrez un personnage..."
-          [class]="themeData.themeName" />
-
+        <input
+          [disabled]="themeData.guessedItems.length >= themeData.maxGuessNumber || themeData.gameState != GameState.IN_PROGRESS"
+          type="text" [(ngModel)]="guess" (keydown)="handleKeyDown($event)" (input)="filterOptions()"
+          placeholder="Entrez un personnage..." [class]="themeData.themeName" />
         <!-- Liste des options -->
         <ul *ngIf="filteredOptions.length > 0" [class]="themeData.themeName + '_dropdown'">
           <li #dropdownItem *ngFor="let option of filteredOptions; let i = index"
@@ -15,12 +14,10 @@
             {{ option }}
           </li>
         </ul>
-
       </div>
-
       <!-- Bouton de validation -->
       <button (click)="submitGuess()" [class]="themeData.themeName + '_button'" [disabled]="!isValidGuess()">
-        Continuer ...
+        Valider
       </button>
     </div>
   </ng-container>

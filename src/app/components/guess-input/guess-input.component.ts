@@ -7,6 +7,7 @@ import { GameLogicService } from '../../services/game-logic.service';
 import { Subject } from 'rxjs';
 import { Character } from '../../models/swCharacter.model';
 import { AudioService } from '../../services/audio.service';
+import { GameState } from '../../models/theme.enum';
 
 @Component({
   selector: 'app-guess-input',
@@ -24,6 +25,7 @@ export class GuessInputComponent {
   filteredOptions: string[] = [];
   activeOptionIndex: number = -1;
   currentThemeData$ = this.globalState.currentThemeData$;
+  GameState = GameState;
 
   constructor(
     private globalState: GlobalStateService,
@@ -80,7 +82,10 @@ export class GuessInputComponent {
     if (this.globalState.getCurrentThemeData().guessedItems.length == 1)
       this.globalState.setColorsIndicatorVisibility(true);
 
-    this.checkGuessResult(guess);
+    setTimeout(() => (
+      this.checkGuessResult(guess)
+    ), 3500);
+
   }
 
   checkGuessResult(guess: string): void {
@@ -88,16 +93,17 @@ export class GuessInputComponent {
     if (!currentThemeData) return;
 
     if (currentThemeData.targetItem?.name.value == guess) {
+      window.ConfettiManager.triggerConfetti();
       this.globalState.updateCurrentThemeData({
-        done: true,
-        success: true,
+        gameState: GameState.WON,
+        winStreak: currentThemeData.winStreak + 1,
       });
     } else if (
       currentThemeData.guessedItems?.length >= currentThemeData.maxGuessNumber
     ) {
       this.globalState.updateCurrentThemeData({
-        done: true,
-        success: false,
+        gameState: GameState.LOST,
+        winStreak: 0
       });
     }
   }

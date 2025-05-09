@@ -1,4 +1,4 @@
-@import '../../..//styles//variables.scss';
+@use '../../..//styles//variables.scss' as *;
 
 // Base style for all guess blocks
 %guess-block-base {

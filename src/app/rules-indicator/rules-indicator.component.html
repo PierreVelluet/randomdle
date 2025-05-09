@@ -1,6 +1,6 @@
 <ng-container *ngIf="currentThemeData$ | async as themeData">
   <div class="rule-indicator-container" [ngClass]="themeData.themeName + '-rule-indicator'">
-    <div *ngIf="!themeData.done">
+    <div *ngIf="themeData.gameState == GameState.IN_PROGRESS">
       <div class="title">Devine le personnage d'aujourd'hui!</div>
       <div class="changing-container">
         <div *ngIf="themeData.guessedItems.length == 0; else started">
@@ -29,11 +29,12 @@
         </ng-template>
       </div>
     </div>
-    <div *ngIf="themeData.done">
+    <div *ngIf="themeData.gameState != GameState.IN_PROGRESS">
       <div [ngClass]="themeData.themeName + '-end-panel'">
-        <div *ngIf="themeData.done" class="changing-container">
-          <span class="result-icon" [ngClass]="themeData.success ? 'success-icon' : 'failure-icon'">
-            <i class="fa" [ngClass]="themeData.success ? 'fa-check' : 'fa-times'"></i>
+        <div *ngIf="themeData.gameState == GameState.WON || themeData.gameState == GameState.LOST"
+          class="changing-container">
+          <span class="result-icon" [ngClass]="themeData.gameState == GameState.WON ? 'success-icon' : 'failure-icon'">
+            <i class="fa" [ngClass]="themeData.gameState == GameState.WON ? 'fa-check' : 'fa-times'"></i>
           </span>
 
           <span [ngClass]="themeData.themeName + '_name-text'" class="name-text">

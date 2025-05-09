@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AudioService {
-  themeAudio: HTMLAudioElement = new Audio();
+  themeAudio: HTMLAudioElement | null = null;
 
   private isPlayingSubject = new BehaviorSubject<boolean>(false);
   isPlaying$ = this.isPlayingSubject.asObservable();
@@ -17,32 +17,40 @@ export class AudioService {
   private initialAmbiantVolume: number = 0.25;
 
   constructor() {
-    this.setupAudioEvents();
+    if (typeof window !== 'undefined') {
+      // Only initialize the Audio when in the browser
+      this.themeAudio = new Audio();
+      this.setupAudioEvents();
+    }
   }
 
   private setupAudioEvents() {
-    this.themeAudio.addEventListener('playing', () => {
-      this.isPlayingSubject.next(true);
-    });
+    if (this.themeAudio) {
+      this.themeAudio.addEventListener('playing', () => {
+        this.isPlayingSubject.next(true);
+      });
 
-    this.themeAudio.addEventListener('pause', () => {
-      this.isPlayingSubject.next(false);
-    });
+      this.themeAudio.addEventListener('pause', () => {
+        this.isPlayingSubject.next(false);
+      });
 
-    this.themeAudio.addEventListener('ended', () => {
-      this.isPlayingSubject.next(false);
-    });
+      this.themeAudio.addEventListener('ended', () => {
+        this.isPlayingSubject.next(false);
+      });
+    }
   }
 
   playAudio(theme: Theme | null): void {
-    const newSrc = 'assets/audios/' + (theme ?? 'ambiant') + '_audio_' + (Math.floor(Math.random() * 3) + 1) + '.mp3';
+    if (this.themeAudio) {
+      const newSrc = 'assets/audios/' + (theme ?? 'ambiant') + '_audio_' + (Math.floor(Math.random() * 3) + 1) + '.mp3';
 
-    if (!this.themeAudio.paused) {
-      this.fadeOut(() => {
+      if (!this.themeAudio.paused) {
+        this.fadeOut(() => {
+          this.startNewAudio(newSrc, theme);
+        });
+      } else {
         this.startNewAudio(newSrc, theme);
-      });
-    } else {
-      this.startNewAudio(newSrc, theme);
+      }
     }
   }
 
@@ -55,54 +63,74 @@ export class AudioService {
   }
 
   private startNewAudio(src: string, theme: Theme | null) {
-    this.themeAudio.src = src;
-    this.themeAudio.load();
-    this.themeAudio.volume = 0;
-    this.themeAudio.play();
-    this.themeAudio.loop = true;
-    this.fadeIn(theme ? this.initialThemeVolume : this.initialAmbiantVolume);
+    if (this.themeAudio) {
+      this.themeAudio.src = src;
+      this.themeAudio.load();
+      this.themeAudio.volume = 0;
+      this.themeAudio.play();
+      this.themeAudio.loop = true;
+      this.fadeIn(theme ? this.initialThemeVolume : this.initialAmbiantVolume);
+    }
   }
 
-  private fadeOut(callback: () => void) {
-    clearInterval(this.fadeInterval);
-    this.fadeInterval = setInterval(() => {
-      if (this.themeAudio.volume > 0.05) {
-        this.themeAudio.volume -= 0.05;
-      } else {
-        clearInterval(this.fadeInterval);
-        this.themeAudio.pause();
-        callback();
-      }
-    }, 75);
+  private fadeOut(callback: () => void): void {
+    if (this.themeAudio) {
+      clearInterval(this.fadeInterval);
+      this.fadeInterval = setInterval(() => {
+        if (this.themeAudio && this.themeAudio.volume > 0.05) {
+          this.themeAudio.volume -= 0.05;
+        } else {
+          if (this.themeAudio) {
+            clearInterval(this.fadeInterval);
+            this.themeAudio.pause();
+            callback();
+          }
+        }
+      }, 75);
+    }
   }
 
-  private fadeIn(targetVolume: number) {
-    clearInterval(this.fadeInInterval);
-    this.fadeInInterval = setInterval(() => {
-      if (this.themeAudio.volume < targetVolume - 0.05) {
-        this.themeAudio.volume += 0.05;
-      } else {
-        this.themeAudio.volume = targetVolume;
-        clearInterval(this.fadeInInterval);
-      }
-    }, 75);
+
+  private fadeIn(targetVolume: number): void {
+    if (this.themeAudio) {
+      clearInterval(this.fadeInInterval);
+      this.fadeInInterval = setInterval(() => {
+        if (this.themeAudio && this.themeAudio.volume < targetVolume - 0.05) {
+          this.themeAudio.volume += 0.05;
+        } else {
+          if (this.themeAudio) {
+            this.themeAudio.volume = targetVolume;
+            clearInterval(this.fadeInInterval);
+          }
+        }
+      }, 75);
+    }
   }
+
 
   setVolume(volume: number): void {
-    this.themeAudio.volume = volume;
+    if (this.themeAudio) {
+      this.themeAudio.volume = volume;
+    }
   }
 
   reStartAudio() {
-    this.themeAudio.play();
+    if (this.themeAudio) {
+      this.themeAudio.play();
+    }
   }
 
   pauseAudio(): void {
-    this.themeAudio.pause();
+    if (this.themeAudio) {
+      this.themeAudio.pause();
+    }
   }
 
   stopAudio(): void {
-    this.themeAudio.pause();
-    this.themeAudio.currentTime = 0;
+    if (this.themeAudio) {
+      this.themeAudio.pause();
+      this.themeAudio.currentTime = 0;
+    }
   }
 
   fadeOutAndStopAudio(): void {

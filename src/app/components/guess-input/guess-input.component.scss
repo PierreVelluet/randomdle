@@ -1,5 +1,5 @@
+@use '../../..//styles//variables.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
-@import '../../..//styles//variables.scss';
 
 .guess-container {
   display: flex;
@@ -125,16 +125,18 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background: #2f4f4f; /* Dark, earthy green-grey background resembling Middle-Earth forests */
-  border: 1px solid #f4a261; /* Goldish border to represent the One Ring */
+  background: #2f4f4f;
+  /* Dark, earthy green-grey background resembling Middle-Earth forests */
+  border: 1px solid #f4a261;
+  /* Goldish border to represent the One Ring */
   list-style: none;
   padding: 0;
   margin: 0;
   max-height: 200px;
   overflow-y: auto;
   z-index: 10;
-  font-family:$font-lotr;
-  
+  font-family: $font-lotr;
+
   /* Hide the scrollbar while keeping the scroll functionality */
   scrollbar-width: none;
   /* Firefox */
@@ -152,8 +154,10 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background: #3e2a47; /* Dark purple background, similar to the Harry Potter theme */
-  border: 1px solid #f0e68c; /* Golden border for a magical effect */
+  background: #3e2a47;
+  /* Dark purple background, similar to the Harry Potter theme */
+  border: 1px solid #f0e68c;
+  /* Golden border for a magical effect */
   list-style: none;
   padding: 0;
   margin: 0;
@@ -161,7 +165,7 @@
   overflow-y: auto;
   z-index: 10;
   font-family: $font-hp;
-  
+
   /* Hide the scrollbar while keeping the scroll functionality */
   scrollbar-width: none;
   /* Firefox */
@@ -217,7 +221,8 @@
 
 .lotr_button {
   font-family: $font-lotr;
-  background: linear-gradient(90deg, #f4a261, #2f4f4f); /* Gold and earthy green-grey gradient for Middle-Earth feel */
+  background: linear-gradient(90deg, #f4a261, #2f4f4f);
+  /* Gold and earthy green-grey gradient for Middle-Earth feel */
   border: none;
   padding: 10px 20px;
   font-size: 1.2rem;
@@ -226,12 +231,14 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(244, 162, 97, 0.8); /* Subtle glow effect symbolizing the power of the One Ring */
+  box-shadow: 0 0 10px rgba(244, 162, 97, 0.8);
+  /* Subtle glow effect symbolizing the power of the One Ring */
   height: 100%;
   margin-top: 1px;
 
   &:hover {
-    background: linear-gradient(90deg, #2f4f4f, #f4a261); /* Swap the gradient for a glowing effect on hover */
+    background: linear-gradient(90deg, #2f4f4f, #f4a261);
+    /* Swap the gradient for a glowing effect on hover */
     transform: scale(1.05);
   }
 
@@ -244,7 +251,8 @@
 
 .hp_button {
   font-family: $font-hp;
-  background: linear-gradient(90deg, #f0e68c, #3e2a47); /* Golden and dark purple gradient representing magic */
+  background: linear-gradient(90deg, #f0e68c, #3e2a47);
+  /* Golden and dark purple gradient representing magic */
   border: none;
   padding: 10px 20px;
   font-size: 1.2rem;
@@ -253,12 +261,14 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(240, 230, 140, 0.8); /* Magical glow effect */
+  box-shadow: 0 0 10px rgba(240, 230, 140, 0.8);
+  /* Magical glow effect */
   height: 100%;
   margin-top: 1px;
 
   &:hover {
-    background: linear-gradient(90deg, #3e2a47, #f0e68c); /* Swap the gradient for a glowing effect on hover */
+    background: linear-gradient(90deg, #3e2a47, #f0e68c);
+    /* Swap the gradient for a glowing effect on hover */
     transform: scale(1.05);
   }
 

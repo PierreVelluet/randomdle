@@ -1,36 +1,54 @@
 <div class="card-container">
   <div class="theme-section" *ngFor="let theme of themes; let i = index" [class]="theme + '_bg'">
-    <div [ngStyle]="{
+    <ng-container *ngIf="getThemeData(theme) as themeData">
+      <div [ngStyle]="{
         'animation-delay': i * 0.5 + 's'
       }" [ngClass]="[
         'animate__animated',
         'animate__fadeIn',
         'card',
-        isThemeDone(theme) && isThemeSuccess(theme) ? 'success-box' : '',
-        isThemeDone(theme) && !isThemeSuccess(theme) ? 'failed-box' : '',
         theme + '-card'
       ]">
-      <div class="logo-container d-flex justify-content-center align-items-center">
-        <img [src]="'assets/images/' + theme + '_logo.webp'" alt="Theme's logo" class="img-fluid" />
-      </div>
+        <div class="logo-container d-flex justify-content-center align-items-center">
+          <img [src]="'assets/images/' + theme + '_logo.webp'" alt="Theme's logo" class="img-fluid" />
+        </div>
 
-      <!-- If the task is not done, show a button. If it's done, show success or failure block -->
-      <div *ngIf="!isThemeDone(theme)">
-        <button [disabled]="isThemeDone(theme)" [ngClass]="theme + '-button'" (click)="onChoosetheme(theme)">
-          Go
-        </button>
-      </div>
+        <div class="statistics">
+          <div class="stat-item">
+            <i class="fas fa-fire stat-icon win-icon"></i>
+            <span class="stat-highlight">{{ themeData.winStreak }}</span>
+          </div>
+          <div class="stat-item" *ngIf="themeData.pastTargetItems.length > 0">
+            <i class="fas fa-user stat-icon character-icon"></i>
+            <span class="stat-highlight">{{ themeData.pastTargetItems[0].name.value }}</span>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-hourglass-half stat-icon hourglass-icon"></i>
+            <span class="stat-highlight">0:00:00</span>
+          </div>
+        </div>        
 
-      <!-- Success or Failure Block when task is done -->
-      <div *ngIf="isThemeDone(theme)" [ngClass]="isThemeSuccess(theme) ? 'success-block' : 'failed-block'">
-        <ng-container *ngIf="isThemeSuccess(theme); else failTemplate">
-          <span class="success-icon">&#10003;&nbsp;</span> Success
-        </ng-container>
+        <!-- If the task is not done, show a button. If it's done, show success or failure block -->
+        <div *ngIf="isThemeInProgress(theme)">
+          <button [ngClass]="theme + '-button'" (click)="onChoosetheme(theme)">
+            Go
+          </button>
+        </div>
 
-        <ng-template #failTemplate>
-          <span class="fail-icon">&#10007;&nbsp;</span> Failed
-        </ng-template>
+        <!-- Success or Failure Block when task is done -->
+        <div *ngIf="!isThemeInProgress(theme)">
+          <!-- Success -->
+          <ng-container *ngIf="isThemeWon(theme); else failTemplate">
+            <i class="fas fa-check-circle success-icon large-icon"></i>
+          </ng-container>
+
+          <!-- Failure -->
+          <ng-template #failTemplate>
+            <i class="fas fa-times-circle fail-icon large-icon"></i>
+          </ng-template>
+
+        </div>
       </div>
-    </div>
+    </ng-container>
   </div>
 </div>

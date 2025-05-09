@@ -7,16 +7,23 @@ export enum Theme {
   HarryPotter = 'hp',
 }
 
+export enum GameState {
+  IN_PROGRESS,
+  WON,
+  LOST
+}
+
 export interface ThemeData {
   themeName: Theme;
   winStreak: number;
-  done: boolean;
-  success: boolean;
+  gameState: GameState;
   headers: GuessHeader[];
   items: Character[];
   inputItems: string[];
-  guessedItems: Character [];
-  targetItem: Character ;
+  guessedItems: Character[];
+  targetItem: Character;
+  pastTargetItems: Character[];
   logoSrc: string;
   maxGuessNumber: number;
+  date: string;
 }
